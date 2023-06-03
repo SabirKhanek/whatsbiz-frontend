@@ -1,0 +1,45 @@
+<div class="mt-16 max-w-5xl mx-auto p-3">
+    <div class="flex flex-col-reverse items-center md:flex-row-reverse justify-center gap-3 md:justify-between">
+        <div *ngIf="eventData && !isWAConnected;" class="w-[300]">
+            <img [src]="qrCode" alt="QR Code" class="w-300px">
+        </div>
+        <div *ngIf="!(eventData && !isWAConnected);" class="w-[300px] h-[300px] flex justify-center items-center">
+            <mat-spinner></mat-spinner>
+        </div>
+
+        <div class="justify-self-start shrink">
+            <h2 class="text-[#41525d] font-light text-3xl mb-4 md:mb-12">Steps to scan the QR</h2>
+            <ol class="list-decimal list-inside">
+                <li class="mb-3 text-xl text-[#3b5a54]">Open WhatsApp on your phone</li>
+                <li class="mb-3 text-xl text-[#3b5a54]">Tap <span class="font-medium">Menu
+                        <mat-icon style="color: #8F989C;background-color: #f2f2f2;border-radius: 5px;">menu
+                        </mat-icon>
+                    </span> or
+                    <span class="font-medium">
+                        Settings
+                        <mat-icon style="color: #8F989C;background-color: #f2f2f2;border-radius: 5px;">settings
+                        </mat-icon>
+                    </span>
+                    and select <span class="font-medium">Linked Devices</span>
+                </li>
+                <li class="mb-3 text-xl text-[#3b5a54]">Tap on <span class="font-medium">Link a device</span></li>
+                <li class="mb-3 text-xl text-[#3b5a54]">Tap on Point your phone to this
+                    screen to capture the QR code</li>
+            </ol>
+            <button class="mt-2" mat-raised-button color="accent" (click)="triggerWASocketRestart()">Restart
+                Socket</button>
+        </div>
+    </div>
+</div>
+
+<!-- <mat-chip-listbox aria-label="Fish selection">
+    <mat-chip-option>One fish</mat-chip-option>
+    <mat-chip-option>Two fish</mat-chip-option>
+    <mat-chip-option color="accent" selected>Accent fish</mat-chip-option>
+    <mat-chip-option color="warn">Warn fish</mat-chip-option>
+</mat-chip-listbox> -->
+
+<!-- <mat-radio-group aria-label="Select an option">
+    <mat-radio-button value="1">Option 1</mat-radio-button>
+    <mat-radio-button value="2">Option 2</mat-radio-button>
+</mat-radio-group> -->
