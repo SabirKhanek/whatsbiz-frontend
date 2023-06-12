@@ -1,0 +1,35 @@
+<div
+    class="relative overflow-x-auto shadow-md sm:rounded-lg scrollbar-thin scrollbar-track-gray-400 scrollbar-thumb-dark-green">
+    <table [ngClass]="{
+        'table-auto': autoWidth,
+        'table-fixed': !autoWidth
+    }" class="w-full text-sm text-left text-black">
+        <thead class="text-white bg-dark-grey">
+            <tr>
+                <th *ngFor="let data_head of table_headers" scope="col"
+                    class="px-6 py-3 border-l border-r border-gray-400">
+                    {{ data_head.columnAlias || data_head.columnId }}
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let data_row of data" class="bg-white border-b">
+                <td *ngFor="let data_head of table_headers"
+                    class="px-6 py-4 border-l border-r border-gray-200 hover:bg-gray-200 transition-all duration-300 ease-linear">
+                    <ng-container
+                        *ngIf="customColumnTemplates[data_head.columnId]; then custom; else notCustom"></ng-container>
+                    <!-- Custom Template Injection -->
+                    <ng-template #custom>
+                        <ng-container
+                            *ngTemplateOutlet="getPropFromObj(customColumnTemplates, data_head.columnId); context: { $implicit: getPropFromObj(data_row, data_head.columnId) }">
+                        </ng-container>
+                    </ng-template>
+                    <!-- Data fetched from the data source -->
+                    <ng-template #notCustom>
+                        {{ getPropFromObj(data_row, data_head.columnId) }}
+                    </ng-template>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

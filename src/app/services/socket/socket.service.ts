@@ -38,4 +38,12 @@ export class SocketService {
   restartWASocket() {
     return this.http.post<{ result: string }>('http://localhost:3000/api/restart-wa', {})
   }
+
+  logoutWASocket() {
+    return this.http.post<{ result: string }>('http://localhost:3000/api/logout', {})
+  }
+
+  sendMessageWA(message: string, phoneNumber: string) {
+    return this.http.post<{ result: string }>('http://localhost:3000/api/send-message', { number: phoneNumber, message })
+  }
 }

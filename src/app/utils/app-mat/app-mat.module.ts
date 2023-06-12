@@ -17,6 +17,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import { FormsModule } from '@angular/forms';
     MatMenuModule,
     MatDialogModule,
     FormsModule,
+    MatToolbarModule,
   ],
   exports: [
     MatButtonModule,
@@ -58,6 +60,7 @@ import { FormsModule } from '@angular/forms';
     MatProgressSpinnerModule,
     MatMenuModule,
     MatDialogModule,
+    MatToolbarModule,
   ]
 })
 export class AppMatModule { }

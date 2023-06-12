@@ -1,0 +1,88 @@
+<div class="sidebar bg-[#171717] fixed top-0 bottom-0 lg:left-0 
+    p-2 w-[300px] overflow-y-auto text-center shadow h-screen transition-all ease-in-out duration-1000 z-50"
+    [ngClass]="{'left-[-300px]':!isActive, 'left-0':isActive}">
+    <div class="text-gray-100 text-xl">
+        <div class="p-2.5 mt-1 flex items-center justify-between rounded-md ">
+            <div class="flex items-center">
+                <span
+                    class="cursor-pointer bg-green rounded-full text-[#171717] flex justify-center items-center p-0.5"><mat-icon>timeline</mat-icon>
+                </span>
+                <h1 class="text-[15px]  ml-3 text-xl text-gray-200 font-bold">WhatsBiz</h1>
+            </div>
+            <span class="cursor-pointer lg:hidden flex justify-center items-center p-0.5"
+                (click)="toggleSidebar()"><mat-icon>close</mat-icon></span>
+        </div>
+        <hr class="my-2 text-gray-600">
+
+        <div>
+            <!-- Search Field -->
+            <!-- <div class="p-2.5 mt-3 flex items-center rounded-md 
+        px-4 duration-300 cursor-pointer  bg-gray-700">
+                <i class="bi bi-search text-sm"></i>
+                <input class="text-[15px] ml-4 w-full bg-transparent focus:outline-none" placeholder="Serach" />
+            </div> -->
+            <div class="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer text-gray-200  hover:text-black hover:bg-green [&.active]:bg-green [&.active]:text-black"
+                routerLink="/dashboard" [ngClass]="{'active':routerURL==='/dashboard'}" routerLink="/dashboard">
+                <mat-icon>home</mat-icon>
+                <span class="text-[15px] ml-4">Home</span>
+            </div>
+            <div class="[&.active]:bg-green [&.active]:text-black p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer text-gray-200 hover:text-black hover:bg-green"
+                [ngClass]="{'active':routerURL==='/whatsapp-connection'}" routerLink="/whatsapp-connection">
+                <mat-icon>qr_code_2</mat-icon>
+                <span class="text-[15px] ml-4 ">Whatsapp Connection</span>
+            </div>
+            <div class="[&.active]:bg-green [&.active]:text-black p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer text-gray-200 hover:text-black hover:bg-green"
+                [ngClass]="{'active':routerURL==='/core-ui'}" routerLink="/core-ui">
+                <mat-icon>code_blocks</mat-icon>
+                <span class="text-[15px] ml-4 ">Core UI</span>
+            </div>
+            <hr class="my-4 text-gray-600">
+            <div class="[&.active]:bg-green [&.active]:text-black p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:text-black  hover:bg-green"
+                routerLink="/chat" [ngClass]="{'active':routerURL==='/chat'}">
+                <mat-icon>chat</mat-icon>
+                <span class="text-[15px] ml-4 ">Messages</span>
+            </div>
+            <div class="[&.active]:bg-green [&.active]:text-black p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:text-black  hover:bg-green"
+                routerLink="/settings" [ngClass]="{'active':routerURL==='/settings'}">
+                <mat-icon>settings</mat-icon>
+                <span class="text-[15px] ml-4 ">Settings</span>
+            </div>
+
+            <!-- <div
+                class="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:text-black  hover:bg-green">
+                <i class="bi bi-chat-left-text-fill"></i>
+                <div class="flex justify-between w-full items-center" onclick="dropDown()">
+                    <span class="text-[15px] ml-4 ">Chatbox</span>
+                    <span class="text-sm rotate-180" id="arrow">
+                        <i class="bi bi-chevron-down"></i>
+                    </span>
+                </div>
+            </div>
+            <div class=" leading-7 text-left text-sm font-thin mt-2 w-4/5 mx-auto" id="submenu">
+                <h1 class="cursor-pointer p-2 hover:bg-gray-700 rounded-md mt-1">Social</h1>
+                <h1 class="cursor-pointer p-2 hover:bg-gray-700 rounded-md mt-1">Personal</h1>
+                <h1 class="cursor-pointer p-2 hover:bg-gray-700 rounded-md mt-1">Friends</h1>
+            </div> -->
+
+            <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:text-black hover:bg-green"
+                routerLink="/logout">
+                <mat-icon>logout</mat-icon>
+                <span class="text-[15px] ml-4">Logout</span>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    console.log('hi')
+    function dropDown() {
+        document.querySelector('#submenu').classList.toggle('hidden')
+        document.querySelector('#arrow').classList.toggle('rotate-0')
+    }
+    dropDown()
+
+    function Openbar() {
+        document.querySelector('.sidebar').classList.toggle('left-[-300px]')
+    }
+</script>

@@ -1,8 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
-@import '../node_modules/@angular/material/prebuilt-themes/purple-green.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import './theme.scss';
 
 html,
 body {
@@ -12,6 +12,8 @@ body {
 body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* background-color: #303030; */
+    /* color: #C1C1C1; */
 }
 
 mat-icon {
