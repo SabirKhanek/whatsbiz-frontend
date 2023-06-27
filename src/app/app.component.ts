@@ -19,8 +19,11 @@ export class AppComponent implements OnInit, OnDestroy {
       next: (res) => {
         this.authService.setLoggedIn(true)
         // this.router.navigate(['/dashboard'])
-        this.router.navigate(['/core-ui'])
+        // this.router.navigate(['/core-ui'])
         const payload = atob((localStorage.getItem('jwt') || '').split('.')[1]);
+        if (this.router.url === '/login') {
+          this.router.navigate(['/dashboard'])
+        }
         this.toastr.success('Welcome back ' + JSON.parse(payload).username);
       }, error: (err) => {
 
@@ -34,6 +37,10 @@ export class AppComponent implements OnInit, OnDestroy {
         this.routerURL = this.router.url
       }
     });
+
+    this.socket.listenToMessageEvent().subscribe((res) => {
+      this.toastr.info(`Message from ${res.authorName}: ${res.messageContent}`, 'New message')
+    })
 
     // this.socket.listenToConnectedEvent().subscribe((res) => {
     //   if (this.router.url === 'whatsapp-connection') {

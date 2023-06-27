@@ -1,3 +1,4 @@
+import { environment } from 'src/environments/environment';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -22,8 +23,14 @@ import { CoreComponentsModule } from './core-components/core-components.module';
 import { CoreUiComponentsDemoComponent } from './core-ui-components-demo/core-ui-components-demo.component';
 import { ChatComponent } from './chat/chat.component';
 import { SettingsComponent } from './settings/settings.component';
+import { ProductsComponent } from './products/products.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { TablePaginationComponent } from './core-components/table/table-pagination/table-pagination.component';
+import { SendDealInitComponent } from './send-deal-init/send-deal-init.component';
+import { AIService } from './services/ai/ai.service';
+import { ChartsModule } from './charts/charts.module';
 
-const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
+const config: SocketIoConfig = { url: environment.socketUrl, options: {} };
 
 
 @NgModule({
@@ -38,6 +45,9 @@ const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
     CoreUiComponentsDemoComponent,
     ChatComponent,
     SettingsComponent,
+    ProductsComponent,
+    NotFoundComponent,
+    SendDealInitComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,9 +58,10 @@ const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
     HttpClientModule,
     AppMatModule,
     FormsModule,
-    CoreComponentsModule
+    CoreComponentsModule,
+    ChartsModule
   ],
-  providers: [SocketService, AuthService],
+  providers: [SocketService, AuthService, AIService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

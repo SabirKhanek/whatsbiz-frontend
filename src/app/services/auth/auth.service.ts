@@ -3,11 +3,13 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, tap } from 'rxjs';
 import { AuthResponseError, AuthResponseSuccess } from 'src/app/types/api_responses.type';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+  baseUrl = environment.apiUrl
   private isLoggedInFlag: boolean | undefined;
 
   public setLoggedIn(value: boolean): void {
@@ -21,7 +23,7 @@ export class AuthService {
   }
 
   validateToken() {
-    return this.http.post<{ result: string }>('http://localhost:3000/auth/validate', undefined, {
+    return this.http.post<{ result: string }>(this.baseUrl + 'auth/validate', undefined, {
       headers: {
         authorization: localStorage.getItem('jwt') || ''
       }
@@ -43,7 +45,7 @@ export class AuthService {
   }
 
   auth(username: string, password: string) {
-    return this.http.post<AuthResponseSuccess>('http://localhost:3000/auth', { username, password }).pipe(tap(res => {
+    return this.http.post<AuthResponseSuccess>(this.baseUrl + 'auth', { username, password }).pipe(tap(res => {
       localStorage.setItem('jwt', res.jwt);
       this.setLoggedIn(true);
     }))

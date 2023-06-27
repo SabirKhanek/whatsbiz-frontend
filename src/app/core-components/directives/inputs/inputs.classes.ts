@@ -9,7 +9,8 @@ export const smallInput = [
     "bg-gray-50",
     "sm:text-xs",
     "focus:ring-green",
-    "focus:border-green"
+    "focus:border-green",
+    "disabled:cursor-not-allowed"
 ]
 
 export const regularInput = [
@@ -23,7 +24,8 @@ export const regularInput = [
     "focus:border-green",
     "block",
     "w-full",
-    "p-2.5"
+    "p-2.5",
+    'disabled:cursor-not-allowed'
 ]
 
 export const largeInput = [
@@ -37,7 +39,8 @@ export const largeInput = [
     "bg-gray-50",
     "sm:text-md",
     "focus:ring-green",
-    "focus:border-green"
+    "focus:border-green",
+    "disabled:cursor-not-allowed"
 ]
 
 

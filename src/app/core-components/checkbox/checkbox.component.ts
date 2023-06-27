@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, HostBinding, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-checkbox',
@@ -6,8 +6,8 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./checkbox.component.scss']
 })
 export class CheckboxComponent {
-  @Output('change') onChange = new EventEmitter()
-  isChecked = true;
+  @Output('valueChange') onChange = new EventEmitter()
+  @Input('value') isChecked = true;
   @Input('label') label = ''
   @Input('labelPosition') labelPosition: 'front' | 'back' = 'front';
 

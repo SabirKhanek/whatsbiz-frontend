@@ -3,6 +3,7 @@ import { SocketService } from './../services/socket/socket.service';
 import { NavigationEnd, Router } from '@angular/router';
 import { Component, OnInit, OnDestroy, Output, EventEmitter } from '@angular/core';
 import { Subject, takeUntil } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-navbar',
@@ -13,6 +14,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   @Output('sideBarToggled') sideBarToggleEvent = new EventEmitter();
   serviceDestructor = new Subject();
   routerURL = ''
+  host = environment.host
   constructor(private router: Router, private socket: SocketService, private authService: AuthService) {
   }
 

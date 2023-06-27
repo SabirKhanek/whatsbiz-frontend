@@ -8,6 +8,8 @@ import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 import { ChatComponent } from './chat/chat.component';
 import { SettingsComponent } from './settings/settings.component';
+import { ProductsComponent } from './products/products.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
   {
@@ -40,6 +42,13 @@ const routes: Routes = [
   {
     path: 'settings',
     component: SettingsComponent
+  }, {
+    path: 'products',
+    component: ProductsComponent
+  }, {
+    path: '**',
+    component: DashboardComponent,
+    canActivate: [authGuard]
   }
 ];
 

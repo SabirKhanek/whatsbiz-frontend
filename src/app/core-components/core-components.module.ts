@@ -6,9 +6,12 @@ import { TableCustomColumnDirective } from './directives/table/custom-table-colu
 import { CheckboxComponent } from './checkbox/checkbox.component';
 import { FormsModule } from '@angular/forms';
 import { ButtonAccentDirective as ButtonAccentDirective } from './directives/buttons/button-accent.directive';
-import { FloatingInputComponent } from './input/input.component';
+import { InputComponent } from './input/input.component';
 import { InputDirective } from './directives/inputs/inputs.directive';
 import { InputLabelDirective } from './directives/labels/labels.directive';
+import { TablePaginationComponent } from './table/table-pagination/table-pagination.component';
+import { DropdownComponent } from './dropdown/dropdown.component';
+import { SelectComponent } from './select/select.component';
 
 
 
@@ -19,9 +22,12 @@ import { InputLabelDirective } from './directives/labels/labels.directive';
     TableComponent,
     TableCustomColumnDirective,
     CheckboxComponent,
-    FloatingInputComponent,
+    InputComponent,
     InputDirective,
-    InputLabelDirective
+    InputLabelDirective,
+    TablePaginationComponent,
+    DropdownComponent,
+    SelectComponent,
   ],
   imports: [
     CommonModule,
@@ -33,9 +39,12 @@ import { InputLabelDirective } from './directives/labels/labels.directive';
     ButtonAccentDirective,
     TableCustomColumnDirective,
     CheckboxComponent,
-    FloatingInputComponent,
+    InputComponent,
     InputDirective,
-    InputLabelDirective
+    InputLabelDirective,
+    TablePaginationComponent,
+    DropdownComponent,
+    SelectComponent,
   ]
 })
 export class CoreComponentsModule { }

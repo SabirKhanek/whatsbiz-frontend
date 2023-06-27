@@ -3,12 +3,13 @@ import { HttpClient } from '@angular/common/http';
 
 import { Socket } from 'ngx-socket-io';
 import { ClientConnectEvent, ClientDisconnectEvent, NewWAMessage } from 'src/app/types/whatsapp-socket.type';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SocketService {
-
+  baseUrl = environment.apiUrl
   constructor(private socket: Socket, private http: HttpClient) { }
 
   listenToQREevent() {
@@ -32,18 +33,18 @@ export class SocketService {
   }
 
   isWAConnected() {
-    return this.http.get<{ result: boolean }>('http://localhost:3000/api/is-wa-connected');
+    return this.http.get<{ result: boolean }>(this.baseUrl + 'is-wa-connected');
   }
 
   restartWASocket() {
-    return this.http.post<{ result: string }>('http://localhost:3000/api/restart-wa', {})
+    return this.http.post<{ result: string }>(this.baseUrl + 'restart-wa', {})
   }
 
   logoutWASocket() {
-    return this.http.post<{ result: string }>('http://localhost:3000/api/logout', {})
+    return this.http.post<{ result: string }>(this.baseUrl + 'logout', {})
   }
 
   sendMessageWA(message: string, phoneNumber: string) {
-    return this.http.post<{ result: string }>('http://localhost:3000/api/send-message', { number: phoneNumber, message })
+    return this.http.post<{ result: string }>(this.baseUrl + 'send-message', { number: phoneNumber, message })
   }
 }

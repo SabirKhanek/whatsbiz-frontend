@@ -11,6 +11,9 @@ export class TableComponent implements AfterContentInit {
   @Input('dataHeadersDef') table_headers: TableDataHeader[] = [];
   @Input('dataSource') data: any = [];
   @Input('autoWidth') autoWidth = true;
+  @Input('pagination') pagination = false;
+  @Input('pageSize') pageSize = 5;
+  dataToDisplay: any = [];
   customColumnTemplates: { [key: string]: typeof TemplateRef };
   constructor() { }
 
@@ -24,6 +27,14 @@ export class TableComponent implements AfterContentInit {
       templatesMap[templateDirective.columnName] = templateDirective.template
     })
     this.customColumnTemplates = templatesMap
+  }
+
+  ngAfterInit() {
+    this.dataToDisplay = this.data
+  }
+
+  handlePageChange(data: any) {
+    this.dataToDisplay = data
   }
 
   getPropFromObj(obj: any, prop: any) {

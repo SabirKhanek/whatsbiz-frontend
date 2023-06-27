@@ -7,21 +7,21 @@
         <thead class="text-white bg-dark-grey">
             <tr>
                 <th *ngFor="let data_head of table_headers" scope="col"
-                    class="px-6 py-3 border-l border-r border-gray-400">
+                    class="px-2 py-1 border-l border-r border-gray-400">
                     {{ data_head.columnAlias || data_head.columnId }}
                 </th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let data_row of data" class="bg-white border-b">
+            <tr *ngFor="let data_row of dataToDisplay" class="bg-white border-b">
                 <td *ngFor="let data_head of table_headers"
-                    class="px-6 py-4 border-l border-r border-gray-200 hover:bg-gray-200 transition-all duration-300 ease-linear">
+                    class="px-2 py-1 border-l border-r border-gray-200 hover:bg-gray-200 transition-all duration-300 ease-linear">
                     <ng-container
                         *ngIf="customColumnTemplates[data_head.columnId]; then custom; else notCustom"></ng-container>
                     <!-- Custom Template Injection -->
                     <ng-template #custom>
                         <ng-container
-                            *ngTemplateOutlet="getPropFromObj(customColumnTemplates, data_head.columnId); context: { $implicit: getPropFromObj(data_row, data_head.columnId) }">
+                            *ngTemplateOutlet="getPropFromObj(customColumnTemplates, data_head.columnId); context: { $implicit: getPropFromObj(data_row, data_head.columnId) ? getPropFromObj(data_row, data_head.columnId) : data_row }">
                         </ng-container>
                     </ng-template>
                     <!-- Data fetched from the data source -->
@@ -33,3 +33,5 @@
         </tbody>
     </table>
 </div>
+<app-table-pagination class="" [dataArray]="data" [itemsPerPage]="pageSize"
+    (onPageChange)="handlePageChange($event)"></app-table-pagination>

@@ -66,8 +66,8 @@
                     routerLink="/dashboard" id="dropdownMenuButton2" role="button" data-te-dropdown-toggle-ref
                     aria-expanded="false">
                     <!-- User avatar -->
-                    <img [src]="'http://localhost:3000/user_avatars/'+getActiveUser().username+'.jpg'"
-                        class="rounded-full" style="height: 30px; width: 30px" alt="" loading="lazy" />
+                    <img [src]="host+'/user_avatars/'+getActiveUser().username+'.jpg'" class="rounded-full"
+                        style="height: 30px; width: 30px" alt="" loading="lazy" />
                 </a>
             </div>
 
