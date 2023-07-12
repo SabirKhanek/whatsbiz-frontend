@@ -2,7 +2,7 @@
     <div>
         <input type="checkbox" class="opacity-0 absolute h-6 w-6" [(ngModel)]="isChecked"
             (ngModelChange)="onSelectChange()" />
-        <div class="bg-transparent border-2 rounded-md border-black w-6 h-6 flex flex-shrink-0 justify-center items-center mr-2 focus-within:border-black-500 [&.checked]:bg-green transition-all duration-200 ease-in"
+        <div class="bg-transparent border-2 rounded-md border-black w-6 h-6 flex flex-shrink-0 justify-center items-center mr-2 focus-within:border-black-500 [&.checked]:bg-green transition-all duration-100 ease-in"
             [ngClass]="{'checked':isChecked}">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="24" height="24"
                 *ngIf="isChecked">

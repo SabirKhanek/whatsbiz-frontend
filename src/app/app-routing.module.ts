@@ -9,12 +9,16 @@ import { LogoutComponent } from './logout/logout.component';
 import { ChatComponent } from './chat/chat.component';
 import { SettingsComponent } from './settings/settings.component';
 import { ProductsComponent } from './products/products.component';
+import { WaGroupsComponent } from './features/wa-groups/groups-dashboard/groups.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { WaGroupCollectionsComponent } from './features/wa-groups/group-collections-dashboard/group-collections.component';
+import { PostAdComponent } from './features/post-ad/dashboard/post-ad.component';
 
 const routes: Routes = [
   {
     path: 'whatsapp-connection',
-    component: WhatsappConnectionComponent
+    component: WhatsappConnectionComponent,
+    canActivate: [authGuard]
   },
   {
     path: 'dashboard',
@@ -32,8 +36,19 @@ const routes: Routes = [
     canActivate: [authGuard]
   },
   {
+    path: 'post-ad',
+    component: PostAdComponent,
+    canActivate: [authGuard]
+  },
+  {
+    path: 'wa-group-collections',
+    component: WaGroupCollectionsComponent,
+    canActivate: [authGuard]
+  },
+  {
     path: 'core-ui',
-    component: CoreUiComponentsDemoComponent
+    component: CoreUiComponentsDemoComponent,
+    canActivate: [authGuard]
   },
   {
     path: 'chat',
@@ -41,10 +56,12 @@ const routes: Routes = [
   },
   {
     path: 'settings',
-    component: SettingsComponent
+    component: SettingsComponent,
+    canActivate: [authGuard]
   }, {
     path: 'products',
-    component: ProductsComponent
+    component: ProductsComponent,
+    canActivate: [authGuard]
   }, {
     path: '**',
     component: DashboardComponent,

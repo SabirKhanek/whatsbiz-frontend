@@ -12,6 +12,12 @@ import { InputLabelDirective } from './directives/labels/labels.directive';
 import { TablePaginationComponent } from './table/table-pagination/table-pagination.component';
 import { DropdownComponent } from './dropdown/dropdown.component';
 import { SelectComponent } from './select/select.component';
+import { TableCustomHeadDirective } from './directives/table/custom-table-head.directive';
+import { AppMatModule } from '../utils/app-mat/app-mat.module';
+import { InputModalComponent } from './input-modal/input-modal.component';
+import { ButtonWarnDirective } from './directives/buttons/button-warn.directive';
+import { SelectMultipleComponent } from './select-multiple/select-multiple.component';
+import { ImageUploadComponent } from './image-upload/image-upload.component';
 
 
 
@@ -19,8 +25,10 @@ import { SelectComponent } from './select/select.component';
   declarations: [
     ButtonPrimaryDirective,
     ButtonAccentDirective,
+    ButtonWarnDirective,
     TableComponent,
     TableCustomColumnDirective,
+    TableCustomHeadDirective,
     CheckboxComponent,
     InputComponent,
     InputDirective,
@@ -28,16 +36,22 @@ import { SelectComponent } from './select/select.component';
     TablePaginationComponent,
     DropdownComponent,
     SelectComponent,
+    InputModalComponent,
+    SelectMultipleComponent,
+    ImageUploadComponent
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    AppMatModule
   ],
   exports: [
     TableComponent,
     ButtonPrimaryDirective,
     ButtonAccentDirective,
+    ButtonWarnDirective,
     TableCustomColumnDirective,
+    TableCustomHeadDirective,
     CheckboxComponent,
     InputComponent,
     InputDirective,
@@ -45,6 +59,9 @@ import { SelectComponent } from './select/select.component';
     TablePaginationComponent,
     DropdownComponent,
     SelectComponent,
+    InputModalComponent,
+    SelectMultipleComponent,
+    ImageUploadComponent
   ]
 })
 export class CoreComponentsModule { }

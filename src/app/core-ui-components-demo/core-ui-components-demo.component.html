@@ -1,29 +1,29 @@
-<div class="my-0 mt-4 mx-auto p-4 max-w-6xl">
-    <h1 class="text-xl font-bold text-center">Core UI elements</h1>
-    <h1>Tables</h1>
-    <app-table [dataHeadersDef]="data_headers" [dataSource]="data">
-        <!-- <button appButtonPrimary>Test</button> -->
-        <ng-template appTableCustomColumn='submit' let-item>
-            <button appButtonPrimary>{{item}}</button>
-        </ng-template>
-        <ng-template appTableCustomColumn="name" let-item>
-            <div class="text-red-700">{{item}}</div>
-        </ng-template>
-        <ng-template appTableCustomColumn="select" let-item>
-            <div class="text-red-700">{{item|json}}</div>
-        </ng-template>
-    </app-table>
-    <h1>Checkbox</h1>
-    <app-checkbox label="Yes" labelPosition="front" class="mr-1 bg-red" className="bg-yellow-500"></app-checkbox>
-    <app-checkbox label="No" labelPosition="front"></app-checkbox>
-    <h1>Buttons</h1>
-    <button appButtonPrimary class="mr-1">appButtonPrimary</button>
-    <button appButtonAccent>appButtonAccent</button>
-    <h1>Inputs</h1>
-    <app-input [(value)]="testInput" (valueChange)="testInputLog()" id="myInp" placeholder="Demo Input"
-        label="Demo Input" />
-    <app-input id="myInp" placeholder="A field with error" label="Demo Input"
-        error="Something wrong! I feel it in my component." />
-    <h1>Dialog</h1>
-    <button appButtonPrimary (click)="openDialog()">Open Dialog</button>
-</div>
+<h1 class="text-xl font-bold text-center">Core UI elements</h1>
+<h1>Tables</h1>
+<app-table [dataHeadersDef]="data_headers" [dataSource]="data">
+    <!-- <button appButtonPrimary>Test</button> -->
+    <ng-template appTableCustomColumn='submit' let-item>
+        <button appButtonPrimary>{{item}}</button>
+    </ng-template>
+    <ng-template appTableCustomColumn="name" let-item>
+        <div class="text-red-700">{{item}}</div>
+    </ng-template>
+    <ng-template appTableCustomColumn="select" let-item>
+        <div class="text-red-700">{{item|json}}</div>
+    </ng-template>
+</app-table>
+<h1>Checkbox</h1>
+<app-checkbox label="Yes" labelPosition="front" class="mr-1 bg-red" className="bg-yellow-500"></app-checkbox>
+<app-checkbox label="No" labelPosition="front"></app-checkbox>
+<h1>Buttons</h1>
+<button appButtonPrimary class="mr-1">appButtonPrimary</button>
+<button appButtonAccent>appButtonAccent</button>
+<h1>Inputs</h1>
+<app-input [(value)]="testInput" (valueChange)="testInputLog()" id="myInp" placeholder="Demo Input"
+    label="Demo Input" />
+<app-input id="myInp" placeholder="A field with error" label="Demo Input"
+    error="Something wrong! I feel it in my component." />
+<h1>Dialog</h1>
+<button appButtonPrimary (click)="openDialog()">Open Dialog</button>
+<app-multi-select [options]="[{label: 'hi', value:1}, {label: 'hi2', value:2}]"></app-multi-select>
+<app-image-upload></app-image-upload>

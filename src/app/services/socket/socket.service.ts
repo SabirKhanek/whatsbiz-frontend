@@ -33,18 +33,34 @@ export class SocketService {
   }
 
   isWAConnected() {
-    return this.http.get<{ result: boolean }>(this.baseUrl + 'is-wa-connected');
+    return this.http.get<{ result: boolean }>(this.baseUrl + 'whatsapp/is-wa-connected', {
+      headers: {
+        authorization: localStorage.getItem('jwt') || ''
+      }
+    });
   }
 
   restartWASocket() {
-    return this.http.post<{ result: string }>(this.baseUrl + 'restart-wa', {})
+    return this.http.post<{ result: string }>(this.baseUrl + 'whatsapp/restart-wa', undefined, {
+      headers: {
+        authorization: localStorage.getItem('jwt') || ''
+      }
+    })
   }
 
   logoutWASocket() {
-    return this.http.post<{ result: string }>(this.baseUrl + 'logout', {})
+    return this.http.post<{ result: string }>(this.baseUrl + 'whatsapp/logout', undefined, {
+      headers: {
+        authorization: localStorage.getItem('jwt') || ''
+      }
+    })
   }
 
   sendMessageWA(message: string, phoneNumber: string) {
-    return this.http.post<{ result: string }>(this.baseUrl + 'send-message', { number: phoneNumber, message })
+    return this.http.post<{ result: string }>(this.baseUrl + 'whatsapp/send-message', { number: phoneNumber, message }, {
+      headers: {
+        authorization: localStorage.getItem('jwt') || ''
+      }
+    })
   }
 }

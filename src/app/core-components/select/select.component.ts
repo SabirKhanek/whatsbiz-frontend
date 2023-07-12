@@ -15,7 +15,7 @@ export class SelectComponent {
   }
 }
 
-interface SelectOption {
+export interface SelectOption {
   value: string;
   label: string;
 }

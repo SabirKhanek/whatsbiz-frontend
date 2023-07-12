@@ -19,10 +19,12 @@
     <app-input label="Product Name" [value]="data.name" [disabled]="true"></app-input>
     <app-input label="Customer" [value]="data.author" [disabled]="true"></app-input>
     <label for="message" appInputLabel>Message</label>
-    <textarea [(ngModel)]="message" id="message" rows="10"
+    <!--<textarea [(ngModel)]="message" id="message" rows="10"
         class="resize-none block p-2.5 w-full text-gray-900 text-base bg-gray-50 rounded-lg border border-gray-600 focus:ring-blue-500 focus:border-blue-500 scrollbar-thin scrollbar-thumb-black scrollbar-track-slate-400 placeholder:text-gray-900"
         placeholder="Enter deal proposal message">
-    </textarea>
+    </textarea> -->
+
+    <app-whatsapp-composer [(text)]="message"></app-whatsapp-composer>
 
     <div class="my-7 flex gap-2">
         <button appButtonAccent [disabled]="!isWAConnected" (click)="sendMessage()">Send Message</button>

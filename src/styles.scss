@@ -4,6 +4,9 @@
 @tailwind utilities;
 @import './theme.scss';
 
+@import '~/../../node_modules/quill/dist/quill.snow.css';
+@import '~/../../node_modules/quill-emoji/dist/quill-emoji.css';
+
 html,
 body {
     height: 100%;

@@ -17,7 +17,7 @@ export const notAuthGuard: CanActivateFn = (route, state) => {
   const router = inject(Router);
   console.log(service.isLoggedIn())
   if (service.isLoggedIn()) {
-    router.navigate(['/dashboard'])
+    // router.navigate(['/dashboard'])
     return false
   }
   return !service.isLoggedIn()

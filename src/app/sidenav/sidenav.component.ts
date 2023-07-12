@@ -30,6 +30,15 @@ export class SidenavComponent implements OnInit {
       materialIcon: 'code_blocks',
       seperator: true,
     }, {
+      route: '/wa-group-collections',
+      name: 'Group Collections',
+      materialIcon: 'group',
+    }, {
+      route: '/post-ad',
+      name: 'Post Ad',
+      materialIcon: 'post_add_outline',
+      seperator: true
+    }, {
       route: '/products',
       name: 'Products',
       materialIcon: 'shopping_cart',

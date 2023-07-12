@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { QuillModule } from 'ngx-quill';
 
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { ToastrModule } from 'ngx-toastr';
@@ -25,10 +26,11 @@ import { ChatComponent } from './chat/chat.component';
 import { SettingsComponent } from './settings/settings.component';
 import { ProductsComponent } from './products/products.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { TablePaginationComponent } from './core-components/table/table-pagination/table-pagination.component';
+import { WaGroupsModule } from './features/wa-groups/wa-groups.module';
 import { SendDealInitComponent } from './send-deal-init/send-deal-init.component';
 import { AIService } from './services/ai/ai.service';
-import { ChartsModule } from './charts/charts.module';
+import { ChartsModule } from './core-components/charts/charts.module';
+import { PostAdModule } from './features/post-ad/post-ad.module';
 
 const config: SocketIoConfig = { url: environment.socketUrl, options: {} };
 
@@ -59,7 +61,10 @@ const config: SocketIoConfig = { url: environment.socketUrl, options: {} };
     AppMatModule,
     FormsModule,
     CoreComponentsModule,
-    ChartsModule
+    ChartsModule,
+    WaGroupsModule,
+    PostAdModule,
+    QuillModule.forRoot()
   ],
   providers: [SocketService, AuthService, AIService],
   bootstrap: [AppComponent]

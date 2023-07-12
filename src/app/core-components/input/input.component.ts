@@ -8,7 +8,7 @@ import { Component, EventEmitter, Input, Output, HostBinding, ElementRef, Render
 export class InputComponent {
   classes = ''
   @Input('type') type = 'text'
-  @Input('value') value = ''
+  @Input('value') value: any = ''
   @Output('valueChange') valueChange = new EventEmitter()
   @Input('label') label = ''
   @Input('placeholder') placeholder = ''

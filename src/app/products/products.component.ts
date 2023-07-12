@@ -1,6 +1,6 @@
 import { MatDialog } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../services/products/products.service';
 import { SendDealInitComponent } from '../send-deal-init/send-deal-init.component';
 import { Product } from '../types/product.type';
@@ -10,23 +10,27 @@ import { Product } from '../types/product.type';
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.scss']
 })
-export class ProductsComponent {
+export class ProductsComponent implements OnInit {
+  ngOnInit(): void {
+    this.handleProductRequest();
+  }
+
   data: any = []
   data_headers = [
     { 'columnId': 'intent', 'columnAlias': 'Intent' },
     { 'columnId': 'name', 'columnAlias': 'Name' },
     // { 'columnId': 'type', 'columnAlias': 'Type' },
-    { 'columnId': 'brand', 'columnAlias': 'Brand' },
+    // { 'columnId': 'brand', 'columnAlias': 'Brand' },
     { 'columnId': 'quantity', 'columnAlias': 'Quantity' },
     { 'columnId': 'condition', 'columnAlias': 'Condition' },
     { 'columnId': 'price', 'columnAlias': 'Price' },
     // { 'columnId': 'Remarks', 'columnAlias': 'Remarks' },
     { 'columnId': 'ram', 'columnAlias': 'RAM' },
-    // { 'columnId': 'color', 'columnAlias': 'Color' },
+    { 'columnId': 'color', 'columnAlias': 'Color' },
     // { 'columnId': 'storage', 'columnAlias': 'Storage' },
     // { 'columnId': 'processor', 'columnAlias': 'Processor' },
     { 'columnId': 'chatName', 'columnAlias': 'Chat Name' },
-    // { 'columnId': 'message', 'columnAlias': 'Message' },
+    { 'columnId': 'message', 'columnAlias': 'Message' },
     { 'columnId': 'author', 'columnAlias': 'Author' },
     { 'columnId': 'messagetime', 'columnAlias': 'Message Time' },
     { 'columnId': 'sendMessage', 'columnAlias': 'Send Message' },
