@@ -13,6 +13,8 @@ import { WaGroupsComponent } from './features/wa-groups/groups-dashboard/groups.
 import { NotFoundComponent } from './not-found/not-found.component';
 import { WaGroupCollectionsComponent } from './features/wa-groups/group-collections-dashboard/group-collections.component';
 import { PostAdComponent } from './features/post-ad/dashboard/post-ad.component';
+import { AdsDashboardComponent } from './features/ads/dashboard/ads-dashboard.component.';
+import { AdListingComponent } from './features/ads/ad-listing/ad-listing.component';
 
 const routes: Routes = [
   {
@@ -39,6 +41,14 @@ const routes: Routes = [
     path: 'post-ad',
     component: PostAdComponent,
     canActivate: [authGuard]
+  },
+  {
+    path: 'ads',
+    component: AdsDashboardComponent
+  },
+  {
+    path: 'ads/:id',
+    component: AdListingComponent
   },
   {
     path: 'wa-group-collections',

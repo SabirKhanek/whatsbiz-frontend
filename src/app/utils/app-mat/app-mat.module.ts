@@ -6,7 +6,8 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatChipsModule } from '@angular/material/chips';
-
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   declarations: [],
@@ -17,10 +18,14 @@ import { MatChipsModule } from '@angular/material/chips';
     MatDialogModule,
     MatDividerModule,
     MatTooltipModule,
-    MatChipsModule
+    MatChipsModule,
+    MatProgressBarModule,
+    MatMenuModule
   ],
   exports: [
     MatIconModule,
+    MatMenuModule,
+    MatProgressBarModule,
     MatProgressSpinnerModule,
     MatDialogModule,
     MatDividerModule,

@@ -18,6 +18,8 @@ import { InputModalComponent } from './input-modal/input-modal.component';
 import { ButtonWarnDirective } from './directives/buttons/button-warn.directive';
 import { SelectMultipleComponent } from './select-multiple/select-multiple.component';
 import { ImageUploadComponent } from './image-upload/image-upload.component';
+import { EpochToDatePipe } from './pipes/epoch-to-date/epoch-to-date.pipe';
+import { SummaryPipe } from './pipes/summary/summary.pipe';
 
 
 
@@ -38,7 +40,9 @@ import { ImageUploadComponent } from './image-upload/image-upload.component';
     SelectComponent,
     InputModalComponent,
     SelectMultipleComponent,
-    ImageUploadComponent
+    ImageUploadComponent,
+    EpochToDatePipe,
+    SummaryPipe
   ],
   imports: [
     CommonModule,
@@ -61,7 +65,9 @@ import { ImageUploadComponent } from './image-upload/image-upload.component';
     SelectComponent,
     InputModalComponent,
     SelectMultipleComponent,
-    ImageUploadComponent
+    ImageUploadComponent,
+    EpochToDatePipe,
+    SummaryPipe
   ]
 })
 export class CoreComponentsModule { }

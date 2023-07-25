@@ -33,6 +33,11 @@ export class SidenavComponent implements OnInit {
       route: '/wa-group-collections',
       name: 'Group Collections',
       materialIcon: 'group',
+    },
+    {
+      route: '/ads',
+      name: 'Ads',
+      materialIcon: 'shopping_cart',
     }, {
       route: '/post-ad',
       name: 'Post Ad',

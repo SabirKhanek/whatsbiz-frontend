@@ -31,6 +31,7 @@ import { SendDealInitComponent } from './send-deal-init/send-deal-init.component
 import { AIService } from './services/ai/ai.service';
 import { ChartsModule } from './core-components/charts/charts.module';
 import { PostAdModule } from './features/post-ad/post-ad.module';
+import { AdsModule } from './features/ads/ads.module';
 
 const config: SocketIoConfig = { url: environment.socketUrl, options: {} };
 
@@ -64,7 +65,8 @@ const config: SocketIoConfig = { url: environment.socketUrl, options: {} };
     ChartsModule,
     WaGroupsModule,
     PostAdModule,
-    QuillModule.forRoot()
+    QuillModule.forRoot(),
+    AdsModule
   ],
   providers: [SocketService, AuthService, AIService],
   bootstrap: [AppComponent]

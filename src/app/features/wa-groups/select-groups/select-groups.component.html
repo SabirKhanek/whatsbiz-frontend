@@ -19,7 +19,7 @@
     <app-input label="Filter by Group Name" [(value)]="nameFilter" (valueChange)="filter()" [fieldSize]="'regular'"
         placeholder="e.g., Buy and Sell Group" class="mb-2"></app-input>
     <app-table *ngIf="groups.length>0" [autoWidth]="false" [dataSource]="filteredGroups"
-        [dataHeadersDef]="groupsHeaderDef" [columnLines]="true" headColor="grey">
+        [dataHeadersDef]="groupsHeaderDef" [columnLines]="true" headColor="grey" [pagination]="true" [pageSize]="10">
         <!-- Custom Heads -->
         <ng-template appTableCustomHead="select">
             <div class="p-2">

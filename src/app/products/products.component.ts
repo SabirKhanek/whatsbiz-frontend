@@ -38,8 +38,9 @@ export class ProductsComponent implements OnInit {
   prdname = ''
   isBuy = true;
   isSell = true;
-  date = new Date(new Date().setMonth(new Date().getMonth() - 1)).toISOString().slice(0, 16);
+  date = new Date(new Date().setDate(new Date().getDate() - 7)).toISOString().slice(0, 16);
   author = ''
+  isLoading = false;
 
   log() {
     console.log(this.date)
@@ -57,13 +58,16 @@ export class ProductsComponent implements OnInit {
   }
 
   handleProductRequest() {
+    this.isLoading = true;
     this.productService.getProducts(this.prdname, this.author, this.getIntentFromInput(), this.date ? new Date(this.date).getTime().toString() : undefined).subscribe({
       next: (res) => {
+        this.isLoading = false;
         this.data = res;
         if (this.data.length === 0) {
           this.toastr.info('No results found', 'Products Search')
         }
       }, error: (err) => {
+        this.isLoading = false;
         this.toastr.error('Error: ' + JSON.stringify(err.error), 'Error while fetching data')
       }
     })

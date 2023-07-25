@@ -68,7 +68,7 @@ export class GroupCollectionsService {
             formData.append('adImage', file);
         }
         console.log(formData);
-        return this.http.post(`${this.apiUrl}whatsapp/group-collections/ad`, formData, {
+        return this.http.post<{ message: string, adId: number }>(`${this.apiUrl}whatsapp/group-collections/ad`, formData, {
             headers: {
                 authorization: localStorage.getItem('jwt') || ''
             }

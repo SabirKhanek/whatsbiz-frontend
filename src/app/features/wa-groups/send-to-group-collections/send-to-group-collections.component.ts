@@ -23,7 +23,7 @@ import { SocketService } from 'src/app/services/socket/socket.service';
 export class SendToGroupCollectionsComponent implements OnInit {
     @Input('text') text = ''
     @Input('image') image: ArrayBuffer | string | null = null
-    @Output('onRequestSent') onRequestSent = new EventEmitter<string>()
+    @Output('onRequestSent') onRequestSent = new EventEmitter<{ message: string, adId: number }>()
 
     collections: GroupCollection[] = []
     constructor(private collectionService: GroupCollectionsService, private dialog: MatDialog, private socket: SocketService, private toastr: ToastrService) { }
@@ -70,24 +70,10 @@ export class SendToGroupCollectionsComponent implements OnInit {
         this.collectionService.postAd(collectionIds, this.text, this.image).subscribe({
             next: (res) => {
                 this.toastr.info('Ads are being posted to groups')
-                this.onRequestSent.emit('Ads are being posted to groups')
+                this.onRequestSent.emit(res)
             }, error: (err) => {
                 this.toastr.error('Error while posting ads to groups')
             }
         })
-    }
-
-    sendRequest() {
-        if (this.collections.length === 0) {
-            return this.onRequestSent.emit('Please select at least one group collection')
-        }
-        this.collections.forEach((collection => {
-            collection.groups?.forEach(group => {
-                this.socket.sendMessageWA(this.text, group.id).subscribe((res) => {
-                    this.toastr.success(`Message sent to ${group.name} - Collection ${collection.name}`)
-                })
-            })
-        }))
-        this.onRequestSent.emit('Request sent to group collections')
     }
 }

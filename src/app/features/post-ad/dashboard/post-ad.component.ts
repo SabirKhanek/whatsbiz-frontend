@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { GroupCollectionsService } from './../../wa-groups/services/group-collections/group-collections.service';
 import { Component, OnInit } from "@angular/core";
 import { SelectOption } from "src/app/core-components/select/select.component";
@@ -19,7 +20,7 @@ import { ToastrService } from "ngx-toastr";
     ]
 })
 export class PostAdComponent implements OnInit {
-    constructor(private toastr: ToastrService) { }
+    constructor(private toastr: ToastrService, private router: Router) { }
     text = '';
     listingType = 'wtb'
     listingOpts: SelectOption[] = [
@@ -52,11 +53,12 @@ export class PostAdComponent implements OnInit {
         return text
     }
 
-    sendToGroupCollectionsRequestSent(event: any) {
+    sendToGroupCollectionsRequestSent(event: { message: string, adId: number }) {
         this.products = []
         this.listingDetails = ''
         this.imageBuffer = null
         this.productsChanged()
+        this.router.navigate(['/ads/' + event.adId])
     }
 
     productById(index: number, product: any) {
