@@ -18,7 +18,7 @@ jobs:
       - name: Build Frontend
         run: |
           npm install
-          ng build --configuration=production --output-path=dist/
+          npx ng build --configuration=production --output-path=dist/
 
   deploy:
     needs: build
