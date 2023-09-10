@@ -30,6 +30,7 @@ jobs:
         with:
           repository: sabirkhanek/whatsbiz-backend  # Replace with your backend repository URL
           token: ${{secrets.ACCESS_TOKEN}}
+          path: './backend'
         
 
       - name: List directory structure
