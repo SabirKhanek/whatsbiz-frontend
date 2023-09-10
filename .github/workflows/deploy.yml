@@ -29,6 +29,12 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: sabirkhanek/whatsbiz-backend  # Replace with your backend repository URL
+          token: ${{secrets.ACCESS_TOKEN}}
+
+      - name: Create 'public' Directory in Backend
+        run: |
+          mkdir -p ./public
+        working-directory: sabirkhanek/whatsbiz-backend
 
       - name: Delete Contents of Backend 'public' Directory
         run: |
