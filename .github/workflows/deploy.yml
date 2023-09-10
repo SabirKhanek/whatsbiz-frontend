@@ -26,6 +26,9 @@ jobs:
           repository: sabirkhanek/whatsbiz-backend  # Replace with your backend repository URL
           token: ${{secrets.ACCESS_TOKEN}}
           path: './backend'
+          fetch-depth: 0
+
+      
 
       - name: Create 'public' Directory in Backend
         run: |
@@ -48,6 +51,7 @@ jobs:
           git config --global user.name "GitHub Actions"
           git add .
           git commit -m "Update frontend build"
+          git pull o
           git push --set-upstream origin test  # Adjust to your test branch name in the backend repository
           git push origin test  # Adjust to your test branch name in the backend repository
         working-directory: 'backend'
