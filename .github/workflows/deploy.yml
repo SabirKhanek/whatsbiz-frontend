@@ -42,17 +42,14 @@ jobs:
       - name: Create 'public' Directory in Backend
         run: |
           mkdir -p ./public
-        working-directory: sabirkhanek/whatsbiz-backend
 
       - name: Delete Contents of Backend 'public' Directory
         run: |
           rm -rf ./public/*
-        working-directory: sabirkhanek/whatsbiz-backend
 
       - name: Copy Frontend Build to Backend 'public' Directory
         run: |
-          cp -r ../whatsbiz-frontend/dist/* ./public/
-        working-directory: sabirkhanek/whatsbiz-backend
+          cp -r ../dist/* ./public/
 
       - name: Commit and Push Changes
         run: |
@@ -62,4 +59,3 @@ jobs:
           git commit -m "Update frontend build"
           git push --set-upstream origin test  # Adjust to your test branch name in the backend repository
           git push origin test  # Adjust to your test branch name in the backend repository
-        working-directory: sabirkhanek/whatsbiz-backend
