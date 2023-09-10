@@ -1,0 +1,51 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - test  # Adjust to your test branch name in the frontend repository
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Frontend Code
+        uses: actions/checkout@v2
+        with:
+          repository: sabirkhanek/whatsbiz-frontend  # Replace with your frontend repository URL
+
+      - name: Build Frontend
+        run: |
+          npm install
+          ng build --configuration=production --output-path=dist/
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Backend Repository
+        uses: actions/checkout@v2
+        with:
+          repository: sabirkhanek/whatsbiz-backend  # Replace with your backend repository URL
+
+      - name: Delete Contents of Backend 'public' Directory
+        run: |
+          rm -rf ./public/*
+        working-directory: sabirkhanek/whatsbiz-backend
+
+      - name: Copy Frontend Build to Backend 'public' Directory
+        run: |
+          cp -r ../whatsbiz-frontend/dist/* ./public/
+        working-directory: sabirkhanek/whatsbiz-backend
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.email "actions@github.com"
+          git config --global user.name "GitHub Actions"
+          git add .
+          git commit -m "Update frontend build"
+          git push --set-upstream origin test  # Adjust to your test branch name in the backend repository
+          git push origin test  # Adjust to your test branch name in the backend repository
+        working-directory: sabirkhanek/whatsbiz-backend
