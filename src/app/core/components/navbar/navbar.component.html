@@ -1,0 +1,206 @@
+<nav
+  class="w-[100%] border-2 border-b-[#170000] h-[60px] flex items-center font-extrabold text-[20px]"
+  role="banner"
+>
+  <div
+    class="mr-[2%] ml-[1%] w-full flex items-center justify-between text-base"
+  >
+    <!-- menu list -->
+    <div class="flex space-x-6 items-center">
+      <mat-icon (click)="onToggleClick()">view_headline</mat-icon>
+      <div class="flex items-center jus">
+        <img src="assets/GetImage.png" class="w-11 h-12" alt="My Image" />
+        <p
+          class="text-left justify-start font-semibold text-[#7d0101] text-xl mr-10 mt-1.5 self-center"
+        >
+          Campus360
+        </p>
+      </div>
+      <button class="" (click)="RouteToToHome()" routerLink="/dashboard/home">
+        <div class="flex">
+          <span class="text-base flex">
+            <!-- Your Work <mat-icon>keyboard_arrow_down</mat-icon> -->
+            <mat-icon>home</mat-icon>
+          </span>
+        </div>
+      </button>
+
+      <button class="relative"  (click)="toggleYourWork()" >
+        <div class="flex">
+          <span class="text-base flex">
+            Your Work <mat-icon>keyboard_arrow_down</mat-icon>
+          </span>
+        </div>
+
+        <div *ngIf="YourWork" class=" top-10 left-0 absolute bg-white w-96 rounded-lg border border-x-gray-300">
+          <!-- <div class="w-5/6 max-w-full h-40"> -->
+            <table class="text-base  w-full border-collapse  ">
+              <thead>
+                <tr class=" hover:bg-grey-200">
+                  <th class="px-1 py-2"></th>
+                  <th class="px-1">
+                    <p class="text-sm font-medium  py-2">Assigned to you</p>
+                  </th>
+                  <th class="px-1">
+                    <p class="text-sm  font-medium py-2" >You assigned to others</p>
+                    
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="py-3 text-center  ">
+                  <td class="text-right hover:bg-grey-200 " >Overdue</td>
+                  <td routerLink="/dashboard/task-management/assignedToYou" class="text-right px-2 cursor-pointer hover:bg-grey-200" tableClickableCell >10</td>
+                  <td class="text-right px-2 hover:bg-grey-200" tableClickableCell >0</td>
+                </tr>
+      
+                <tr class="text-center ">
+                  <td class="text-right hover:bg-grey-200">Pending</td>
+                  <td class="text-right cursor-pointer px-2 hover:bg-grey-200" tableClickableCell>0</td>
+                  <td class="text-right px-2 hover:bg-grey-200" tableClickableCell>0</td>
+                </tr>
+      
+                <tr class="text-center ">
+                  <td class="text-right pl-3 hover:bg-grey-200">Completed</td>
+                  <td class="text-right cursor-pointer px-2 hover:bg-grey-200" routerLink="/dashboard/task-management/completeTask" tableClickableCell>0</td>
+                  <td class="text-right px-2 hover:bg-grey-200" tableClickableCell>0</td>
+                </tr>
+              </tbody>
+            </table>
+          <!-- </div> -->
+        </div>
+      </button>
+
+      <button class="" [matMenuTriggerFor]="menuDashboard">
+        <div class="flex">
+          <span class="text-base flex">
+            Dashboards <mat-icon>keyboard_arrow_down</mat-icon>
+          </span>
+        </div>
+      </button>
+
+      <button class="" [matMenuTriggerFor]="menuView">
+        <div class="flex">
+          <span class="text-base flex">
+            View <mat-icon>keyboard_arrow_down</mat-icon>
+          </span>
+        </div>
+      </button>
+
+      <button class="" [matMenuTriggerFor]="menuNew">
+        <div class="flex">
+          <span class="text-base flex">
+            New <mat-icon>keyboard_arrow_down</mat-icon>
+          </span>
+        </div>
+      </button>
+
+
+    </div>
+
+    <!-- profile -->
+    <div class="flex space-x-4">
+      <button class="">
+        <!-- <div class="flex">
+          <span class="text-base flex">
+            <mat-icon> person_pin</mat-icon> Hamid
+            <mat-icon>keyboard_arrow_down</mat-icon>
+          </span>
+        </div> -->
+      </button>
+      <button  buttonRegular >
+        Logout
+      </button>
+    </div>
+  </div>
+
+  <!-- all top bar menus are listed under -->
+  <!-- you work menu -->
+
+  
+
+  <!-- new menu -->
+  <mat-menu class="menu-width" #menuNew="matMenu">
+    <div class="w-full cursor-pointer">
+      <ul class="list-none text-sm font-semibold">
+        <li
+          class="self-center px-4 py-2"
+          routerLink="/dashboard/clearance-applications"
+        >
+          Student Clearance
+        </li>
+        <li
+          class="border-black border-t-2 py-2 self-center px-4 hover:bg-gray-100"
+          routerLink="dashboard/clearance-applications/clearance-dashboard"
+        >
+          Pirority Student Clearance
+        </li>
+        <li class="border-black border-t-2 py-2 self-center px-4 cursor-pointer" routerLink="/dashboard/task-management/tasks">Task</li>
+        <li routerLink="dashboard/committee-constitution/new-committee"
+          class="border-black border-t-2 py-2 self-center px-4 hover:bg-gray-100"
+        >
+          Committee
+        </li>
+        <li routerLink="/dashboard/auth/discount"
+          class="border-black border-t-2 py-2 self-center px-4 cursor-pointer"
+        >
+        Two Factor Authentication
+        </li>
+        <li routerLink="dashboard/committee-constitution"
+          class="border-black border-t-2 py-2 self-center px-4 hover:bg-gray-100"
+        >
+        Sign a document
+        </li>
+        <li routerLink="dashboard/committee-constitution"
+          class="border-black border-t-2 py-2 self-center px-4 hover:bg-gray-100"
+        >        
+        Verify a document
+        </li>
+      </ul>
+    </div>
+  </mat-menu>
+  <!-- View menu -->
+  <mat-menu class="menu-width" #menuView="matMenu">
+    <div class="w-full">
+      <ul class="list-none text-sm font-semibold">
+        <li class="self-center px-4 py-2 cursor-pointer"
+        routerLink="dashboard/clearance-applications/view"
+        >Student Clearance</li>
+        <li class="border-black border-t-2 py-2 self-center px-4 cursor-pointer">Task</li>
+        <li class="border-black border-t-2 py-2 self-center px-4 cursor-pointer" routerLink="dashboard/committee-constitution/view-committe">Committee</li>
+      </ul>
+    </div>
+  </mat-menu>
+
+  <!-- Dashboard Menu -->
+  <mat-menu class="menu-width" #menuDashboard="matMenu">
+    <div class="w-full">
+      <ul class="list-none text-sm font-semibold cursor-pointer">
+        <li
+          class="border-black border-t-2 py-2 self-center px-4 hover:bg-gray-100"
+          routerLink="dashboard/clearance-applications/clearance-dashboard"
+        >
+          Student Clearance
+        </li>
+        <li
+        routerLink="/dashboard/task-management/dashBoard"
+          class="border-black border-t-2 py-2 self-center px-4 hover:bg-gray-100"
+        >
+          Task
+        </li>
+        <li
+        routerLink="dashboard/committee-constitution"
+          class="border-black border-t-2 py-2 self-center px-4 hover:bg-gray-100"
+        >
+          Committee
+        </li>
+        <li
+          class="border-black border-t-2 py-2 self-center px-4 hover:bg-gray-100"
+          routerLink="dashboard/clearance-applications/clearance-process"
+        >
+          Process
+        </li>
+      </ul>
+    </div>
+  </mat-menu>
+</nav>

@@ -1,74 +1,59 @@
-import { environment } from 'src/environments/environment';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
-import { QuillModule } from 'ngx-quill';
-
-import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
+import { HttpClientModule } from '@angular/common/http';
 
+import { HomeComponent } from './core/components/home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SocketService } from './services/socket/socket.service';
-import { WhatsappConnectionComponent } from './whatsapp-connection/whatsapp-connection';
-import { NavbarComponent } from './navbar/navbar.component';
+import { NavbarComponent } from './core/components/navbar/navbar.component';
+import { SidebarComponent } from './core/components/sidebar/sidebar.component';
+import { LoginComponent } from './core/components/login/login.component';
+import { NotFoundComponent } from './core/components/not-found/not-found.component';
+import { ClearnaceApplicationsComponent } from './features/student_clearance/components/clearnace-applications/clearnace-applications.component';
+import { ClearanceConfirmDialogComponent } from './features/student_clearance/components/clearnace-applications/clearance-confirm-dialog/clearance-confirm-dialog.component';
+import { ManageAdminComponent } from './features/student_clearance/components/manage-admin/manage-admin.component';
+import { CreateAdminComponent } from './features/student_clearance/components/create-admin/create-admin.component';
+import { SearchComponent } from './features/student_staff_search/pages/search/search.component';
+import { CommitteConstitutionModule } from './features/committe-constitution/committe-constitution.module';
+import { UserHomeComponent } from './core/components/user-home/user-home.component';
+import { SharedModule } from './shared/shared.module';
 import { AppMatModule } from './utils/app-mat/app-mat.module';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { FormsModule } from '@angular/forms';
-import { AuthService } from './services/auth/auth.service';
-import { LoginComponent } from './login/login.component';
-import { SidenavComponent } from './sidenav/sidenav.component';
-import { LogoutComponent } from './logout/logout.component';
-import { CoreComponentsModule } from './core-components/core-components.module';
-import { CoreUiComponentsDemoComponent } from './core-ui-components-demo/core-ui-components-demo.component';
-import { ChatComponent } from './chat/chat.component';
-import { SettingsComponent } from './settings/settings.component';
-import { ProductsComponent } from './products/products.component';
-import { NotFoundComponent } from './not-found/not-found.component';
-import { WaGroupsModule } from './features/wa-groups/wa-groups.module';
-import { SendDealInitComponent } from './send-deal-init/send-deal-init.component';
-import { AIService } from './services/ai/ai.service';
-import { ChartsModule } from './core-components/charts/charts.module';
-import { PostAdModule } from './features/post-ad/post-ad.module';
-import { AdsModule } from './features/ads/ads.module';
-
-const config: SocketIoConfig = { url: environment.socketUrl, options: {} };
-
+import { TailwindDirectivesModule } from './tailwind-directives/tailwind-directives.module';
+import { AppTableModule } from './utils/app-table/table.module';
+import { DigitalSignatureModule } from './features/digital-signature/digital-signature.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    WhatsappConnectionComponent,
     NavbarComponent,
-    DashboardComponent,
+    SidebarComponent,
     LoginComponent,
-    SidenavComponent,
-    LogoutComponent,
-    CoreUiComponentsDemoComponent,
-    ChatComponent,
-    SettingsComponent,
-    ProductsComponent,
+    HomeComponent,
     NotFoundComponent,
-    SendDealInitComponent,
+    // ClearnaceApplicationsComponent,
+    // ClearanceConfirmDialogComponent,
+    ManageAdminComponent,
+    CreateAdminComponent,
+    SearchComponent,
+    UserHomeComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SocketIoModule.forRoot(config),
-    ToastrModule.forRoot(),
     BrowserAnimationsModule,
-    HttpClientModule,
-    AppMatModule,
     FormsModule,
-    CoreComponentsModule,
-    ChartsModule,
-    WaGroupsModule,
-    PostAdModule,
-    QuillModule.forRoot(),
-    AdsModule
+    ReactiveFormsModule,
+    ToastrModule.forRoot(),
+    HttpClientModule,
+    CommitteConstitutionModule,
+    SharedModule,
+    AppMatModule, TailwindDirectivesModule,
+    AppTableModule
   ],
-  providers: [SocketService, AuthService, AIService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

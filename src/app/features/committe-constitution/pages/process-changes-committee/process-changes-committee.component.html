@@ -1,0 +1,190 @@
+
+<div class="border border-gray-900" labelLarge>
+    <h2 labelLarge class="mb-2 pl-2 pt-2">
+      Your Work &rarr; Changes to New Committee Formation
+    </h2>
+  </div>
+  
+  <div labelRegular class="assignment border border-l-gray-700">
+    <label for="name" class="block mb-2 pt-2 ml-24"
+      >Assigned By : System on ____
+    </label>
+    <label for="name" class="block mb-2 ml-40 pl-1">Due : May 18, 2023 </label>
+  </div>
+  
+  <div class="grid grid-cols-2 " labelRegular>
+    <div class="grid grid-rows-9 ">
+      <!-- Content for each row -->
+      <div class="border border-grey-300 h-24 flex items-center pl-[19%] ">
+        
+        <div class="flex items-center justify-center gap-2">
+          <label for="name" class="block text-right">Name: </label>
+          <input
+            inputRegular
+            id="name"
+            type="text"
+            [(ngModel)]="name"
+            
+          />
+        </div>
+       
+      </div>
+      <div class=" border border-grey-300 h-12  flex items-center ">
+        
+        <div class="flex items-center justify-start gap-4 ml-[17%]">
+          <label class="ml-[4%] block text-right">Scope: </label>
+          <div class="flex">
+            <div class="radio-group flex items-center">
+              <input
+                type="radio"
+                id="radioInput01"
+                name="radioGroup"
+                class="form-radio h-4 w-4 mr-2"
+              />
+              <label for="radioInput01" class="text-gray-600">GCU</label>
+            </div>
+            <div class="radio-group flex items-center">
+              <input
+                type="radio"
+                id="radioInput02"
+                name="radioGroup"
+                class="form-radio h-4 w-4 mr-2 ml-4"
+              />
+              <label for="radioInput02" class="text-gray-600"
+                >DEPARTMENT</label
+              >
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      <div class=" border border-grey-300 h-24  flex items-center pl-[16.5%]">
+       
+        <div class="form-group flex gap-2">
+          <label for="purpose" class="block self-center"
+            >Purpose:
+          </label>
+          <textarea
+            id="purpose"
+            [(ngModel)]="purpose"
+            rows="3"
+            inputRegular
+          ></textarea>
+        </div>
+        
+      </div>
+      
+      
+      
+      <div class=" border border-grey-300 h-12  flex items-center pl-[15%]">
+        <div class="flex justify-between items-center">
+          <span>Secretary: &nbsp;&nbsp;Dr.Fatima Azeez</span>
+        </div>
+      </div>
+      <div class=" border border-grey-300 h-12  flex items-center pl-[15%]">
+        <div class="flex justify-between items-center ">
+          <span>Convenor:&nbsp;&nbsp;Dr. Zaffar Iqbal</span>
+        </div>
+      </div>
+      <div class=" border border-grey-300 h-12  flex items-center pl-[15%]">
+        <div class="flex justify-start items-center">
+          <span class=" "> Members:</span>
+          <div class="ml-2">
+            <div
+              class="inline-flex items-center bg-gray-200 rounded-full px-3 py-1 m-1"
+            >
+              Dr. Husnain
+            </div>
+            <div
+              class="inline-flex items-center bg-gray-200 rounded-full px-3 py-1 m-1"
+            >
+              Dr. Ahsan
+            </div>
+            <div
+              class="inline-flex items-center bg-gray-200 rounded-full px-3 py-1 m-1"
+            >
+              Dr. Tayyab
+            </div>
+            <!-- Add more user chips here -->
+          </div>
+        </div>
+        </div>
+    </div>
+    <div class="grid grid-rows-9">
+      <!-- Content for each row -->
+      <div class="border border-grey-300 h-24 flex items-center pl-4">
+        <span class="text-green-500">Approved</span>
+      </div>
+      <div class="border border-grey-300 h-12 flex items-center pl-4">
+        <span class="text-red-700">Change: Please change the scope.</span>
+      </div>
+      <div class="border border-grey-300 h-24 flex items-center pl-4">
+        <span class="text-green-500">Approved</span>
+      </div>
+      
+      <div class="border border-grey-300 h-12 flex items-center pl-4">
+        <span class="text-red-700">Change: Please change the Secretary to Dr. Hussain Malik.</span>
+      </div>
+      
+        <div class="border border-grey-300 h-12 flex items-center pl-4">
+            <span class="text-green-500">Approved</span>
+        </div>
+      
+      
+      <div class="border border-grey-300 h-12 flex items-center pl-4">
+        <span class="text-green-500">Approved</span>
+        </div>
+       
+    </div>
+  </div>
+  
+        <!-- popup1 -->
+        <div
+          id="popup"
+          class="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50 hidden"
+          labelRegular
+        >
+          <div
+            class="bg-white p-8 rounded-lg"
+            (keyup.enter)="updateData(); closePopUp()"
+          >
+            <div class="mb-4">Change:</div>
+            <div>
+              <textarea
+                autofocus
+                id="Instruction"
+                rows="6"
+                [(ngModel)]="popupInput"
+                class="border rounded py-2 w-96"
+                inputLarge
+              >
+              </textarea>
+            </div>
+            <div class="flex justify-between">
+              <button
+                id="closeBtn"
+                class="border-blue-400 border text-blue-400 px-4 rounded-lg py-2 mt-2"
+                (click)="closePopUp()"
+              >
+                Close
+              </button>
+              <button
+                (click)="updateData(); closePopUp()"
+                class="border-blue-400 border text-blue-400 px-4 rounded-lg py-2 mt-2"
+              >
+                Done
+              </button>
+            </div>
+          </div>
+        </div>
+  
+        <div class="m-2">
+          <div class="button-container flex justify-center">
+            <button
+              routerLink="/dashboard/committee-constitution/view-committe"
+              buttonLarge
+            >
+              Mark Completed
+            </button>
+          </div>
+        </div>

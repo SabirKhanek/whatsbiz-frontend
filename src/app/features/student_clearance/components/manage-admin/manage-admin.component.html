@@ -1,0 +1,115 @@
+<div class="flex flex-col w-[100%] gap-2 py-6 px-4 ">
+  <div class="flex flex-col w-[100%] gap-2">
+    
+      <div class="flex justify-end">
+          <a
+          routerLink="/dashboard/create-new-admin"
+          class="bg-slate-900 text-white rounded-md px-4 py-2 hover:bg-red-900 shadow hover:shadow-md"
+          >
+          Create new Admin
+        </a>
+    </div>
+    <div class="flex justify-between gap-2">
+        <div
+        class="w-[30%] bg-white min-h-[100%] max-h-[100%] overflow-y-auto rounded shadow-md p-4"
+        >
+        <p
+        class="text-[14px] tracking-wider font-semibold text-center py-3 border-b"
+        >
+        Update Admin Details
+      </p>
+
+      <form [formGroup]="checkoutForm"  class="flex flex-col">
+        <label for="name" class="py-2">Name
+            <input type="text" class="w-[100%] py-2 px-4  border otline-none bg-gray-100" id="name" name="name" formControlName="full_name">
+        </label>
+        <label for="email" class="py-2">Email
+            <input type="text" class="w-[100%] py-2 px-4  border otline-none bg-gray-100"   id="email" name="email" formControlName="email">
+        </label>
+        <label for="employee_id" class="py-2">Employee id
+            <input type="text" class="w-[100%] py-2 px-4  border otline-none bg-gray-100"   id="employee_id" name="employee_id" formControlName="empId">
+        </label>
+
+        <label for="type" class="py-2">
+            Admin type
+            <select name="type" class="w-[100%] py-2 px-4  border otline-none bg-gray-100"   id="type" formControlName="type">
+                <option value="library">Library</option>
+                <option value="hostel">Hostel</option>
+                <option value="transport">Transport</option>
+                <option value="department">Department</option>
+                <option value="registrar">Registrar</option>
+                <option value="examination">Examination</option>
+                <option value="fees">Fees</option>
+            </select>
+        </label>
+        <label for="role" class="py-2">
+            Admin Role
+            <select name="role" class="w-[100%] py-2 px-4  border otline-none bg-gray-100"   id="role" formControlName="role">
+                <option value="admin">Admin</option>
+            </select>
+        </label>
+
+        <button
+        type="submit"
+      class="bg-[#170000] text-white rounded-md px-4 py-2 hover:bg-slate-900 shadow hover:shadow-lg shadow-black my-4"
+    >
+     Save
+    </button>
+    </form>
+    </div>
+    <div class="w-[70%] shadow shadow-gray-300 shadow-md border p-4 overflow-y-auto bg-white rounded ">
+      <h1 class="text-center text-[20px] font-semibold">Admins</h1>
+      <table class="border w-[100%] rounded p-2">
+        <thead>
+          <tr class="border-b bg-gray-100 ">
+            <th class="text-start px-4 py-2">Name</th>
+            <th class="text-start px-4 py-2">Email</th>
+            <th class="text-start px-4 py-2">Employee Id</th>
+            <th class="text-start px-4 py-2">Role</th>
+            <th class="text-start px-4 py-2">Admin Type</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+
+
+          <!-- <ng-template > -->
+             <tr *ngFor="let admin of adminsDetail" (click)="editAdmin(admin.empId)" class="border-b cursor-pointer hover:bg-gray-100 bg-white"  >
+              <td class="text-start px-4 py-2">{{admin.full_name}}</td>
+              <td class="text-start px-4 py-2">{{admin.email}}</td>
+              <td class="text-start px-4 py-2">{{admin.empId}}</td>
+              <td class="text-start px-4 py-2">{{admin.role}}</td>
+              <td class="text-start px-4 py-2">{{admin.type}}</td>
+            </tr>
+          <!-- </ng-template> -->
+          <!-- <tr class="border-b cursor-pointer hover:bg-gray-100 bg-white"  >
+            <td class="text-start px-4 py-2">hadmi</td>
+            <td class="text-start px-4 py-2">sdljf</td>
+            <td class="text-start px-4 py-2">Employee Id</td>
+            <td class="text-start px-4 py-2">Role</td>
+            <td class="text-start px-4 py-2">Admin Type</td>
+          </tr>
+          <tr class="border-b cursor-pointer hover:bg-gray-100 bg-white"  >
+            <td class="text-start px-4 py-2">hadmi</td>
+            <td class="text-start px-4 py-2">sdljf</td>
+            <td class="text-start px-4 py-2">Employee Id</td>
+            <td class="text-start px-4 py-2">Role</td>
+            <td class="text-start px-4 py-2">Admin Type</td>
+          </tr>
+          <tr class="border-b cursor-pointer hover:bg-gray-100 bg-white"  >
+            <td class="text-start px-4 py-2">hadmi</td>
+            <td class="text-start px-4 py-2">sdljf</td>
+            <td class="text-start px-4 py-2">Employee Id</td>
+            <td class="text-start px-4 py-2">Role</td>
+            <td class="text-start px-4 py-2">Admin Type</td>
+          </tr> -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+
+</div>

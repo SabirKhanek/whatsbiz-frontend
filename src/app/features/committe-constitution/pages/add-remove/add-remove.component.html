@@ -1,0 +1,70 @@
+<div class="  w-full">
+  <div class="border border-gray-900 w-full">
+    <h2 class="pb-2 pt-2 pl-2" labelLarge >New Committee &rarr; Add / Remove</h2>
+  </div>
+  <div class=" mx-[10%] ">
+  <div class=" flex justify-end mt-4">
+    <button
+    buttonRegular (click)="AddMember()"
+    >
+      Add Member
+    </button>
+  </div>
+  <div class="">
+    <div class="">
+      <table class="table-auto border mt-4 w-full">
+        <thead class="bg-gray-200">
+          <tr class="text-black  font-bold" tableHeader>
+            <th class="px-4 py-2">Name</th>
+            <th class="px-3 py-2">Internal</th>
+            <th class="px-4 py-2">Email</th>
+            <th class="px-4 py-2">Phone</th>
+            <th class="px-2 py-2">Member Since</th>
+            <th class="px-2 py-2">Status</th>
+            <th class="px-2 py-2">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let member of members" tableCell>
+            <td class="border px-4 py-2">{{ member.name }}</td>
+            <td class="border px-3 py-2">{{ member.internal }}</td>
+            <td class="border px-4 py-2">{{ member.email }}</td>
+            <td class="border px-4 py-2">{{ member.phone }}</td>
+            <td class="border px-2 py-2">{{ member.memberSince }}</td>
+            <td class="border px-4 py-2">{{ member.status }}</td>
+            <td class="border px-4 py-2">
+              <button buttonRegular
+                (click)="remove(member)"
+                
+              >
+                Remove
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+  <div class="flex justify-center pb-2 mt-8">
+    <div class="mr-1">
+      <button buttonRegular 
+    routerLink='/dashboard/committee-constitution/new-committee'
+ 
+    >
+      Cancel
+    </button>
+    </div>
+    <div class="ml-1">
+      <button buttonRegular
+    routerLink='/dashboard/committee-constitution/new-committee'
+      
+    >
+      DONE
+    </button>
+    </div>
+  </div>
+</div>
+</div>
+
+

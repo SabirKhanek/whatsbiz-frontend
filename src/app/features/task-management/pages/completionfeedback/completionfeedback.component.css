@@ -1,0 +1,7 @@
+.next_page_icon{
+    color: rgb(63, 63, 245);
+}
+.next_page_icon:hover{
+    width: 30px;
+transition: width ease-in-out;
+}

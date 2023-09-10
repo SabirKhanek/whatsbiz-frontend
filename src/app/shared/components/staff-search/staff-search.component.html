@@ -1,0 +1,120 @@
+<div #searchDialogTitle class="flex justify-between items-center px-2 py-1">
+    <button mat-stroked-button color="warn" [mat-dialog-close]="[]">Cancel</button>
+    <div> Staff Search </div>
+    <button mat-stroked-button color="primary" [mat-dialog-close]="staff_selections.selected">Done</button>
+</div>
+<mat-divider></mat-divider>
+<div mat-dialog-content style="max-height: 90%; font-family: Roboto, 'Helvetica Neue', sans-serif;">
+    <div class="flex justify-between w-[100%] mb-4">
+        <div class="selected-summary flex flex-col">
+            <div class="selection-display-group basis-10 flex items-center gap-x-0.5 mb-1.5">
+                <label>Selected: </label>
+                <mat-chip-listbox *ngIf="staff_selections.selected.length>0" #selected_chips>
+                    <mat-chip *ngFor="let selected_staff of staff_selections.selected">
+                        <span class="flex justify-center items-center">
+                            <span class="p-0 text-xs">{{selected_staff.employee_name}}</span>
+                            <button matChipRemove (click)="remove(selected_staff)">
+                                <mat-icon>cancel</mat-icon>
+                            </button>
+                        </span>
+                    </mat-chip>
+                </mat-chip-listbox>
+                <span *ngIf="staff_selections.selected.length<=0" class="text-black">
+                    <mat-chip class="p-0 text-xs">No selections yet</mat-chip>
+                </span>
+            </div>
+            <div class="basis-10" *ngIf="allowMultiSelect">
+                <label>Count: </label>
+                <mat-chip><span class="p-0 text-xs">{{staff_selections.selected.length}}</span></mat-chip>
+            </div>
+        </div>
+    </div>
+
+    <div class="staff-search-query-params mb-4">
+        <input #query_input inputRegular placeholder="Start entering name" [value]="search_query"
+            [(ngModel)]="search_query" (ngModelChange)="staffFilterChange()">
+
+        <div class="hiring-type-filter">
+            <mat-checkbox [(ngModel)]="isTeaching" [color]="'primary'" (ngModelChange)="staffFilterChange()">
+                Teaching
+            </mat-checkbox>
+            <mat-checkbox [(ngModel)]=" isAdministrative" [color]="'primary'" (ngModelChange)="staffFilterChange()">
+                Administrative
+            </mat-checkbox>
+        </div>
+    </div>
+
+    <div class="staff-search-results" *ngIf="staffData.length>0 && !isLoading">
+        <app-table [dataHeadersDef]="data_headers" [dataSource]="staffData">
+            <!-- Custom Heads -->
+            <ng-template appTableCustomHead="select">
+                <mat-checkbox (change)="$event ? toggleAllStaffRows() : null"
+                    [checked]="staff_selections.hasValue() && isAllSelected()"
+                    [indeterminate]="staff_selections.hasValue() && !isAllSelected()" [color]="'primary'">
+                </mat-checkbox>
+            </ng-template>
+
+            <ng-template appTableCustomHead="name" let-item>
+                <span class="pr-28 md:pr-36">{{item}}</span>
+            </ng-template>
+            <ng-template appTableCustomHead="id" let-item>
+                <span class="p-2">{{item}}</span>
+            </ng-template>
+
+            <!-- Custom Cells -->
+            <ng-template appTableCustomColumn="id" let-item>
+                <span class="flex justify-center items-center">{{item}}</span>
+            </ng-template>
+            <ng-template appTableCustomColumn="select" let-item>
+                <mat-checkbox (click)="$event.stopPropagation()"
+                    (change)="$event ? staff_selections.toggle(item) : null"
+                    [checked]="staff_selections.isSelected(item) " [color]="'primary'">
+                </mat-checkbox>
+            </ng-template>
+
+            <ng-template appTableCustomColumn="department" let-item>
+                {{item.department_name}}
+            </ng-template>
+
+            <ng-template appTableCustomColumn="additional_charges" let-item>
+                <div *ngIf=" item?.length >= 1">
+                    <span class="cursor-pointer"
+                        [matTooltip]="'at '+item[0].department?.department_name">{{item[0].designation_title}}</span>
+                    <span *ngIf="item.length > 1" [matTooltip]="getDesignationAtDeptStr(item.slice(1))"
+                        class="text-gray-500 cursor-pointer">
+                        +{{item.length - 1}}&nbsp;more
+                    </span>
+                </div>
+            </ng-template>
+
+            <ng-template appTableCustomColumn="employee_titles" let-item>
+                <div *ngIf=" item?.length >= 1">
+                    <span>{{item[0]}}</span>
+                    <span *ngIf="item.length > 1" [matTooltip]="item.slice(1).join(', ')"
+                        class="text-gray-500 cursor-pointer">
+                        +{{item.length - 1}}&nbsp;more
+                    </span>
+                </div>
+            </ng-template>
+
+            <ng-template appTableCustomColumn="employee_committees" let-item>
+                <div *ngIf="item && item.length &&
+                    item.length>0;else noCommittee">
+                    <span>
+                        {{ item.length }}
+                    </span>
+                    <div *ngIf="item.length > 0" class="text-blue-400 cursor-pointer"
+                        [matTooltip]="getCommitteeNames(item)">
+                        see list
+                    </div>
+                </div>
+                <ng-template #noCommittee>
+                    <div>0</div>
+                </ng-template>
+            </ng-template>
+        </app-table>
+    </div>
+    <div *ngIf="isLoading" class="flex justify-center items-center mt-4">
+        <mat-spinner></mat-spinner>
+    </div>
+</div>

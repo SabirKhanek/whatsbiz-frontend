@@ -1,0 +1,120 @@
+<div class="">
+  <!-- First Row -->
+  <div class="border border-gray-900">
+    <h2 class="mb-2 pl-2 pt-2" labelLarge>
+      Your Work &rarr; Changes to the Minutes and Tasks
+    </h2>
+  </div>
+<div labelRegular>
+  <!-- Second Row -->
+  <div class="flex justify-between ">
+    <div class="w-1/2 p-4 border-b border-gray-500">
+      <!-- Content for the second row - First Column -->
+
+      <div class="flex items-center mb-2 pt-3">
+        <label for="assignedBy" class="mr-4">Assigned By : System on __________
+        </label>
+      </div>
+
+      <div class="flex items-center ml-14">
+        <label for="date" class="pt-3 mr-4 ">Due: May 18, 2023</label>
+      </div>
+    </div>
+
+    <div class="w-1/2 px-4 border-b border-gray-500">
+      <!-- Content for the second row - Second Column -->
+      <!-- <p class="bg-gray-200 py-4">Second Row - Second Column</p> -->
+    </div>
+  </div>
+
+
+  <!-- Third Row -->
+  <div class="flex justify-between">
+    <div class="w-1/2 border-b border-r border-gray-500">
+      <!-- Content for the third row - First Column -->
+
+      <div class="p-4">
+        <p class="text-center mb-3 " labelLarge>Finance and planning committee</p>
+        <p class="text-center">Agenda items from meeting {{ selectedDate }}</p>
+      </div>
+
+      <div class="mt-2">
+        <div class="border-y border-gray-500 p-3">
+          <p>1. Approve salary increase for everyone</p>
+        </div>
+
+        <div class="p-4">
+          <ol type="1" class="list-decimal p-4">
+            <li>
+              A 5% increase was approved for grades less then 16 and 7% for
+              grades 17 and above
+            </li>
+
+            <li class="mt-12">
+              Task: Process pay increase for july 2023 pay period
+              <div class="px-8">
+                <div class="flex items-center">
+                  <p>Assigned By: {{ assignedBy }}</p>
+                </div>
+
+                <div class="flex items-center ml-5">
+                  <p>Due Date: {{ selectedDate }}</p>
+                </div>
+              </div>
+            </li>
+          </ol>
+        </div>
+
+        <div class="border-y border-gray-500 p-3 mt-12">
+          <p>2. Allocate Rs.500,000 for the purpose of the upgrading bounes</p>
+        </div>
+
+        <div class="px-4 pt-4">
+          <ol type="1" class="list-decimal px-4 pt-4">
+            <li>Only Rs:40000 was Appproved</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <div class="w-1/2 p-4 border-b border-gray-500">
+      <!-- Content for the third row - Second Column -->
+
+      <p class="text-center">Agenda # 1 Mintutes and Tasks</p>
+
+      <div class="mt-[115px] p-4">
+        <label for="Approve" class="flex items-center">
+          <span class="mr-2 text-green-500">&#10003;</span>
+          <p class="text-green-500">Approve</p>
+        </label>
+      </div>
+
+      <div class="p-4 flex py-8">
+        <label
+          for="myInput"
+         class="text-red-700"
+          >Change:</label
+        >
+        <div class="text-red-700 pl-3 ">
+          <p>Please create a task to update the budget and assign it to Dr.____</p>
+        </div>
+      </div>
+
+      <div class="mt-[55px] px-4 pt-20">
+        <label for="Approve" class="flex items-center">
+          <span class="mr-2 text-green-500">&#10003;</span>
+          <p class="text-green-500">Approve</p>
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="flex items-center justify-center mt-2 p-2">
+    <button
+      buttonLarge
+      routerLink="/dashboard/committee-constitution/view-committe"
+    >
+      Mark Completed
+    </button>
+  </div>
+</div>

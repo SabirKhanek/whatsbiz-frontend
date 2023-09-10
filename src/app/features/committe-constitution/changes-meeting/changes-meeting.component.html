@@ -1,0 +1,143 @@
+<div class="border border-gray-900" labelLarge>
+  <h2 class="mb-2 pl-2 pt-2">
+    Committe name &rarr; Changes to Committee Meeting
+  </h2>
+</div>
+
+<div class="assignment border border-l-gray-700" labelRegular>
+  <label for="name" class="block mb-2 pt-2 ml-[6.4%]"
+    >Assigned By : System on __________
+  </label>
+  <label for="name" class="block mb-2 ml-[10%]">Due : May 18, 2023 </label>
+</div>
+
+<div class="grid grid-cols-2 " labelRegular>
+  <div class="grid grid-rows-9 ">
+    <!-- Content for each row -->
+    <div class="border border-grey-300 h-12 flex items-center pl-[19%] ">
+      
+        <span class=" ">
+          Committe: &nbsp;&nbsp;&nbsp;&nbsp; ABCD
+        </span>
+     
+    </div>
+    <div class=" border border-grey-300 h-12  flex items-center pl-[23.7%] ">
+      
+        <span for="Date">Date: &nbsp;&nbsp;&nbsp;&nbsp;24-05-2023 </span>
+      
+    </div>
+    <div class=" border border-grey-300 h-12  flex items-center pl-[23.7%]">
+     
+        <span for="Time">Time:&nbsp;&nbsp;&nbsp;&nbsp;24-05-2023 </span>
+      
+    </div>
+    
+    
+    
+    <div class=" border border-grey-300 h-12  flex items-center pl-[23%]">
+      <div class="">
+        <span for="Time">Guest: </span>
+      </div>
+    </div>
+    <div class=" border border-grey-300 h-12  flex items-center pl-[21.5%]">
+      <div>
+        <ul class="flex">
+          <li class="py-4">Agenda:</li>
+          
+        </ul>
+      </div>
+    </div>
+    <div class=" border border-grey-300 h-12  flex items-center pl-[21.5%]">
+        <div>
+          <ul class="flex">
+           
+            <li class="pl-10">1:Approve salery increase for everyone</li>
+          </ul>
+        </div>
+      </div>
+    <div class=" border border-grey-300 h-12  flex items-center pl-[21.5%]">
+        <div>
+          <ul class="flex">
+            <li class="pl-10">2:Allocate Rs. 500,000 for the epurpose of upgrading banches</li>
+          </ul>
+        </div>
+      </div>
+  </div>
+  <div class="grid grid-rows-9">
+    <!-- Content for each row -->
+    <div class="border border-grey-300 h-12 flex items-center pl-4">
+     
+    </div>
+    <div class="border border-grey-300 h-12 flex items-center pl-4">
+        <span class="text-green-500">Approved</span>
+    </div>
+    <div class="border border-grey-300 h-12 flex items-center pl-4">
+        <span class="text-green-500">Approved</span>
+    </div>
+    
+    <div class="border border-grey-300 h-12 flex items-center pl-4">
+      <span class="text-red-700">Change: Please add Anjum as guest.</span>
+    </div>
+    <div class="border border-grey-300 h-12 flex items-center pl-4">
+    </div>
+    
+    <div class="border border-grey-300 h-12 flex items-center pl-4">
+        <span class="text-green-500">Approved</span>
+      </div>
+      
+    <div class="border border-grey-300 h-12 flex items-center pl-4">
+        <span class="text-red-700">Change: Please change the amount to 300,000.</span>
+      </div>
+  </div>
+</div>
+
+      <!-- popup1 -->
+      <div
+        id="popup"
+        class="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50 hidden"
+        labelRegular
+      >
+        <div
+          class="bg-white p-8 rounded-lg"
+          (keyup.enter)="updateData(); closePopUp()"
+        >
+          <div class="mb-4">Change:</div>
+          <div>
+            <textarea
+              autofocus
+              id="Instruction"
+              rows="6"
+              [(ngModel)]="popupInput"
+              class="border rounded py-2 w-96"
+              inputLarge
+            >
+            </textarea>
+          </div>
+          <div class="flex justify-between">
+            <button
+              id="closeBtn"
+              class="border-blue-400 border text-blue-400 px-4 rounded-lg py-2 mt-2"
+              (click)="closePopUp()"
+            >
+              Close
+            </button>
+            <button
+              (click)="updateData(); closePopUp()"
+              class="border-blue-400 border text-blue-400 px-4 rounded-lg py-2 mt-2"
+            >
+              Done
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="m-2">
+        <div class="button-container flex justify-center">
+          <button
+            routerLink="/dashboard/committee-constitution/view-committe"
+            buttonLarge
+          >
+            Mark Completed
+          </button>
+        </div>
+      </div>

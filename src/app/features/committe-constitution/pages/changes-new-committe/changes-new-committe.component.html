@@ -1,0 +1,166 @@
+<div class="w-full ">
+    <div class="border border-gray-900">
+        <h2 class="text-xl mb-2 pl-2 pt-2">
+            Your Work &rarr; Process New Committee Formation
+        </h2>
+    </div>
+    <div class="assignment border border-l-gray-700">
+        <label for="name" class="block mb-2 text-lg pt-2 ml-24">Assigned By : System on __________
+        </label>
+        <label for="name" class="block mb-2 text-lg ml-40 pl-1">Due : May 18, 2023
+        </label>
+    </div>
+    <!-- both boxes are merge here -->
+
+    <div class="grid grid-cols-2 h-full w-full">
+        <div class="border border-gray-300 border-r-0">
+            <div class="">
+                <div class="   space-y-4">
+                    <div class=" flex items-center justify-center ml-6">
+                        <label for="name" class=" ml-[10%] block  text-lg  text-right  ">Name:
+                        </label>
+                        <input id="name" type="text" [(ngModel)]="name" class="border rounded w-[89%]  " />
+
+                    </div>
+                    <hr class="border-t border-gray-400  ">
+                    <div class=" flex items-center justify-start gap-4">
+                        <label class="ml-[12%] block text-lg  text-right">Scope: </label>
+                        <div class=" flex">
+                            <div class="radio-group">
+                                <input type="radio" id="radioInput01" name="radioGroup"
+                                    class="form-radio h-4 w-4 mr-2" />
+                                <label for="radioInput01" class="text-lg text-gray-600 ">GCU</label>
+                            </div>
+                            <div class="radio-group">
+                                <input type="radio" id="radioInput02" name="radioGroup"
+                                    class="form-radio  h-4 w-4 mr-2 ml-4" />
+                                <label for="radioInput02" class="text-lg text-gray-600">DEPARTMENT</label>
+                            </div>
+                        </div>
+
+                    </div>
+                    <hr class="border-t border-gray-400  ">
+                    <div class="form-group py-[2%] mb-[2%] flex">
+                        <label for="purpose" class="ml-[9%] block text-lg pr-[0.7%] pl-[1%] self-center">Purpose:
+
+                        </label>
+                        <textarea id="purpose" [(ngModel)]="purpose" rows="3"
+                            class="border rounded py-2 w-[88%]"></textarea>
+
+                    </div>
+                    <hr class="border-t border-gray-400  ">
+                    <div class="form-group">
+                        <div class="ml-[9%]  flex justify-between items-center">
+                            <span class="text-lg">Secretary: Tayyab Sharif</span>
+                        </div>
+                        <hr class="border-t border-gray-400  ">
+                        <div class="ml-[9%] flex justify-between items-center pt-1">
+                            <span class="text-lg">Convenor: Ahsan Munir </span>
+
+                        </div>
+                        <hr class="border-t border-gray-400  ">
+                        <div class="ml-[9%] flex justify-between items-center pt-1">
+                            <span class="text-lg">Members: Dr.X ,Dr.Y</span>
+                        </div>
+                        <hr class="border-t border-gray-400  ">
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- box2 -->
+        <div class="border border-gray-300">
+            <div class="  ">
+                <div class=" flex  mb-4 mt-1 ">
+                    <div class="text-green-600 ">
+                        <span class="text-green-600" *ngIf="sharedData.name===''">&#x2713; Approved</span>
+                        <span class="text-red-500 flex">
+                            <p *ngIf="sharedData.name!==''">  changes: {{sharedData.name}}</p>
+                        </span>
+
+                    </div>
+
+                </div>
+                <hr class="border-t border-gray-400  ">
+            </div>
+
+
+            <div class="mb-8 pb-1">
+                <div class=" flex  mb-4 mt-4">
+                    <div class="text-green-600">
+                        <span class="text-green-600" *ngIf="sharedData.scope===''">&#x2713; Approved</span>
+                        <span class="text-red-500 flex">
+                            <p *ngIf="sharedData.scope!==''">   changes: {{sharedData.scope}}</p>
+                        </span>
+
+                    </div>
+                </div>
+                <hr class="border-t border-gray-400  ">
+            </div>
+
+            <div class="mt-12   ">
+                <div class=" mb-[5%] pb-2 mt-[4%] flex">
+                    <span class="text-green-600" *ngIf="sharedData.purpose===''">&#x2713; Approved</span>
+                    <span class="text-red-500 flex">
+                        <p *ngIf="sharedData.purpose!==''">   changes: {{sharedData.purpose}}</p>
+                    </span>
+                </div>
+                <hr class="border-t border-gray-400  ">
+            </div>
+
+            <div class=" ">
+                <div class=" flex mt-[1%] mb-[2%]">
+                    <div class="text-green-600">
+                        <span class="text-green-600" *ngIf="sharedData.secretary===''">&#x2713; Approved</span>
+                        <span class="text-red-500 flex">
+                            <p *ngIf="sharedData.secretary!==''">   changes: {{sharedData.secretary}}</p>
+                        </span>
+
+                    </div>
+                </div>
+                <hr class="border-t border-gray-400  ">
+            </div>
+
+            <div class="mt-[1%] ">
+                <div class=" flex">
+                    <div class="text-green-600">
+                        <span class="text-green-600" *ngIf="sharedData.convenor===''">&#x2713; Approved</span>
+                        <span class="text-red-500 flex">
+                            <p *ngIf="sharedData.convenor!==''">  changes: {{sharedData.convenor}}</p>
+                        </span>
+                    </div>
+                </div>
+                <hr class="border-t border-gray-400  ">
+            </div>
+
+            <div class="mt-[1%] py-1  ">
+                <div class=" flex">
+                    <div class="text-green-600">
+                        <span class="text-green-600" *ngIf="sharedData.members===''">&#x2713; Approved</span>
+                        <span class="text-red-500 flex">
+                            <p *ngIf="sharedData.members!==''">   changes: {{sharedData.members}}</p>
+                        </span>
+                    </div>
+                </div>
+                <hr class="border-t border-gray-400  ">
+            </div>
+            <div class="form-group py-[2%] mb-[2%] flex">
+                <label for="purpose" class="block text-lg pr-[0.7%] pl-[1%] self-center">Notes:
+
+                </label>
+                <textarea id="purpose" [(ngModel)]="purpose" rows="3" class="border rounded py-2 w-[88%]"></textarea>
+
+            </div>
+        </div>
+
+    </div>
+    <div class="button-container flex justify-center">
+        <button routerLink="/dashboard/committee-constitution/new-committee"
+            class="border-blue-400 border text-blue-400 px-4 rounded-lg py-2 mt-2 ">
+            Mark Completed
+        </button>
+    </div>
+</div> <!-- <div>{{items}}</div> -->

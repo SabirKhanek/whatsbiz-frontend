@@ -1,0 +1,172 @@
+<div class="w-[100%] flex justify-center h-[calc(100vh-95px)] overflow-y-auto">
+  <div class="w-[60%] bg-white">
+    <div class="mt-5 ml-5">
+      <p class="text-[25px]">Pending Task</p>
+    </div>
+    <div class="w-[100%] flex justify-center">
+      <div class="w-[90%] bg-red-500">
+        <div class="border-2 overflow-x-auto">
+          <table
+            class="w-full text-left"
+          >
+            <thead tableHeader>
+              <tr>
+                <th scope="col" class=""></th>
+                <th scope="col" class="">Overdue</th>
+                <th scope="col" class="">Due Today</th>
+                <th scope="col" class="">Due this Week</th>
+                <th scope="col" class="">Total</th>
+              </tr>
+            </thead>
+            <thead tableHeader>
+              <tr>
+                <th scope="col" class="text-right">Total</th>
+                <th scope="col" routerLink="/dashboard/task-management/assignedToYou" tableClickableCell class="px-6 py-3 text-right">5</th>
+                <th scope="col" routerLink="/dashboard/task-management/assignedToYou" tableClickableCell class="px-6 py-3 text-right">10</th>
+                <th scope="col" routerLink="/dashboard/task-management/assignedToYou" tableClickableCell class="px-6 py-3 text-right">20</th>
+                <th scope="col" routerLink="/dashboard/task-management/assignedToYou" tableClickableCell class="px-6 py-3 text-right">30</th>
+              </tr>
+            </thead>
+            <tbody>
+             
+              <tr class="bg-white dark:bg-gray-800 dark:border-gray-700">
+                <th
+                  scope="row"
+                  class=" text-gray-900 whitespace-nowrap dark:text-white"
+                >
+                  Registrar
+                </th>
+                <td class=""></td>
+                <td class=""></td>
+                <td class=""></td>
+                <td class=""></td>
+              </tr>
+              <tr class="bg-white dark:bg-gray-800">
+                <th
+                  scope="row"
+                  class=" text-gray-900 whitespace-nowrap dark:text-white"
+                >
+                  Treausrer
+                </th>
+                <td class=""></td>
+                <td class=""></td>
+                <td class=""></td>
+                <td class=""></td>
+              </tr>
+
+              <tr class="bg-white dark:bg-gray-800">
+                <th
+                  scope="row"
+                  class=" text-gray-900 whitespace-nowrap text-left dark:text-white"
+                >
+                  Dean
+                </th>
+                <td class="px-6 py-4"></td>
+                <td class="px-6 py-4"></td>
+                <td class="px-6 py-4"></td>
+                <td class="px-6 py-4"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="w-[100%] flex justify-center">
+      <div class="w-[100%]">
+        <div class="mt-[30px] ml-5 flex">
+          <p class="text-[25px] ml-3">Completed Task</p>
+          <div class="dropdown">
+            <button
+              (click)="toggleDropdown()"
+              class="w-[200px] bg-transparent px-3 py-2 flex justify-self-center rounded-lg cursor-pointer border-2 border-blue-400 "
+              type="button"
+            >
+              <p class="w-[90%] text-blue-400">
+                {{ selectedOption ? selectedOption : "Last 30 Days" }}
+              </p>
+              <mat-icon class="text-blue-600" *ngIf="!isDropdownOpen">keyboard_arrow_up</mat-icon>
+              <mat-icon class="text-blue-600" *ngIf="isDropdownOpen">keyboard_arrow_down</mat-icon>
+            </button>
+            <ul *ngIf="isDropdownOpen" class="dropdown-menu">
+              <li class="dropdown-item text-blue-400" (click)="selectOption('Last 30 Days')">
+                Last 30 Days
+              </li>
+              <li class="dropdown-item text-blue-400" (click)="selectOption('Last 60 Days')">
+                Last 60 Days
+              </li>
+              <li class="dropdown-item text-blue-400" (click)="selectOption('This Year')">
+                This Year
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="w-[100%] flex justify-center">
+          <div class="w-[90%] h-[500px] bg-white">
+            <div class="w-[100%] mt-[30px]">
+              <table
+                class="w-[100%]"
+              >
+                <thead tableHeader>
+                  <tr class="w-[100%]">
+                    <th scope="col" class="px-6 py-3"></th>
+                    <th scope="col" class="px-6 py-3">Within Due Date</th>
+                    <th scope="col" class="px-6 py-3">After Due Date</th>
+                    <th scope="col" class="px-6 py-3">
+                      Completion Staisfaction Average
+                    </th>
+                  </tr>
+                </thead>
+                <thead>
+                  <tr>
+                    <th scope="col" class="px-6 py-3 text-right">Total</th>
+                    <th scope="col" class="px-6 py-3"></th>
+                    <th scope="col" class="px-6 py-3"></th>
+                    <th scope="col" class="px-6 py-3"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                
+                  <tr>
+                    <th
+                      scope="row"
+                      class="text-left"
+                    >
+                      Registrar
+                    </th>
+                    <td class="px-6 py-4"></td>
+                    <td class="px-6 py-4"></td>
+                    <td class="px-6 py-4"></td>
+                  </tr>
+                  <tr class="bg-white dark:bg-gray-800">
+                    <th
+                      scope="row"
+                      class="text-left"
+                    >
+                      Treausrer
+                    </th>
+                    <td class="px-6 py-4"></td>
+                    <td class="px-6 py-4"></td>
+                    <td class="px-6 py-4"></td>
+                  </tr>
+
+                  <tr class="bg-white dark:bg-gray-800">
+                    <th
+                      scope="row"
+                      class="text-left"
+                    >
+                      Dean
+                    </th>
+                    <td class="px-6 py-4"></td>
+                    <td class="px-6 py-4"></td>
+                    <td class="px-6 py-4"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

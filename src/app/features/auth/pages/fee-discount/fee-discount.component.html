@@ -1,0 +1,46 @@
+<div class="max-w-md mx-auto mt-10">
+  <form>
+
+    <div class="mb-4">
+      <label class="block font-medium text-sm text-gray-700" for="studentId">
+        Student Roll No
+      </label>
+      <input inputLarge id="studentId" name="studentId" type="text" />
+    </div>
+    
+    <div class="mb-4">
+      <label
+        class="block font-medium text-sm text-gray-700"
+        for="discountAmount"
+      >
+        Fee Discount Amount
+      </label>
+      <input
+        inputLarge
+        id="discountAmount"
+        name="discountAmount"
+        type="number"
+      />
+    </div>
+
+    <div *ngIf="applyStatus && receivedResponse" class="mb-4 mr-[115px]">
+      <p class="text-green-500 text-center">Discount Approved</p>
+    </div>
+    <div *ngIf="applyStatus && !receivedResponse" class="mb-4 mr-[115px]">
+      <p class="text-red-500 text-center">Discount Not Approved</p>
+    </div>
+  </form>
+
+  <div class="flex items-center justify-center mt-8 mr-[115px]">
+    <button
+      class="border border-blue-400 border-solid text-blue-400 font-bold py-2 px-4 rounded"
+      type="submit"
+      (click)="openTfaPopup()"
+    >
+      Apply
+    </button>
+    <app-tfa-popup
+      (verificationStatus)="onDataReceived($event)"
+    ></app-tfa-popup>
+  </div>
+</div>

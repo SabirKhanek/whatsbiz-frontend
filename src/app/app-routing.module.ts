@@ -1,86 +1,87 @@
-import { CoreUiComponentsDemoComponent } from './core-ui-components-demo/core-ui-components-demo.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { WhatsappConnectionComponent } from './whatsapp-connection/whatsapp-connection';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { authGuard, notAuthGuard } from './guards/auth.guard';
-import { LoginComponent } from './login/login.component';
-import { LogoutComponent } from './logout/logout.component';
-import { ChatComponent } from './chat/chat.component';
-import { SettingsComponent } from './settings/settings.component';
-import { ProductsComponent } from './products/products.component';
-import { WaGroupsComponent } from './features/wa-groups/groups-dashboard/groups.component';
-import { NotFoundComponent } from './not-found/not-found.component';
-import { WaGroupCollectionsComponent } from './features/wa-groups/group-collections-dashboard/group-collections.component';
-import { PostAdComponent } from './features/post-ad/dashboard/post-ad.component';
-import { AdsDashboardComponent } from './features/ads/dashboard/ads-dashboard.component.';
-import { AdListingComponent } from './features/ads/ad-listing/ad-listing.component';
-
+import { LoginComponent } from './core/components/login/login.component';
+import { SearchComponent } from './features/student_staff_search/pages/search/search.component';
+import { HomeComponent } from './core/components/home/home.component';
+import { AuthGuard } from './features/auth/guard/auth.guard';
+import { NotFoundComponent } from './features/student_clearance/pages/not-found/not-found.component';
+import { ClearnaceApplicationsComponent } from './features/student_clearance/components/clearnace-applications/clearnace-applications.component';
+import { ManageAdminComponent } from './features/student_clearance/components/manage-admin/manage-admin.component';
+import { CreateAdminComponent } from './features/student_clearance/components/create-admin/create-admin.component';
+import { CommitteComponent } from './features/committe-constitution/pages/committe/committe.component';
+import { DigitalSignatureComponent } from './features/digital-signature/pages/digital-signature/digital-signature.component';
+import { TasksComponent } from './features/task-management/pages/tasks/tasks.component';
+import { LayoutComponent } from './features/committe-constitution/layout.component';
+import { UserHomeComponent } from './core/components/user-home/user-home.component';
+import { ShowupComponent } from './tailwind-directives/showup/showup.component';
 const routes: Routes = [
   {
-    path: 'whatsapp-connection',
-    component: WhatsappConnectionComponent,
-    canActivate: [authGuard]
-  },
-  {
     path: 'dashboard',
-    component: DashboardComponent,
-    canActivate: [authGuard]
+    component: HomeComponent,
+    // canActivate: [AuthGuard],
+    children: [
+      {
+        path: 'home',
+      component: UserHomeComponent,
+        // canActivate: [AuthGuard],
+      },
+      {
+        path: 'showup',
+      component: ShowupComponent,
+        // canActivate: [AuthGuard],
+      },
+      {
+        path: 'auth',
+        loadChildren: () => import('./features/auth/auth.module').then(m => m.AuthModule),
+        // canActivate: [AuthGuard],
+      },
+      {
+        path: 'clearance-applications',
+        loadChildren: () => import('./features/student_clearance/student-clearance.module').then(m=>m.StudentClearanceModule),
+        // canActivate: [AuthGuard],
+      }, 
+      
+      {
+        path: 'task-management',
+        // component: TasksComponent,
+        loadChildren: () => import('./features/task-management/task-management.module').then(m => m.TaskManagementModule),
+        // canActivate: [AuthGuard],
+      },
+  
+      {
+        path: 'committee-constitution',
+        loadChildren: () => import('./features/committe-constitution/committe-constitution.module').then(m => m.CommitteConstitutionModule),
+      },
+      {
+        path: 'digital-signature',
+        // component: DigitalSignatureComponent,
+        loadChildren: () => import('./features/digital-signature/digital-signature.module').then(m => m.DigitalSignatureModule),
+        // canActivate: [AuthGuard],
+      },
+
+      {
+        path: 'manage-admins',
+        component: ManageAdminComponent,
+        // canActivate: [AuthGuard],
+      },
+      {
+        path: 'create-new-admin',
+        component: CreateAdminComponent,
+        // canActivate: [AuthGuard],
+      },
+      {
+        path: 'search',
+        component: SearchComponent,
+        // canActivate: [AuthGuard],
+      },
+    ],
   },
-  {
-    path: 'login',
-    component: LoginComponent,
-    canActivate: [notAuthGuard]
-  },
-  {
-    path: 'logout',
-    component: LogoutComponent,
-    canActivate: [authGuard]
-  },
-  {
-    path: 'post-ad',
-    component: PostAdComponent,
-    canActivate: [authGuard]
-  },
-  {
-    path: 'ads',
-    component: AdsDashboardComponent
-  },
-  {
-    path: 'ads/:id',
-    component: AdListingComponent
-  },
-  {
-    path: 'wa-group-collections',
-    component: WaGroupCollectionsComponent,
-    canActivate: [authGuard]
-  },
-  {
-    path: 'core-ui',
-    component: CoreUiComponentsDemoComponent,
-    canActivate: [authGuard]
-  },
-  {
-    path: 'chat',
-    component: ChatComponent,
-  },
-  {
-    path: 'settings',
-    component: SettingsComponent,
-    canActivate: [authGuard]
-  }, {
-    path: 'products',
-    component: ProductsComponent,
-    canActivate: [authGuard]
-  }, {
-    path: '**',
-    component: DashboardComponent,
-    canActivate: [authGuard]
-  }
+  { path: '', component: HomeComponent },
+  { path: '**', component: NotFoundComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

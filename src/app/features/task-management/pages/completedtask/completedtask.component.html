@@ -1,0 +1,343 @@
+<div class="">
+  <div class="w-[100%] bg-white border-2 border-slate-200">
+    <!-- heading -->
+    <div
+      class="w-[100%] flex border-b-2 border-slate-200 place-items-center py-3"
+    >
+      <p labelLarge class=" ml-4 flex place-items-center">Work assigned to you <mat-icon>arrow_right_alt</mat-icon>  Task</p>
+    </div>
+
+    <div class="w-[100%] bg-white flex pl-4 ">
+      <div class="w-[50%] flex border-r-2 border-slate-200">
+        <!-- task name -->
+        <div class="mt-6 w-[90%]">
+          <div class="w-[100%] flex place-items-center">
+            <p labelLarge>
+              Prepare the list of potential guset speaker for convocation
+            </p>
+          </div>
+          <!-- <div class="w-[70%] text-white rounded bg-red-500 mt-2 flex justify-center place-items-center">
+            <p >Due on <b>Jan-05-2023</b></p>
+            <p class="ml-7">2 working days left</p>
+          </div> -->
+          <div class="w-[100%] py-4 flex place-items-center">
+            <p>
+              Please make sure that there should be atleast on gcu alumni in
+              the list
+            </p>
+          </div>
+          <div class="w-[100%] py-4 place-items-center">
+            <div class="flex">Assigned to &nbsp; <b> Dr. Arslan &nbsp; by &nbsp; Dr. Imran  </b>
+              <div> &nbsp;on <b> &nbsp;Jun 12 2023 </b></div>
+            </div>
+            <div class="flex mt-2">Completed 2 days prior to the due date of &nbsp; <b>Jun 14 2023 </b></div>
+          </div>
+          <div class="w-[100%] mt-5">
+            <div class="flex place-items-center">
+              <div class="flex place-items-center w-[100px]" labelRegular>
+                Attachment 
+              </div>
+              <div class="flex py-3 w-[84%]">
+                <div *ngIf="assignedFile" class="ml-4">
+                  <p>{{ assignedFile.name }}</p>
+                </div>
+                <input
+                  type="file"
+                  class="hidden"
+                  id="fileInput"
+                  disabled
+                  
+                />
+              </div>
+              <div class="w-[100%] flex justify-end ">
+                <label
+                  for="fileInput"
+                  buttonRegular
+                  class="py-2 px-2"
+                >
+                  Attachment
+                </label>
+              </div>
+            </div>
+ 
+         <!-- Tabs -->
+         <div class="mt-3">
+            <!-- <mat-tab-group>
+              <mat-tab label="Working Notes"> 
+                <div class="mt-6">
+                  <div>
+                    <label class="block text-black font-semibold mb-1 md:mb-0 pr-4" for="inline-full-name">
+                      Working Notes
+                    </label>
+                  </div>
+                  <div>
+                    <textarea inputLarge class="w-[100%]" id="inline-full-name" type="text" placeholder="Description"
+                      disabled>Working on various projects</textarea>
+                  </div>
+
+                </div>
+              </mat-tab>
+
+              <mat-tab label="Completion Notes">
+                <div class="mt-6">
+                  <div>
+                    <label class="block text-black font-semibold mb-1 md:mb-0 pr-4" for="inline-full-name">
+                      Completion Notes
+                    </label>
+                  </div>
+                  <div>
+                    <textarea inputLarge class="w-[100%]" id="inline-full-name" type="text" placeholder="Description"
+                      disabled>Task completed successfully</textarea>
+                  </div>
+                </div>
+              </mat-tab>
+
+              <mat-tab label="Feedback">
+                <div class="mt-6">
+
+            <div class="w-[100%] flex justify-center mt-6">
+              <div class="w-[100%] h-[60px] flex place-items-center">
+                <p>Satisfaction Level :</p>
+                <div class="mb-1">
+                  <ng-container *ngFor="let star of [1, 2, 3, 4, 5]">
+                    <span
+                      class="text-2xl mr-1"
+                      [class.text-gray-300]="star > feedback"
+                      [class.text-yellow-400]="star <= feedback"
+                      [class.cursor-pointer]="editable"
+                      (click)="onStarClick(star)"
+                    >
+                      &#9733;
+                    </span>
+                  </ng-container>
+                </div>
+              </div>
+            </div>
+
+                    <div>
+                      <label
+                        class="block text-gray-800 font-semibold mb-1 md:mb-0 pr-4"
+                        for="inline-full-name"
+                      >
+                        Feedback
+                      </label>
+                    </div>
+                    <div>
+                      <textarea
+                      class="w-[100%]"
+                        inputLarge
+                        id="inline-full-name"
+                        type="text"
+                        placeholder="Description"
+                      ></textarea>
+                    </div>
+                    
+                  </div>
+                </mat-tab>
+
+            </mat-tab-group> -->
+            
+              <div class="border-gray-400 border-b-2 p-0 m-0" >
+                <label highlightedTab for="tab1"                      
+                placeholder="Description"
+                labelRegular
+                (click)="selectTab(1)" 
+                >Complection Notes</label
+                >
+                <label for="tab2" (click)="selectTab(2)" [class.active]="selectedTab === 2" tab
+                  >Working Notes</label
+                >
+                <label for="tab3" (click)="selectTab(3)" [class.active]="selectedTab === 3" tab
+                  >FeedBack</label
+                >
+              </div>
+              <div>
+                <div *ngIf="selectedTab === 1"><div class="mt-6">
+                  <div>
+                    <label
+                      labelRegular
+                      for="inline-full-name"
+                    >
+                      Completion Notes
+                    </label>
+                  </div>
+                  <div>
+                    <textarea
+                    inputLarge
+                    disabled 
+                    class="w-[80%] h-[200px] text-black-200"
+                      id="inline-full-name"
+                      type="text"
+                      placeholder="Description"
+                    >Working on Task</textarea>
+                  </div>
+                </div></div>
+                <div *ngIf="selectedTab === 2">
+                  <div class="mt-6">
+                    <div>
+                      <label
+                        lableRegular
+                        for="inline-full-name"
+                      >
+                        Working Notes
+                      </label>
+                    </div>
+                    <div>
+                      <textarea
+                       disabled 
+                       inputLarge
+                       class=" text-black w-[80%] h-[200px]"
+                        id="inline-full-name"
+                        type="text"
+                        placeholder="Description"
+                      >Completed Successfully</textarea>
+                    </div>
+                  
+                </div>
+                
+              </div>
+
+              <div *ngIf="selectedTab === 3"><div class="mt-6">
+              
+            <div class="w-[100%] flex justify-center mt-6">
+              <div class="w-[100%] h-[60px] flex place-items-center">
+                <p>Satisfaction Level :</p>
+                <div class="mb-1">
+                  <ng-container *ngFor="let star of [1, 2, 3, 4, 5]">
+                    <span
+                      class="text-2xl mr-1"
+                      [class.text-gray-300]="star > feedback"
+                      [class.text-black]="star <= feedback"
+                      [class.cursor-pointer]="editable"
+                      (click)="onStarClick(star)"
+                    >
+                      &#9733;
+                    </span>
+                  </ng-container>
+                </div>
+              </div>
+            </div>
+
+                    <div>
+                      <label
+                        labelRegular
+                        for="inline-full-name"
+                      >
+                        Feedback
+                      </label>
+                    </div>
+                    <div>
+                      <textarea
+                        inputLarge
+                        class="text-black w-[80%] h-[200px]"
+                        id="inline-full-name"
+                        type="text"
+                        placeholder="Description"
+                      ></textarea>
+                    </div>
+              </div></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- Chat -->
+
+
+    <div class="w-[50%]">
+      <div class="container mx-auto rounded-lg">
+        <div class="flex flex-row justify-between bg-white">
+          <!-- message -->
+          <div class="w-full  px-5 flex flex-col justify-between">
+            <div class="flex flex-col h-[550px] mt-5  overflow-y-auto">
+              <div class="flex justify-end mb-4">
+                <div>
+                  <div class="flex text-[12px]">Jan 02 2023 <p class="ml-3"> 12:03 </p>
+                  </div>
+                  <div class="mr-2 py-3 px-4 bg-green-300 rounded-bl-3xl rounded-tl-3xl rounded-tr-xl text-white">
+                    Welcome to group everyone !
+                  </div>
+
+                </div>
+              </div>
+              <div class="flex justify-start mr-5 mb-4">
+                <div>
+                  <div class="flex text-[12px]">Jan 02 2023 <p class="ml-3"> 12:04 </p>
+                  </div>
+                  <div class="ml-2 py-3 px-4 bg-gray-200 rounded-br-3xl rounded-tr-3xl rounded-tl-xl text-black">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit
+                  </div>
+                </div>
+              </div>
+              <div class="flex justify-end mb-4">
+                <div>
+                  <div class="flex text-[12px]">Jan 02 2023 <p class="ml-3"> 12:06 </p>
+                  </div>
+                  <div class="mr-2 py-3 px-4 bg-green-300 rounded-bl-3xl rounded-tl-3xl rounded-tr-xl text-white">
+                    Lorem ipsum dolor.
+                  </div>
+                  <div class="mt-4">
+                    <div class="flex text-[12px]">Jan 02 2023 <p class="ml-3"> 12:06 </p>
+                    </div>
+                    <div class=" mr-2 py-3 px-4 bg-green-300 rounded-bl-3xl rounded-tl-3xl rounded-tr-xl text-white">
+                      Lorem ipsum dolor sit amet consectetur
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="flex justify-start mb-4">
+                <div>
+                  <div class="flex text-[12px]">Jan 02 2023 <p class="ml-3"> 12:08 </p>
+                  </div>
+                  <div class="ml-2 py-3 px-4 bg-gray-200 rounded-br-3xl rounded-tr-3xl rounded-tl-xl text-black">
+                    happy holiday guys!
+                  </div>
+                </div>
+              </div>
+              <div class="flex justify-start mb-4">
+                <div>
+                  <div class="flex text-[12px]">Jan 02 2023 <p class="ml-3"> 12:08 </p>
+                  </div>
+                  <div class="ml-2 py-3 px-4 bg-gray-200 rounded-br-3xl rounded-tr-3xl rounded-tl-xl text-black">
+                    happy holiday guys!
+                  </div>
+                </div>
+              </div>
+              <div class="flex justify-start mb-4">
+                <div>
+                  <div class="flex text-[12px]">Jan 02 2023 <p class="ml-3"> 12:08 </p>
+                  </div>
+                  <div class="ml-2 py-3 px-4 bg-gray-200 rounded-br-3xl rounded-tr-3xl rounded-tl-xl text-black">
+                    happy holiday guys!
+                  </div>
+                </div>
+              </div>
+              <div class="flex justify-start mb-4">
+                <div>
+                  <div class="flex text-[12px]">Jan 02 2023 <p class="ml-3"> 12:08 </p>
+                  </div>
+                  <div class="ml-2 py-3 px-4 bg-gray-200 rounded-br-3xl rounded-tr-3xl rounded-tl-xl text-black">
+                    happy holiday guys!
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="py-5">
+              <input class="w-full bg-gray-300 py-5 px-3 rounded-xl" type="text"
+                placeholder="type your message here..." disabled />
+            </div>
+          </div>
+          <!-- end message -->
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+</div>

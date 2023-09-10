@@ -1,0 +1,232 @@
+<div
+  class="w-[100%] min-h-[100%] h-[100%] bg-gray-100 flex items-start justify-around overflow-y-auto"
+>
+  <div
+    class="w-[100%] min-h-[100%] h-[100%] bg-[#fff] px-6 py-8 rounded-lg shadow-lg"
+  >
+    <div class="flex justify-start border-b border-[#000]">
+      <span
+        class="block text-start py-t-2 text-[20px] tracking-wider tracking-[2px]"
+      >
+        Student Clearance: Pre-Graduation 2023 Session
+      </span>
+    </div>
+    <!-- Student Clearance data table -->
+    <div class="pt-[30px] w-[100%] flex items-start justify-center">
+      <table class="table-auto border-collapse w-[80%]">
+        <thead tableHeader>
+          <th class="px-4 py-2">Roll no</th>
+          <th class="px-4 py-2">Student</th>
+          <th class="px-4 py-2">Library</th>
+          <th class="px-4 py-2">Treasure</th>
+          <th class="px-4 py-2">Hostel</th>
+          <th class="px-4 py-2">Department</th>
+          <th class="px-4 py-2">Granted</th>
+        </thead>
+        <tbody>
+          <!-- table row -->
+          <tr
+            tableCell
+            
+          >
+            <td tableClickableCell (click)="modalHandle()" >0353-BSCS-20</td>
+            <td>Hamid</td>
+            <td class="text-center px-10 py-2 text-green-700">Approved</td>
+            <td class="text-center px-10 py-2 text-green-700">Approved</td>
+            <td class="text-center px-10 py-2">NA</td>
+            <td class="text-center px-10 py-2 text-green-700">Approved</td>
+            <td class="text-center px-10 py-2 text-green-700">Approved</td>
+          </tr>
+          <!-- table row -->
+          <tr tableCell >
+            <td tableClickableCell (click)="modalHandle()" >0333-BSCS-20</td>
+            <td >Asfand</td>
+            <td class="text-center px-10 py-2 text-green-700">Approved</td>
+            <td class="text-center px-10 py-2 text-red-700">Pending</td>
+
+            <td class="text-center px-10 py-2">NA</td>
+            <td class="text-center px-10 py-2 text-green-700">Approved</td>
+            <td class="text-center px-10 py-2 text-red-700">Pending</td>
+          </tr>
+          <!-- table row -->
+          <tr tableCell >
+            <td tableClickableCell (click)="modalHandle()">0322-BSCS-20</td>
+            <td >Talha</td>
+            <td class="text-center px-10 py-2 text-green-700">Approved</td>
+            <td class="text-center px-10 py-2 text-green-700">Approved</td>
+            <td class="text-center px-10 py-2">NA</td>
+            <td class="text-center px-10 py-2 text-red-700">Pending</td>
+            <td  class="text-center px-10 py-2 text-red-700">Pending</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- mdal open when clicks on  -->
+    <div
+      *ngIf="modal === true"
+      class="absolute top-0 left-0 right-0 bottom-0 bg-[rgba(0,0,0,0.7)]"
+    >
+      <div class="w-[100%] flex items-center justify-center h-[100%]">
+        <div class="w-[70%] min-h-[550px] bg-[#fff] rounded-lg">
+          <div
+            class="flex justify-start border-b border-[#000] px-6 py-2 relative"
+          >
+            <h1
+              class="block text-start py-t-2 text-[20px] tracking-wider tracking-[2px]"
+            >
+              Student Clearance View -> Talha Qaiser
+            </h1>
+            <button
+              (click)="modalHandle()"
+              class="w-[30px] h-[30px] text-center rounded-tr-md bg-red-900 absolute right-0 top-0 text-[#fff] font-semibold text-[16px] hover:bg-gray-100 hover:text-red-900 transition-all ease duration-300"
+            >
+              x
+            </button>
+          </div>
+          <div class="w-[100%] mt-[30px]">
+            <div class="w-[100%] p-2">
+              <!-- student detail section -->
+              <div class="w-[100%] p-4 text-[16px]">
+                <!-- roll no -->
+                <div class="w-[100%] flex">
+                  <h4 class="font-bold">Roll No:</h4>
+                  <h4 class="px-4 font-normal text-gray-600">0322-BSCS-20</h4>
+                </div>
+                <!-- name -->
+                <div class="w-[100%] flex">
+                  <h4 class="font-bold">Name:</h4>
+                  <h4 class="px-4 font-normal text-gray-600">Talha Qaiser</h4>
+                </div>
+                <!-- Department -->
+                <div class="w-[100%] flex">
+                  <h4 class="font-bold">Department:</h4>
+                  <h4 class="px-4 font-normal text-gray-600">
+                    Computer Science
+                  </h4>
+                </div>
+                <!-- Semester  -->
+                <div class="w-[100%] flex">
+                  <h4 class="font-bold">Semester:</h4>
+                  <h4 class="px-4 font-normal text-gray-600">8th</h4>
+                </div>
+                <div class="flex justify-end text-[14px] gap-2 pt-5">
+                  <h4
+                    class="font-semibold px-6 cursor-pointer py-2 hover:bg-gray-100 flex flex-col tracking-wider"
+                  >
+                    Treasure
+                    <span
+                      class="text-green-600 font-semibold text-[12px] tracking-normal text-center"
+                      >Approved</span
+                    >
+                  </h4>
+                  <h4
+                    class="font-semibold px-6 cursor-pointer py-2 hover:bg-gray-100 flex flex-col tracking-wider"
+                  >
+                    Library
+                    <span
+                      class="text-green-600 font-semibold text-[12px] tracking-normal text-center"
+                      >Approved</span
+                    >
+                  </h4>
+                  <h4
+                    class="font-semibold px-6 cursor-pointer py-2 hover:bg-gray-100 border-b-[2px] border-red-900 bg-gray-100 flex flex-col tracking-wider"
+                  >
+                    Hostel
+                    <span
+                      class="text-red-600 font-semibold text-[12px] tracking-normal text-center"
+                      >Pending</span
+                    >
+                  </h4>
+                  <h4
+                    class="font-semibold px-6 cursor-pointer py-2 hover:bg-gray-100 flex flex-col tracking-wider"
+                  >
+                    Department
+                    <span
+                      class="text-red -600 font-semibold text-[12px] tracking-normal text-center"
+                      >Pending</span
+                    >
+                  </h4>
+                </div>
+              </div>
+              <!-- student clearacne section -->
+              <div class="w-[100%] border-t p-4">
+                <div class="flex items-center justify-center gap-12">
+                  <label for="granted" radioRegular >
+                    <input
+                      type="radio"
+                      id="granted"
+                      name="clearanceStatus"
+                      
+                    />
+                    Granted
+                  </label>
+                  <label for="notgranted" radioRegular >
+                    <input
+                      type="radio"
+                      id="notgranted"
+                      name="clearanceStatus"
+
+                    />
+                    Not Granted
+                  </label>
+                </div>
+                <!--  instruction related section -->
+                <div class="w-[100%] flex pt-4">
+                  <div class="w-[50%] pr-10">
+                    <!-- reson and instruction input -->
+                    <label for="reason" class="font-semibold tracking-wider">
+                      Not Granted Reason & Instructin for Student:
+                      <textarea
+                        name=""
+                        id="reason"
+                        cols="30"
+                        rows="5"
+                        inputLarge
+                        class="resize-none text-[14px] tracking-wider"
+                      ></textarea>
+                    </label>
+                    <!-- fue fees input-->
+                    <label
+                      for="fee"
+                      class="font-semibold tracking-wider mt-[10px] block"
+                    >
+                      Enter Amount of Due Money
+                      <span class="font-normal text-gray-700"
+                        >(if applicable)</span
+                      >:
+                      <input
+                        type="number"
+                        id="fee"
+                        inputLarge
+                        class="text-[14px] font-normal tracking-wider"
+                      />
+                    </label>
+                  </div>
+                  <div class="w-[50%]">
+                    <!-- reson and instruction input -->
+                    <label for="reason" class="font-semibold tracking-wider">
+                      Confidential Note
+                      <span class="font-normal text-gray-700"
+                        >(Not shared with student)</span
+                      >:
+                      <textarea
+                        name=""
+                        id="reason"
+                        cols="30"
+                        rows="9"
+                        inputLarge
+                        class=" resize-none  text-[14px] tracking-wider"
+                      ></textarea>
+                    </label>
+                  </div>
+                </div>
+               
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

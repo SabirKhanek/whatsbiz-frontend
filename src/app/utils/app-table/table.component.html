@@ -1,0 +1,44 @@
+<div>
+    <table [ngClass]="{
+        'table-auto': autoWidth,
+        'table-fixed': !autoWidth
+    }" class="w-full text-sm text-left text-black">
+        <thead class="text-white bg-dark-grey">
+            <tr>
+                <th *ngFor="let data_head of table_headers" scope="col" tableHeader>
+                    <ng-container
+                        *ngIf="customHeadTemplates[data_head.columnId]; then custom; else notCustom"></ng-container>
+                    <ng-template #custom>
+                        <ng-container
+                            *ngTemplateOutlet="getPropFromObj(customHeadTemplates, data_head.columnId); context: { $implicit: data_head.columnAlias || data_head.columnId}">
+                        </ng-container>
+                    </ng-template>
+                    <!-- Data fetched from the data source -->
+                    <ng-template #notCustom>
+                        {{ data_head.columnAlias || data_head.columnId }}
+                    </ng-template>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let data_row of dataToDisplay" class="bg-white border-b">
+                <td *ngFor="let data_head of table_headers" tableCell>
+                    <ng-container
+                        *ngIf="customCellTemplates[data_head.columnId]; then custom; else notCustom"></ng-container>
+                    <!-- Custom Template Injection -->
+                    <ng-template #custom>
+                        <ng-container
+                            *ngTemplateOutlet="getPropFromObj(customCellTemplates, data_head.columnId); context: { $implicit: getPropFromObj(data_row, data_head.columnId) ? getPropFromObj(data_row, data_head.columnId) : data_row }">
+                        </ng-container>
+                    </ng-template>
+                    <!-- Data fetched from the data source -->
+                    <ng-template #notCustom>
+                        {{ getPropFromObj(data_row, data_head.columnId) }}
+                    </ng-template>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<app-table-pagination *ngIf="pagination" class="" [dataArray]="data" [itemsPerPage]="pageSize"
+    (onPageChange)="handlePageChange($event)"></app-table-pagination>

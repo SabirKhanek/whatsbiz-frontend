@@ -1,0 +1,9 @@
+.margin-left{
+
+    margin-left:   1rem;
+}
+
+.custom-menu-width .mat-menu-panel {
+    width: 300px; /* Adjust the width value according to your needs */
+  }
+  

@@ -1,0 +1,217 @@
+
+      
+        <div class="w-[100%] mt-[0px]  border-slate-200">
+          <div
+            class="flex justify-start relative border-b-2 border-slate-200 place-items-center"
+          >
+            <div labelLarge class="ml-3">New Task</div>
+          </div>
+
+          <div class="w-[95%] ml-auto mr-auto mt-5">
+            <form class="w-[100%] mb-12">
+              <div class="flex  place-items-center mb-6">
+                <div class="w-[100px]">
+                  <label
+                   labelRegular
+                    class="w-[100px] h-[50px] place-items-center justify-end flex text-gray-800 md:text-right mb-1 md:mb-0 pr-4"
+                    for="inline-full-name"
+                  >
+                    Related To
+                  </label>
+                </div>
+                <div>
+                     <input
+                    required
+                    id="inline-full-name"
+                    inputLarge
+                    type="text"
+                    placeholder="Related To"
+                  />
+                </div>
+                <div class=" ml-12 flex justify-center">
+                  <div class="h-[60px] flex place-items-center">
+                    <label class="ml-3" labelRegular>Priority</label>
+                    <div class="flex items-center ml-6">
+                      <input
+                        id="default-checkbox"
+                        name="low"
+                        type="radio"
+                        value=""
+                        class="w-4 h-4 text-black outline-none bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                      />
+                      <label
+                        for="default-checkbox"
+                        class="ml-2  text-black dark:text-black"
+                        labelRegular
+                        >Low</label
+                      >
+                    </div>
+                    <div class="flex items-center ml-10">
+                      <input
+                        id="default-checkbox"
+                        name="low"
+                        type="radio"
+                        labelLarge
+                        value=""
+                        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                      />
+                      <label
+                        for="default-checkbox"
+                        labelRegular
+                        class="ml-2 text-black dark:text-black"
+                        >Medium</label
+                      >
+                    </div>
+                    <div class="flex items-center ml-10">
+                      <input
+                        id="default-checkbox"
+                        name="low"
+                        type="radio"
+                        value=""
+                        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                      />
+                      <label
+                        for="default-checkbox"
+                        labelRegular
+                        class="ml-2 text-black dark:text-black"
+                        >High</label
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="flex  place-items-center mb-6">
+                <div class="w-[100px]">
+                  <label
+                    class="w-[100px] h-[50px] place-items-center flex justify-end text-black md:text-right mb-1 md:mb-0 pr-4"
+                    labelRegular
+                    for="inline-full-name"
+                  >
+                    Title
+                  </label>
+                </div>
+                <div>
+                  <input
+                    required
+                    inputLarge
+                    id="inline-full-name"
+                    type="text"
+                    placeholder="Title"
+                  />
+                </div>
+                <div>
+                  <label
+                    class="ml-12 h-[50px] place-items-center justify-end flex text-black md:text-right mb-1 md:mb-0 pr-4"
+                    labelRegular
+                    for="inline-full-name"
+                  >
+                    Assign To
+                  </label>
+                </div>
+                <div class="">
+                  <input
+                    required
+                    inputLarge
+                    class="selectStudent"
+                    value={{student}}
+                    id="inline-full-name"
+                    type="text"
+                    placeholder="search and select staff"
+                  />
+                </div>
+                
+                <div class="border-2 cursor-pointer flex place-items-center px-1 border-black h-[40px] rounded-lg ml-2 text-[#a14c4c]" (click)="openDialog()">
+                  <mat-icon >arrow_downward</mat-icon>
+                </div>
+              </div>
+              <div class="md:flex place-items-center md:items-center mb-6">
+                <div class="w-[100px] h-[150px] flex place-items-center">
+                  <label
+                    class="w-[100px]  text-black md:text-right mb-1 md:mb-0 pr-4"
+                    for="inline-full-name"
+                    labelRegular
+                  >
+                    Description
+                  </label>
+                </div>
+                <div>
+                  <textarea
+                    inputLarge
+                    id="inline-full-name"
+                    type="text"
+                    placeholder="Description"
+                  ></textarea>
+                </div>
+
+                <div class="md:flex md:items-center">
+                  <div >
+                    <label
+                      class="ml-12  h-[50px] place-items-center flex text-black md:text-right mb-1 md:mb-0 pr-4"
+                      for="inline-full-name"
+                      labelRegular
+                    >
+                      Due Date
+                    </label>
+                  </div>
+                  <div class="">
+                    <input
+                      required
+                      class="ring-black focus:text-primary px-4 rounded-lg py-2 focus:bg-transparent bg-transparent placeholder:text-black focus:placeholder:text-primary focus:ring-[3px] ring-1 focus:ring-primary focus:outline-none outline-none w-80 text-black text-base"
+                      type="date"
+                      placeholder=""
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <!-- Attachment -->
+              <div class="flex">
+              <div class="flex place-items-center">
+                <div labelRegular class="flex place-items-center w-[100px]">
+                  Attachment
+                </div>
+              </div>
+              <div class="flex border-slate-200 py-3 w-[25%]">
+                <div class="mr-3 border-slate-200 flex place-items-center">
+                  <p>{{ selectedFile ? selectedFile.name : 'No file selected' }}</p>
+                </div>
+                <input
+                  type="file"
+                  
+                  class="hidden"
+                  id="fileInput"
+                  (change)="handleFileChange($event)"
+                />
+              </div>
+              
+              <div class="flex justify-end">
+                <label
+                  for="fileInput" 
+                  class="cursor-pointer self-center"
+                  buttonRegular
+                >
+                  Attach
+                </label>
+              </div>
+            </div>
+
+              <div class="w-[100%] flex justify-center mt-10">
+                <button
+                buttonLarge
+                  class="mr-5"
+                >
+                  Assign
+                </button>
+                <button
+                buttonLarge
+                >
+                  Save Draft
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      
+  
+
+

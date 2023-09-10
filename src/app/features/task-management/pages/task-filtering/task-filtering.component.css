@@ -1,0 +1,22 @@
+/* .tabs {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+  }
+  
+  .tab {
+    cursor: pointer;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-bottom: none;
+  }
+  
+  .tab.active {
+    background-color: #ccc;
+  }
+  
+  .tab-content {
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+   */

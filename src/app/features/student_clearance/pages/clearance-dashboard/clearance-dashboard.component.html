@@ -1,0 +1,366 @@
+<div
+  class="w-[100%] min-h-[100%] h-[100%] bg-gray-100 flex items-start justify-around overflow-y-auto "
+>
+  <div
+    class="w-[100%] h-auto bg-[#fff] px-6 py-8"
+  >
+    <div class="flex justify-start border-b border-[#000] pb-2">
+      <span
+        class="block text-center py-t-2 text-[20px] tracking-wider tracking-[2px]"
+      >
+        Student Clearance Dashboard
+      </span>
+    </div>
+    <div class="w-[100%] mt-[30px]">
+      <div class="flex items-center justify-center gap-6 w-[100%]">
+        <!-- Bacholers checkbox -->
+        <label for="bacholers" class="checkbox-title cursor-pointer">
+          <input
+            type="checkbox"
+            name="degree-select"
+            id="bacholers"
+            value="bacholers"
+            class="checkbox-input"
+            checked
+          />
+          Bacholers
+        </label>
+        <!-- Masters checkbox -->
+        <label for="masters" class="checkbox-title cursor-pointer">
+          <input
+            type="checkbox"
+            name="degree-select"
+            id="masters"
+            value="masters"
+            class="checkbox-input"
+            checked
+          />
+          Masters
+        </label>
+        <!-- MPhill checkbox -->
+        <label for="mphill" class="checkbox-title cursor-pointer">
+          <input
+            type="checkbox"
+            name="degree-select"
+            id="mphill"
+            value="mphill"
+            class="checkbox-input"
+            checked
+          />
+          MPhill
+        </label>
+        <!-- Phd checkbox -->
+        <label for="phd" class="checkbox-title cursor-pointer">
+          <input
+            type="checkbox"
+            name="degree-select"
+            id="phd"
+            value="phd"
+            class="checkbox-input"
+            checked
+          />
+          PHD
+        </label>
+      </div>
+  
+      <!-- Student Clearance data table -->
+      <div class="pt-[30px] w-[100%] flex items-start justify-center">
+        <table class="table-auto border-collapse w-[80%]">
+          <thead class="" tableHeader>
+            <th></th>
+            <th>Department</th>
+            <th>Treasure</th>
+            <th>Library</th>
+            <th>Hostel</th>
+            <th>Total</th>
+          </thead>
+          <tbody>
+            <tr tableCell >
+              <th class="text-start px-2">Requested</th>
+              <td class="text-end px-10 py-2">20</td>
+              <td class="text-end px-10 py-2">20</td>
+              <td class="text-end px-10 py-2">20</td>
+              <td class="text-end px-10 py-2">10</td>
+              <td tableClickableCell class="text-end px-10 py-2" routerLink="/dashboard/clearance-applications/view">70</td>
+            </tr>
+            
+            <tr tableCell >
+              <th class="text-start px-2">Completed</th>
+              <td class="text-end px-10 py-2">10</td>
+              <td class="text-end px-10 py-2">20</td>
+              <td class="text-end px-10 py-2">30</td>
+              <td class="text-end px-10 py-2">10</td>
+              <td tableClickableCell class="text-end px-10 py-2" routerLink="/dashboard/clearance-applications/view">70</td>
+            </tr>
+            <tr tableCell >
+              <th class="text-end px-2">Granted</th>
+              <td class="text-end px-10 py-2">10</td>
+              <td class="text-end px-10 py-2">20</td>
+              <td class="text-end px-10 py-2">30</td>
+              <td class="text-end px-10 py-2">10</td>
+              <td tableClickableCell class="text-end px-10 py-2" routerLink="/dashboard/clearance-applications/view">70</td>
+            </tr>
+            <tr tableCell >
+              <th class="text-end px-2">Not Granted</th>
+              <td class="text-end px-10 py-2">10</td>
+              <td class="text-end px-10 py-2">20</td>
+              <td class="text-end px-10 py-2">30</td>
+              <td class="text-end px-10 py-2">10</td>
+              <td tableClickableCell class="text-end px-10 py-2" routerLink="/dashboard/clearance-applications/view">70</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- Aging of Pending Student data table -->
+      <div class="mt-[60px] w-[100%] flex flex-col items-center justify-center">
+        <div class="w-[80%] flex justify-start">
+        <h4 class="font-semibold text-[16px] py-2 text-end block">Aging of pending Cases</h4>
+        </div>
+        <table class="table-auto border-collapse w-[80%]">
+          <thead tableHeader>
+            <tr tableCell>
+              <th></th>
+              <th class="px-4 py-2 text-center" colspan="4">
+                Weeks Since Requested
+              </th>
+              <th class="px-4 py-2 " colspan="1" rowspan="2">
+                Total
+              </th>
+            </tr>
+            <tr tableHeader class="bg-gray-100">
+              <td></td>
+              <td class="text-end px-10 py-2 "><1</td>
+              <td class="text-end px-10 py-2 ">2</td>
+              <td class="text-end px-10 py-2 ">3</td>
+              <td class="text-end px-10 py-2 ">4+</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr tableCell>
+              <th class="">Acadamic</th>
+              <td class="text-end px-10 py-2">20</td>
+              <td class="text-end px-10 py-2">20</td>
+              <td class="text-end px-10 py-2">20</td>
+              <td class="text-end px-10 py-2">10</td>
+              <td class="text-end px-10 py-2" tableClickableCell routerLink="/dashboard/clearance-applications/view">70</td>
+            </tr>
+            <tr tableCell>
+              <th class="">Treasure</th>
+              <td class="text-end px-10 py-2">20</td>
+              <td class="text-end px-10 py-2">20</td>
+              <td class="text-end px-10 py-2">20</td>
+              <td class="text-end px-10 py-2">10</td>
+              <td class="text-end px-10 py-2" tableClickableCell routerLink="/dashboard/clearance-applications/view">70</td>
+            </tr>
+            <tr tableCell>
+              <th class="">Library</th>
+              <td class="text-end px-10 py-2">23</td>
+              <td class="text-end px-10 py-2">25</td>
+              <td class="text-end px-10 py-2">26</td>
+              <td class="text-end px-10 py-2">10</td>
+              <td class="text-end px-10 py-2" tableClickableCell routerLink="/dashboard/clearance-applications/view">84</td>
+            </tr>
+            <tr tableCell>
+              <th class="">Hostel</th>
+              <td class="text-end px-10 py-2">10</td>
+              <td class="text-end px-10 py-2">20</td>
+              <td class="text-end px-10 py-2">30</td>
+              <td class="text-end px-10 py-2">10</td>
+              <td class="text-end px-10 py-2" tableClickableCell routerLink="/dashboard/clearance-applications/view">70</td>
+            </tr>
+            <tr tableCell>
+              <th class="">Total</th>
+              <td class="text-end px-10 py-2">10</td>
+              <td class="text-end px-10 py-2">20</td>
+              <td class="text-end px-10 py-2">30</td>
+              <td class="text-end px-10 py-2">10</td>
+              <td class="text-end px-10 py-2" tableClickableCell routerLink="/dashboard/clearance-applications/view">70</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="flex justify-center pt-8">
+          <button
+          buttonRegular
+            (click)="modalHandle()"
+            class="py-2 px-6 "
+          >
+            View by Department
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ----------------------------------------------------------------------------------------------------------------- -->
+  <!-- modal for View By Department Component -->
+  <div
+    *ngIf="modal === true"
+    class="absolute top-0 left-0 right-0 bottom-0 bg-[rgba(0,0,0,0.7)]    "
+  >
+    <div class="w-[100%] flex items-center justify-center h-[100%]">
+      <div class="w-[70%] min-h-[550px] bg-[#fff] rounded-lg">
+        <div class="flex justify-start border-b border-[#000] px-6 py-2 relative">
+          <h1
+            class="block text-start py-t-2 text-[20px] tracking-[2px]"
+          >
+            Student Clearance By Department
+          </h1>
+          <button
+            (click)="modalHandle()"
+            buttonRegular
+            class="absolute right-1 top-0 "
+          >
+            Done
+          </button>
+        </div>
+        <div class="w-[100%] mt-[30px]">
+          <div class="flex items-center justify-center gap-6 w-[100%]">
+            <!-- Bacholers checkbox -->
+            <label for="bacholers" class="checkbox-title">
+              <input
+                type="checkbox"
+                name="degree-select"
+                id="bacholers"
+                value="bacholers"
+                class="checkbox-input"
+                checked
+              />
+              Bacholers
+            </label>
+            <!-- Masters checkbox -->
+            <label for="masters" class="checkbox-title">
+              <input
+                type="checkbox"
+                name="degree-select"
+                id="masters"
+                value="masters"
+                class="checkbox-input"
+                checked
+              />
+              Masters
+            </label>
+            <!-- MPhill checkbox -->
+            <label for="mphill" class="checkbox-title">
+              <input
+                type="checkbox"
+                name="degree-select"
+                id="mphill"
+                value="mphill"
+                class="checkbox-input"
+                checked
+              />
+              MPhill
+            </label>
+            <!-- Phd checkbox -->
+            <label for="phd" class="checkbox-title">
+              <input
+                type="checkbox"
+                name="degree-select"
+                id="phd"
+                value="phd"
+                class="checkbox-input"
+                checked
+              />
+              PHD
+            </label>
+          </div>
+          <!-- Percnetage Section -->
+          <!-- <div
+            class="flex items-center justify-start w-[100%] pl-[383px] pt-[20px]"
+          > -->
+            <!-- Percentage checkbox -->
+            <!-- <label for="percentage" class="checkbox-title">
+              <input
+                type="checkbox"
+                name="percentage"
+                id="percentage"
+                value="bacholers"
+                class="checkbox-input"
+              />
+              Show Percentage
+            </label>
+          </div> -->
+    
+          <!-- Student Clearance data table -->
+          <div class="pt-[30px] w-[100%] flex items-start justify-center">
+            <table class="table-auto border-collapse w-[96%]">
+              <thead tableHeader>
+                <tr>
+                  <th class="px-4 py-2  rowspanned" rowspan="2">Department</th>
+                  <th class="px-4 py-2 " rowspan="2">Requested</th>
+                  <th class="px-4 py-2 " colspan="5">Pending</th>
+                  <th class="px-4 py-2 " colspan="3">Completed</th> 
+                </tr>
+                <tr>
+                  <th class="px-4 py-2 ">Department</th>
+                  <th class="px-4 py-2 ">Treasure</th>
+                  <th class="px-4 py-2 ">Library</th>
+                  <th class="px-4 py-2 ">Hostel</th>
+                  <th class="px-4 py-2 ">Total</th>
+                  <th class="px-4 py-2 ">Granted</th>
+                  <th class="px-4 py-2 ">Not Granted</th>
+                  <th class="px-4 py-2 ">Total</th>
+                </tr> 
+              </thead>
+              
+              <tbody>
+                <tr tableCell routerLink="/dashboard/clearance-applications/view">
+                  <th class="">Computer Science</th>
+                  <td class="text-center py-2">10</td>
+                  <td class="text-end px-6 py-2">20</td>
+                  <td class="text-end px-6 py-2">20</td>
+                  <td class="text-end px-6 py-2">10</td>
+                  <td class="text-end px-6 py-2">70</td>
+                  <td class="text-end px-6 py-2">70</td>
+                  <td class="text-end px-6 py-2">70</td>
+                  <td class="text-end px-6 py-2">70</td>
+                  <td tableClickableCell class="text-end px-6 py-2">70</td>
+                </tr>
+                <tr tableCell routerLink="/dashboard/clearance-applications/view">
+                  <th class="">History</th>
+                  <td class="text-center  py-2">30</td>
+                  <td class="text-end px-6 py-2">20</td>
+                  <td class="text-end px-6 py-2">20</td>
+                  <td class="text-end px-6 py-2">10</td>
+                  <td class="text-end px-6 py-2">70</td>
+                  <td class="text-end px-6 py-2">70</td>
+                  <td class="text-end px-6 py-2">70</td>
+                  <td class="text-end px-6 py-2">70</td>
+                  <td tableClickableCell class="text-end px-6 py-2">70</td>
+                </tr>
+                <tr tableCell routerLink="/dashboard/clearance-applications/view">
+                  <th class="">English</th>
+                  <td class="text-center  py-2">23</td>
+                  <td class="text-end px-6 py-2">20</td>
+                  <td class="text-end px-6 py-2">20</td>
+                  <td class="text-end px-6 py-2">10</td>
+                  <td class="text-end px-6 py-2">70</td>
+                  <td class="text-end px-6 py-2">70</td>
+                  <td class="text-end px-6 py-2">70</td>
+                  <td class="text-end px-6 py-2">70</td>
+                  <td tableClickableCell class="text-end px-6 py-2">70</td>
+                </tr>
+                <tr tableCell routerLink="/dashboard/clearance-applications/view">
+                  <th class="">Economics</th>
+                  <td class="text-center  py-2">22</td>
+                  <td class="text-end px-6 py-2">20</td>
+                  <td class="text-end px-6 py-2">20</td>
+                  <td class="text-end px-6 py-2">10</td>
+                  <td class="text-end px-6 py-2">70</td>
+                  <td class="text-end px-6 py-2">70</td>
+                  <td class="text-end px-6 py-2">70</td>
+                  <td class="text-end px-6 py-2">70</td>
+                  <td tableClickableCell class="text-end px-6 py-2 ">70</td>
+                </tr>
+                
+              </tbody>
+            </table>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

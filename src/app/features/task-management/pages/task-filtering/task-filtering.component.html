@@ -1,0 +1,243 @@
+
+<div class="mt-0">
+    <div class="w-[100%] bg-white border-2 border-slate-200">
+      <!-- heading -->
+      <div
+        class="w-[100%] flex border-b-2 border-slate-200 place-items-center py-3"
+      >
+        <p labelLarge class="flex place-items-center ml-4">Work assigned to you <mat-icon>arrow_right_alt</mat-icon> Task</p>
+      </div>
+
+      <div class="w-[100%] bg-white flex pl-4 ">
+        <div class="w-[50%] flex border-r-2 border-slate-200">
+          <!-- task name -->
+          <div class="mt-6 w-[90%]">
+            <div class="w-[100%] flex place-items-center">
+              <p labelLarge class="py-3">
+                Prepare the list of potential guset speaker for convocation
+              </p>
+            </div>
+            <div class="w-[70%] text-white rounded bg-red-500 mt-2 flex justify-center place-items-center">
+              <p >Due on <b>Jan-05-2023</b></p>
+              <p class="ml-7">2 working days left</p>
+            </div>
+            <div class="w-[100%] py-4 flex place-items-center">
+              <p labelRegular >
+                Please make sure that there should be atleast on gcu alumni in
+                the list
+              </p>
+            </div>
+            <div class="w-[100%] py-4 flex place-items-center">
+              <p class="font-semibold">Related To </p>
+              <p class="ml-5">Committe/Project Name</p>
+            </div>
+            <div class="w-[100%] mt-5">
+              <div class="flex place-items-center">
+                <div class="flex place-items-center font-semibold">
+                  Attachment 
+                </div>
+                <div class=" flex py-3 w-[84%]">
+                  <div *ngIf="assignedFile" class="ml-4">
+                    <p>{{ assignedFile ? assignedFile.name : 'No file selected' }}</p>
+                  </div>
+                  <input
+                    type="file"
+                    class="hidden"
+                    id="fileInput"
+                    (change)="handleFileAssigned($event)"
+                    
+                  />
+                  
+                </div>
+                <div class="w-[100%] flex justify-end">
+                  <label
+                    for="fileInput"
+                    class="cursor-pointer"
+                    buttonRegular
+                  >
+                    Attachment
+                  </label>
+                </div>
+              </div>
+             
+
+           <div class="mt-6">
+              <div class="border-gray-400 border-b-2 p-0 m-0" >
+                <label highlightedTab for="tab1"  (click)="selectTab(1)" 
+                >Complection Notes</label
+                >
+                <label for="tab2" (click)="selectTab(2)" [class.active]="selectedTab === 2" tab
+                  >Working Notes</label
+                >
+              </div>
+              <div>
+                <div *ngIf="selectedTab === 1"><div class="mt-6">
+                  <div>
+                    <label
+                      class="block text-gray-800 font-semibold mb-1 md:mb-0 pr-4"
+                      for="inline-full-name"
+                    >
+                      Completion Notes
+                    </label>
+                  </div>
+                  <div>
+                    <textarea
+                    inputLarge
+                    class="w-[80%] h-[200px]"
+                      id="inline-full-name"
+                      type="text"
+                      placeholder="Description"
+                    ></textarea>
+                  </div>
+                </div></div>
+                <div *ngIf="selectedTab === 2">
+                  <div class="mt-6">
+                    <div>
+                      <label
+                        class="block text-gray-800 font-semibold mb-1 md:mb-0 pr-4"
+                        for="inline-full-name"
+                      >
+                        Working Notes
+                      </label>
+                    </div>
+                    <div>
+                      <textarea
+                       inputLarge
+                       class="w-[80%] h-[200px]"
+                        id="inline-full-name"
+                        type="text"
+                        placeholder="Description"
+                      ></textarea>
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+              
+              <div class="w-[100%] flex justify-center mt-8 mb-5">
+                <button
+                buttonRegular
+                  
+                >
+                  Mark Completed
+                </button>
+              </div>
+
+            </div>
+          </div>
+        
+        </div>
+
+        <!-- Chat -->
+
+
+        <div class="w-[50%]">
+
+<div class="container mx-auto rounded-lg">
+<!-- end header -->
+<!-- Chatting -->
+<div class="flex flex-row justify-between bg-white">
+<!-- message -->
+<div class="w-full px-5 flex flex-col justify-between">
+<div class="flex flex-col mt-5 overflow-y-auto h-[550px]">
+  <div class="flex justify-end mb-4">
+    <div>
+      <div class="flex text-[12px]">Jan 02 2023 <p class="ml-3"> 12:03 </p></div>
+    <div
+      class="mr-2 py-3 px-4 bg-green-300 rounded-bl-3xl rounded-tl-3xl rounded-tr-xl text-white"
+    >
+      Welcome to group everyone !
+    </div>
+  
+  </div>
+</div>
+  <div class="flex justify-start mr-5 mb-4">
+<div>
+  <div class="flex text-[12px]">Jan 02 2023 <p class="ml-3"> 12:04 </p></div>
+    <div
+      class="ml-2 py-3 px-4 bg-gray-200 rounded-br-3xl rounded-tr-3xl rounded-tl-xl text-black"
+    >
+      Lorem ipsum dolor sit amet consectetur adipisicing elit
+    </div>
+  </div>
+  </div>
+  <div class="flex justify-end mb-4">
+    <div>
+      <div class="flex text-[12px]">Jan 02 2023 <p class="ml-3"> 12:06 </p></div>
+      <div
+        class="mr-2 py-3 px-4 bg-green-300 rounded-bl-3xl rounded-tl-3xl rounded-tr-xl text-white"
+      >
+        Lorem ipsum dolor.
+      </div>
+     <div class="mt-4">
+      <div class="flex text-[12px]">Jan 02 2023 <p class="ml-3"> 12:06 </p></div>
+      <div
+        class=" mr-2 py-3 px-4 bg-green-300 rounded-bl-3xl rounded-tl-3xl rounded-tr-xl text-white"
+      >
+        Lorem ipsum dolor sit amet consectetur
+      </div>
+    </div>
+    </div>
+  </div>
+  <div class="flex justify-start mb-4">
+    <div>
+      <div class="flex text-[12px]">Jan 02 2023 <p class="ml-3"> 12:08 </p></div>
+    <div
+      class="ml-2 py-3 px-4 bg-gray-200 rounded-br-3xl rounded-tr-3xl rounded-tl-xl text-black"
+    >
+      happy holiday guys!
+    </div>
+  </div>
+  </div>
+  <div class="flex justify-start mb-4">
+    <div>
+      <div class="flex text-[12px]">Jan 02 2023 <p class="ml-3"> 12:08 </p></div>
+    <div
+      class="ml-2 py-3 px-4 bg-gray-200 rounded-br-3xl rounded-tr-3xl rounded-tl-xl text-black"
+    >
+      happy holiday guys!
+    </div>
+  </div>
+  </div>
+  <div class="flex justify-start mb-4">
+    <div>
+      <div class="flex text-[12px]">Jan 02 2023 <p class="ml-3"> 12:08 </p></div>
+    <div
+      class="ml-2 py-3 px-4 bg-gray-200 rounded-br-3xl rounded-tr-3xl rounded-tl-xl text-black"
+    >
+      happy holiday guys!
+    </div>
+  </div>
+  </div>
+  <div class="flex justify-start mb-4">
+    <div>
+      <div class="flex text-[12px]">Jan 02 2023 <p class="ml-3"> 12:08 </p></div>
+    <div
+      class="ml-2 py-3 px-4 bg-gray-200 rounded-br-3xl rounded-tr-3xl rounded-tl-xl text-black"
+    >
+      happy holiday guys
+    </div>
+  </div>
+  </div>
+</div>
+<div class="py-5 mt-5 border-1 border-gray-300">
+  <input
+    class="w-full bg-gray-300 py-5 px-3 rounded-xl"
+    type="text"
+    placeholder="type your message here..."
+  />
+</div>
+</div>
+<!-- end message -->
+
+</div>
+</div>
+
+        </div>
+      </div>
+<div>
+  
+</div>
+    </div>
+  </div>

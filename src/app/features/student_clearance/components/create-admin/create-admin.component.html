@@ -1,0 +1,62 @@
+<div class="w-[100%] flex items-center justify-center p-8    ">
+
+        <div
+        class="min-w-[50%] bg-white min-h-[100%] max-h-[100%] overflow-y-auto rounded shadow-md p-4"
+        >
+        <p
+        class="text-[14px] tracking-wider font-semibold text-center py-3 border-b"
+        >
+        Create New Admin
+      </p>
+
+      <form [formGroup]="checkoutForm" (ngSubmit)="createAdminHandler()" class="flex flex-col">
+        <label for="full_name" class="py-2">Name
+            <input formControlName="full_name" type="text" class="w-[100%] py-2 px-4  border otline-none bg-gray-100" id="name" name="name">
+        </label>
+        <label for="email" class="py-2">Email
+            <input formControlName="email" type="text" class="w-[100%] py-2 px-4  border otline-none bg-gray-100"   id="email" name="email">
+        </label>
+        <label for="employee_id" class="py-2">Employee id
+            <input formControlName="employee_id" type="text" class="w-[100%] py-2 px-4  border otline-none bg-gray-100"   id="password" name="password">
+        </label>
+        <label for="password" class="py-2">Password
+            <input formControlName="password" type="text" class="w-[100%] py-2 px-4  border otline-none bg-gray-100"   id="password" name="password">
+        </label>
+
+        <label for="type"   class="py-2">
+            Admin type
+            <select formControlName="type" name="type" class="w-[100%] py-2 px-4  border otline-none bg-gray-100"   id="type">
+                <option value="library">Library</option>
+                <option value="hostel">Hostel</option>
+                <option value="transport">Transport</option>
+                <option value="department">Department</option>
+                <option value="registrar">Registrar</option>
+                <option value="examination">Examination</option>
+                <option value="fees">Fees</option>
+            </select>
+        </label>
+        <label for="role"   class="py-2">
+            Admin Role
+            <select formControlName="admin_role" name="role" class="w-[100%] py-2 px-4  border otline-none bg-gray-100"   id="role">
+                <option value="admin">Admin</option>
+                
+            </select>
+        </label>
+
+        <button
+        type="submit"
+      class="bg-[#170000] text-white rounded-md px-4 py-2 hover:bg-slate-900 shadow hover:shadow-lg shadow-black my-6"
+    >
+     Save
+    </button>
+        <a
+        routerLink="/dashboard/manage-admins"
+      class="bg-gray-500 text-center text-white rounded-md px-4 py-2 hover:bg-slate-900 shadow hover:shadow-lg shadow-black my-3"
+    >
+     Back
+    </a>
+    </form>
+    </div>
+
+
+</div>

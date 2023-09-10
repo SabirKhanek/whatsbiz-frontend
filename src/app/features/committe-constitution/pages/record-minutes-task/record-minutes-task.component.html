@@ -1,0 +1,117 @@
+<div class="">
+  <!-- First Row -->
+  <div dataLarge class="border border-gray-900">
+    <h2 class=" mb-2 pl-2 pt-2">
+      Your Work &rarr; Task: Record Minutes
+    </h2>
+  </div>
+
+  <!-- Second Row -->
+  <div dataRegular class="flex justify-between ">
+    <div class="w-1/2 p-4 border-b border-gray-500">
+      <!-- Content for the second row - First Column -->
+
+      <div class="flex items-center mb-2 pt-3">
+        <label for="assignedBy" class="mr-4">Assigned By : System on __________
+        </label>
+      </div>
+
+      <div class="flex items-center ml-14">
+        <label for="date" class="pt-3 mr-4 ml-4">Due: May 18, 2023</label>
+      </div>
+    </div>
+
+    <div class="w-1/2 px-4 border-b border-gray-500">
+      <!-- Content for the second row - Second Column -->
+      <!-- <p class="bg-gray-200 py-4">Second Row - Second Column</p> -->
+    </div>
+  </div>
+
+  <!-- Third Row -->
+  <div dataRegular class="flex justify-between">
+
+    <div class="w-1/2 p-4 border-b border-r border-gray-500">
+      <!-- Content for the third row - First Column -->
+      <div class="text-center mb-2 ">Finance and planning committee</div>
+      <p class="text-center">Agenda items from meeting {{ selectedDate }}</p>
+
+      <div class=" mt-6">
+        <div class="p-3">
+          <label for="option1">
+            <input type="radio" id="option1" name="options" value="option1" />
+            1. Approve salary increase for everyone
+          </label>
+        </div>
+
+        <div class="p-3">
+          <label for="option2">
+            <input type="radio" id="option2" name="options" value="option2" />
+            2. Allocate Rs.500,000 for the purpose of the upgrading bounes
+          </label>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="w-1/2 p-4 border-b border-gray-500">
+      <!-- Content for the third row - Second Column -->
+
+      <div class=" text-center mb-3 " >Agenda # 1 Mintutes and Tasks</div>
+
+      <ol type="1" class="list-decimal p-4">
+        <li>
+          A 5% increase was approved for grades less then 16 and 7% for grades
+          17 and above
+        </li>
+
+        <li>
+          Task: Process pay increase for july 2023 pay period
+          <div class="px-8">
+            <div class="flex items-center">
+              <p>Assigned to: {{ assignedBy }}</p>
+            </div>
+
+            <div class="flex items-center ">
+              <p>Due Date: {{ selectedDate }}</p>
+            </div>
+          </div>
+        </li>
+      </ol>
+      
+      <div class="flex items-center justify-center mt-2">
+        <button buttonRegular
+          class="mr-2"
+        >
+          New Minute
+        </button>
+
+        <button buttonRegular
+        >
+          New Task
+        </button>
+      </div>
+
+      <div class="form-group py-[2%] mb-[2%] flex">
+        <label for="purpose" class="block pr-[0.7%] pl-[1%] self-center"
+          >Notes:
+        </label>
+        <textarea
+          id="notes"
+          rows="3"
+          class="border rounded py-2 w-[88%]"
+          inputLarge
+        ></textarea>
+      </div>
+      
+    </div>
+  </div>
+
+  <div class="flex items-center justify-center mt-2 p-2">
+    <button buttonLarge
+      class=""
+      routerLink="/dashboard/"
+    >
+      Mark Completed
+    </button>
+  
+</div>

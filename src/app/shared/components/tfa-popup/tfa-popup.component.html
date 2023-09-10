@@ -1,0 +1,127 @@
+<div
+  *ngIf="showPopup"
+  class="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex"
+>
+  <div class="relative w-auto my-6 mx-auto max-w-sm">
+    <!--content-->
+    <div
+      class="bg-gray-50 border-0 rounded-lg shadow-lg relative flex flex-col w-full outline-none focus:outline-none"
+    >
+      <!--header-->
+      <div class="flex items-center justify-between p-5 rounded-t">
+        <p class="block font-medium text-sm text-gray-700">
+          This action requires an additional verfication code
+        </p>
+      </div>
+
+      <!--body-->
+      <div class="relative p-6 flex-auto">
+        <div class="mb-3 pt-0">
+          <!-- <div class="flex justify-end">
+            <button
+            inputRegular
+              type="button"
+            >
+              Help
+            </button>
+          </div> -->
+
+          <!-- <input
+            type="number"
+            placeholder="Enter Verification Code"
+            name="verificationCode"
+            maxlength="6"
+            [(ngModel)]="userVerificationCode"
+            class="px-3 py-4 placeholder-slate-300 text-slate-600 relative bg-white rounded text-base border-0 shadow outline-none focus:outline-none focus:ring w-full"
+          /> -->
+
+          <div class="flex justify-center">
+            <div class="grid grid-cols-6 gap-2 mt-4">
+              <input
+                type="number"
+                [(ngModel)]="tfaCodeDigit1"
+                #digit1
+                (input)="limitInputLength($event)"
+                (keyup)="move($event, '', digit1, digit2)"
+                class="px-3 py-4 placeholder-slate-300 text-slate-600 relative bg-white rounded text-base border-0 shadow outline-none focus:outline-none focus:ring w-full"
+              />
+
+              <input
+                type="number"
+                [(ngModel)]="tfaCodeDigit2"
+                #digit2
+                (input)="limitInputLength($event)"
+                (keyup)="move($event, digit1, digit2, digit3)"
+                class="px-3 py-4 placeholder-slate-300 text-slate-600 relative bg-white rounded text-base border-0 shadow outline-none focus:outline-none focus:ring w-full"
+              />
+
+              <input
+                type="number"
+                [(ngModel)]="tfaCodeDigit3"
+                #digit3
+                (input)="limitInputLength($event)"
+                (keyup)="move($event, digit2, digit3, digit4)"
+                class="px-3 py-4 placeholder-slate-300 text-slate-600 relative bg-white rounded text-base border-0 shadow outline-none focus:outline-none focus:ring w-full"
+              />
+
+              <input
+                type="number"
+                [(ngModel)]="tfaCodeDigit4"
+                #digit4
+                (input)="limitInputLength($event)"
+                (keyup)="move($event, digit3, digit4, digit5)"
+                class="px-3 py-4 placeholder-slate-300 text-slate-600 relative bg-white rounded text-base border-0 shadow outline-none focus:outline-none focus:ring w-full"
+              />
+
+              <input
+                type="number"
+                [(ngModel)]="tfaCodeDigit5"
+                #digit5
+                (input)="limitInputLength($event)"
+                (keyup)="move($event, digit4, digit5, digit6)"
+                class="px-3 py-4 placeholder-slate-300 text-slate-600 relative bg-white rounded text-base border-0 shadow outline-none focus:outline-none focus:ring w-full"
+              />
+
+              <input
+                type="number"
+                [(ngModel)]="tfaCodeDigit6"
+                #digit6
+                (input)="limitInputLength($event)"
+                (keyup)="move($event, digit5, digit6, '')"
+                class="px-3 py-4 placeholder-slate-300 text-slate-600 relative bg-white rounded text-base border-0 shadow outline-none focus:outline-none focus:ring w-full"
+              />
+            </div>
+          </div>
+
+          <div *ngIf="verificationError">
+            <p class="text-red-500">{{ errorMessage }}</p>
+            <p class="text-red-500">Please try again</p>
+          </div>
+        </div>
+      </div>
+
+      <!--footer-->
+      <div class="flex items-center justify-end p-6 rounded-b">
+        <button
+          class="text-black background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+          type="button"
+          (click)="closeTfaPopup()"
+        >
+          Cancel
+        </button>
+
+        <button
+          class="bg-blue-400 text-white active:bg-blue-600 font-bold uppercase text-sm px-3 py-3 rounded shadow hover:shadow-lg outline-none"
+          type="button"
+          (click)="verify()"
+        >
+          Submit
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="showPopup" class="opacity-25 fixed inset-0 z-40 bg-black"></div>
+<!-- <div *ngIf="showPopup" class="opacity-25 fixed inset-0 z-40 bg-black" (click)="closeTfaPopup()"></div> -->
+

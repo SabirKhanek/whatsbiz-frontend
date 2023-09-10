@@ -1,0 +1,53 @@
+<div
+  class="w-[100%] h-[100%] min-h-[600px] bg-gray-300 flex items-center justify-center overflow-y-auto"
+>
+  <div
+    class="md:w-[400px] w-[70%] sm:w-[50%] border h-[450px] p-4  bg-white shadow-lg rounded"
+  >
+    <span class="block flex flex-col items-center justify-center mt-2" >
+      <mat-icon
+        aria-hidden="false"
+        aria-label="Example home icon"
+        fontIcon="admin_panel_settings "
+        class="mat-icon-size"
+      ></mat-icon>
+      <h1 class="text-cetner font-bold tracking-wider">ADMIN</h1>
+    </span>
+    <form  [formGroup]="loginForm" (ngSubmit)="proceedLogin()" class="p-6 mt-6  flex flex-col items-center justify-center">
+      <!-- Email field -->
+      <mat-form-field class="w-[100%]" hideRequiredMarker>
+        <mat-label>Employee_id</mat-label>
+        <input
+          type="text"
+          matInput
+          formControlName="employee_id"
+        />
+        <mat-hint class="text-[12px]">Ex. 123</mat-hint>
+       
+       
+      </mat-form-field>
+      <!-- Password field -->
+      <mat-form-field class="w-[100%] mt-4" hideRequiredMarker>
+        <mat-label>Password</mat-label>
+        <input
+          type="password"
+          matInput
+          formControlName="password"   
+        />
+      </mat-form-field>
+      <!-- login button -->
+      <ng-template [ngIf]="!isLoading" [ngIfElse]="loader">
+        <button type="submit" class="rounded shadow-md  mt-3 w-[100px] py-2 bg-[#210000] text-white hover:scale-105 hover:shadow-lg  transition ease-in-out duration-300" >Login</button>
+      </ng-template>
+
+      <ng-template #loader>
+        <div class="w-[100%] h-[100%] flex items-center justify-center">
+          <mat-spinner diameter="40" strokeWidth="5"></mat-spinner>
+        </div>
+      </ng-template>
+      <span class="text-[13px] text-gray-500 mt-4 cursor-pointer hover:text-[#210000] hover:scale-105 transition ease-in-out duration-300">Contact support</span>
+    </form>
+  </div>
+</div>
+
+

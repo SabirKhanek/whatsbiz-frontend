@@ -1,0 +1,128 @@
+<div class="">
+    <div dataLarge class="border border-gray-900 bg-gray-50">
+        <h2 class="text-xl mb-2 pl-2 pt-2">
+            Committe name &rarr; Propose Meeting
+        </h2>
+    </div>
+    <div dataRegular class="   ">
+
+
+        <div class="text-left self-center justify-center grid">
+            <div class="  border-l-gray-700 ">
+                <div class="flex mb-2  pt-2  mt-4 " type="date">
+                    <div class="w-16 text-right mt-2">
+                        <span > Date :</span>
+                    </div> <input type="date" inputRegular class="ml-2" name="" id="" placeholder="input Regular">
+                    <!-- <input style="border: 2px solid black;" class=" mb-2 pt-2 ml-24 border rounded py-2 w-80"
+                        type="date" /> -->
+
+                </div>
+            </div>
+            <div class="  border-l-gray-700 ">
+                <div class="flex items-center mb-2 pt-2  justify-left" type="Time">
+                    <div class="w-16 text-right">
+                        <span > Time :</span>
+                    </div>
+                    <input type="time" inputRegular class="ml-2" name="" id="" placeholder="input Regular">
+                    <!-- <input style="border: 2px solid black;" class=" mb-2 pt-2 ml-24 border rounded py-2 w-80"
+                        type="time" /> -->
+
+                </div>
+            </div>
+            <div class="felx mb-2">
+                <span class=" "> Secretary: &nbsp; Tayyab Sharif</span>
+            </div>
+            <div class="mb-2">
+                <span class=""> Convenor: &nbsp; Ahsan Munir</span>
+            </div>
+            <div class="mb-2 flex flex-wrap items-center">
+                <span class=""> Members:</span>
+                <div class="ml-2">
+                    <div class="inline-flex items-center bg-gray-200 rounded-full px-3 py-1 m-1">
+                        Dr. Husnain
+                    </div>
+                    <div class="inline-flex items-center bg-gray-200 rounded-full px-3 py-1 m-1">
+                        Dr. Ahsan
+                    </div>
+                    <div class="inline-flex items-center bg-gray-200 rounded-full px-3 py-1 m-1">
+                        Dr. Tayyab
+                    </div>
+                    <!-- Add more user chips here -->
+                </div>
+            </div>
+            <div class="flex">
+                <div class=" w-16 text-right ">
+                
+                    <span > Guest :</span>  
+                    
+                </div>
+                <button buttonRegular routerLink='/dashboard/committee-constitution/add-remove' class="ml-[50%]">
+                    Add/Remove</button>
+            
+            </div>
+
+            <!-- <button routerLink='/dashboard/committee-constitution/add-remove'
+                class="border-blue-400 border text-blue-400 px-4 rounded-lg py-2  ml-[55%]">
+                Add/Remove
+            </button> -->
+            <!-- <div class="mr-2">
+            </div> -->
+            <div class="mt-16 ">
+                <div class="flex">
+                    <div class=" w-16 text-right ">
+                    
+                        <span > Agenda :</span>  
+                        
+                    </div>
+                    <button buttonRegular (click)="toggleTextBox()" [hidden]="isToggleButtonDisabled" class="ml-[50%]">
+                        Add item</button>
+                
+                </div>
+                
+                <div class="flex justify-center ml-[10%]">
+                    <div>
+                        <div class="mt-4">
+                            <ol type="1" class="text-left ml-[15%]">
+                                
+                                <li *ngFor="let name of names; index as i" class="mb-2">{{ i + 1 }}. {{ name }}</li>
+                            </ol>
+                        </div>
+
+                        <div *ngIf="isTextBoxVisible" class=" ml-8 mt-4">
+                            <textarea inputLarge [(ngModel)]="nameInput" ></textarea>
+                            <div class="w-[100%] flex justify-end">
+                                <button buttonRegular (click)="addName()">Add Item</button>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                </div>
+                <div class="ml-2">
+                    <!-- ... -->
+                    
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- agenda -->
+
+        <div class="flex justify-center  pt-4">
+            <button buttonLarge routerLink='/dashboard/' class="">
+                Request Approval</button>
+            <!-- <button routerLink='/dashboard/committee-constitution/process-meeting'
+                class="border-blue-400 border text-blue-400 px-4 rounded-lg py-2 mt-12 ml-[60%]">
+                Request Approval
+            </button> -->
+        </div>
+    </div>
+
+
+
+
+</div>

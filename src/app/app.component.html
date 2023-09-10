@@ -1,15 +1,4 @@
-<app-navbar (sideBarToggled)="updateSideNavActiveState()" *ngIf="routerURL!=='/login'"></app-navbar>
-<app-sidenav class="grow-[300px] shrink-0" [(isExpanded)]="isSideNavExpanded"
-    *ngIf="routerURL!=='/login'"></app-sidenav>
-<ng-container *ngIf="(routerURL!=='/login' );then navEnabledRoutes;else navDisabledRoutes;">
-
-</ng-container>
-<ng-template #navEnabledRoutes>
-    <div
-        class="mt-[46px] h-[calc(100%)] w-full lg:w-[calc(100%-300px)] float-right transition-all ease-in-out duration-1000 scrollbar-thin scrollbar-thumb-black scrollbar-track-transparent overflow-scroll p-5">
-        <router-outlet></router-outlet>
-    </div>
-</ng-template>
-<ng-template #navDisabledRoutes>
-    <router-outlet></router-outlet>
-</ng-template>
+<app-navbar  (toggleevent)="handleSideBarToggle()"></app-navbar>
+<div class="w-[100%] h-[calc(100vh-60px)] block ">
+  <router-outlet></router-outlet>
+</div>

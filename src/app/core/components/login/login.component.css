@@ -1,0 +1,9 @@
+.mat-icon-size::before {
+    font-size: 70px;
+    color: #210000;
+    }
+.mat-icon-size{
+    width: 70px;
+    height: 70px;
+}
+  

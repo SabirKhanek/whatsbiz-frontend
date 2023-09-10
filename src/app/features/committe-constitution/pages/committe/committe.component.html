@@ -1,0 +1,106 @@
+<div class="w-full">
+  <div class="border border-gray-900 w-full">
+    <h2 class="mb-[0.6%] pl-[0.6%] pt-[0.6%]" labelLarge>New Committee</h2>
+  </div>
+  <div class=" px-[25%] mt-4 space-y-4" labelRegular>
+    <div class=" flex items-center gap-2 w-full ml-4">
+      <label for="name" class="block text-right"
+        >Name: 
+        </label
+      >
+      <input
+        id="name"
+        type="text"
+        [(ngModel)]="Meetname"
+        class="border rounded "
+        inputLarge
+      />
+      
+    </div>
+    <div class=" flex items-center justify-start gap-4">
+      <label class="ml-5 block text-right">Scope: </label>
+      <div class="flex">
+        <div class="radio-group flex items-center">
+          <input
+            type="radio"
+            id="radioInput1"
+            name="radioGroup"
+            class="form-radio text-indigo-600 h-4 w-4 mr-2"
+          />
+          <label for="radio1" class="   text-gray-600 ">GCU</label>
+        </div>
+        <div class="radio-group flex items-center">
+          <input
+            type="radio"
+            id="radioInput2"
+            name="radioGroup"
+            class="form-radio text-indigo-600 h-4 w-4 mr-2 ml-4"
+          />
+          <label for="radio2" class="   text-gray-600">Department</label>
+        </div>
+      </div>
+      
+    </div>
+    <div class="w-full form-group py-[2%] mb-[2%] flex gap-2">
+      <label for="purpose" class="block pl-[1%] self-center"
+        >Purpose:
+        
+    </label
+      >
+      <textarea
+        id="purpose"
+        [(ngModel)]="purpose"
+        rows="3"
+        class="border rounded py-2 "
+        inputLarge
+      ></textarea>
+      
+    </div>
+    <div class="form-group mr-[20%]">
+      <div class="flex justify-between items-center">
+        <span class="  ">Secretary:</span>
+        <div class="flex justify-center items-center">
+          <button buttonRegular
+            routerLink="/dashboard/committee-constitution/add-remove"
+          >
+            Add/Remove
+          </button>
+        </div>
+      </div>
+      <div class="flex justify-between items-center pt-1">
+        <span class="  ">Convenor:</span>
+        <div class="flex justify-center items-center">
+          <button buttonRegular
+            routerLink="/dashboard/committee-constitution/add-remove"
+           
+          >
+            Add/Remove
+          </button>
+        </div>
+      </div>
+      <div class="flex justify-between items-center pt-1">
+        <span class="  ">Members:</span>
+        <div class="flex justify-center items-center">
+          <button buttonRegular
+            routerLink="/dashboard/committee-constitution/add-remove"
+            
+          >
+            Add/Remove
+          </button>
+        </div>
+      </div>
+    </div>
+   
+    <!-- <div>
+      data recieved: {{m[0].name}}
+    </div> -->
+  </div>
+</div>
+
+<div class="button-container flex justify-center mt-12">
+  <button buttonLarge
+    routerLink="/dashboard"
+  >
+    Request Approval
+  </button>
+</div>

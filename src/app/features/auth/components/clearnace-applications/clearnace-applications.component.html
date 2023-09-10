@@ -1,0 +1,85 @@
+<div
+  class="w-[100%] min-h-[500px] h-[100%] bg-gray-100 flex items-start justify-around overflow-y-auto py-4"
+>
+  <div class="w-[80%] h-[550px] min-h-[500px]">
+    <div class="h-[550px] bg-white rounded shadow p-4 md:px-6">
+      <div class="flex justify-center">
+        <span
+          class="block text-center py-t-2 text-[20px] font-semibold tracking-wider border-b-4 rounded border-[#7d0101] tracking-[2px]"
+        >
+          Clearance Applications
+        </span>
+      </div>
+      <div class="flex min-h-[300px] h-[400px] overflow-y-auto mt-4">
+        <div class="w-[100%] h-[100%] shadow-black border">
+          <ng-template [ngIf]="!isLoading" [ngIfElse]="loader">
+            <table
+              mat-table
+              [dataSource]="applications"
+              class="mat-elevation-z8 demo-table shadow-none"
+            >
+              
+
+              <!-- Student Id Column -->
+              <ng-container matColumnDef="studentId">
+                <th mat-header-cell *matHeaderCellDef>Student Id</th>
+                <td mat-cell *matCellDef="let element">
+                  {{ element.student_id }}
+                </td>
+              </ng-container>
+
+              <!-- Clearance type Column -->
+              <ng-container matColumnDef="clearanceType">
+                <th mat-header-cell *matHeaderCellDef>Clearance Type</th>
+                <td mat-cell *matCellDef="let element">
+                  {{ element.type }}
+                </td>
+              </ng-container>
+
+              <!-- Apply date Column -->
+              <ng-container matColumnDef="applyDate">
+                <th mat-header-cell *matHeaderCellDef>Apply Date</th>
+                <td mat-cell *matCellDef="let element">
+                  {{ element.apply_date }}
+                </td>
+              </ng-container>
+
+              <!-- Status Column -->
+              <ng-container matColumnDef="status" class="relative z-0">
+                <th mat-header-cell *matHeaderCellDef>Status</th>
+                <td mat-cell *matCellDef="let element" class="relative z-0">
+                  <span
+                    [ngClass]="
+                      element.status === 'Pending'
+                        ? 'bg-red-300 text-red-700'
+                        : 'bg-green-300 text-green-700'
+                    "
+                    class="  font-normal text-white py-1 rounded-full text-white"
+                  >
+                    <button mat-button [matMenuTriggerFor]="menu" class="text-[12px]" [ngClass]="element.status === 'pending' ? 'bg-yellow-900 ': (element.status === 'approve') ? 'bg-green-900' : 'bg-red-800' "  >
+                      {{ element.status }}
+                    </button>
+                    <mat-menu #menu="matMenu">
+                      <button mat-menu-item (click)="openDialog('pending', element.student_id)">Pending</button>
+                      <button mat-menu-item (click)="openDialog('approve', element.student_id)">Approve</button>
+                      <button mat-menu-item (click)="openDialog('decline', element.student_id)">Decline</button>
+                    </mat-menu>
+                  </span>
+                 
+                </td>
+              </ng-container>
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+            </table>
+          </ng-template>
+
+          <ng-template #loader>
+            <div class="w-[100%] h-[100%] flex items-center justify-center">
+              <mat-spinner diameter="50" strokeWidth="6"></mat-spinner>
+            </div>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

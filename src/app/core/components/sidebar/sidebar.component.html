@@ -1,0 +1,51 @@
+
+<div  *ngIf="getToggle()"  [ngClass]="{ 'hidden fixed z-50 overflow-auto': !getToggle() ,' fixed z-50 overflow-auto': getToggle() }"
+#myDiv class="  w-[250px] h-[100%] bg-[#210000] text-white p-4 flex-col justify-center shadow-2xl shadow-black"
+>
+  <div class="h-[90%]">
+    <a
+      routerLink="#"
+      class="text-[20px] font-bold tracking-[10px] text-white py-2 px-4 text-center inline-block w-[100%]"
+      >
+      <span class="block text-[12px] tracking-wide text-start pl-7">Admin</span>
+      <p class="mt-[0]">DASHBOARD</p></a
+    >
+
+    <ul class="w-[100%] mt-6 tracking-widest">
+        
+        <li class="mt-4" *ngIf="super_admin">
+          <a
+            routerLink="/dashboard/manage-admins"
+            routerLinkActive="bg-slate-300 text-black"
+            class="bg-[{{bgColor}}] hover:bg-slate-300 hover:text-black rounded text-[13px] py-2 px-4  w-[100%] transition ease-in-out duration-300 flex items-end"
+          >
+            <mat-icon fontIcon="{{'group_add'}} " class="mr-2"> </mat-icon>{{'Admins'}}</a
+          >
+        </li>
+        
+      
+<ng-container *ngFor="let menu of menus">
+  <ng-container>
+    <li class="mt-4" >
+      <a
+        routerLink="{{menu.url}}"
+        routerLinkActive="bg-slate-300 text-white" 
+       class="bg-[{{bgColor}}] hover:bg-slate-300 hover:text-cyan-50 rounded text-[13px] py-2 px-4 w-[100%] transition ease-in-out duration-300 flex items-end"
+      >
+        <mat-icon fontIcon="{{menu.icon}} " class="mr-2"> </mat-icon>{{menu.title}}</a
+      >
+    </li>
+  </ng-container>
+</ng-container>
+
+    </ul>
+  </div>
+
+  <div class="flex justify-end px-4">
+    <button
+      (click)="handleLogout()"
+      class="hover:bg-slate-300 hover:text-black rounded-full text-[15px] font-semibold  w-[50px] h-[50px] flex items-center justify-center ease-in-out duration-300 hover:scale-110"
+      ><mat-icon fontIcon="logout" class="rotate-180"></mat-icon
+    ></button>
+  </div>
+</div>

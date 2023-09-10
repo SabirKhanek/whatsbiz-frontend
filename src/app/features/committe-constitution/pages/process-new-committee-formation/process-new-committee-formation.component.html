@@ -1,0 +1,438 @@
+<div class="border border-gray-900" labelLarge>
+  <h2 labelLarge class="mb-2 pl-2 pt-2">
+    Your Work &rarr; Approve New Committee Formation
+  </h2>
+</div>
+
+<div labelRegular class="assignment border border-l-gray-700">
+  <label for="name" class="block mb-2 pt-2 ml-24"
+    >Assigned By : System on ____
+  </label>
+  <label for="name" class="block mb-2 ml-40 pl-1">Due : May 18, 2023 </label>
+</div>
+
+<div class="grid grid-cols-2 " labelRegular>
+  <div class="grid grid-rows-9 ">
+    <!-- Content for each row -->
+    <div class="border border-grey-300 h-24 flex items-center pl-[19%] ">
+      
+      <div class="flex items-center justify-center gap-2">
+        <label for="name" class="block text-right">Name: </label>
+        <input
+          inputRegular
+          id="name"
+          type="text"
+          [(ngModel)]="name"
+          
+        />
+      </div>
+     
+    </div>
+    <div class=" border border-grey-300 h-12  flex items-center ">
+      
+      <div class="flex items-center justify-start gap-4 ml-[17%]">
+        <label class="ml-[4%] block text-right">Scope: </label>
+        <div class="flex">
+          <div class="radio-group flex items-center">
+            <input
+              type="radio"
+              id="radioInput01"
+              name="radioGroup"
+              class="form-radio h-4 w-4 mr-2"
+            />
+            <label for="radioInput01" class="text-gray-600">GCU</label>
+          </div>
+          <div class="radio-group flex items-center">
+            <input
+              type="radio"
+              id="radioInput02"
+              name="radioGroup"
+              class="form-radio h-4 w-4 mr-2 ml-4"
+            />
+            <label for="radioInput02" class="text-gray-600"
+              >DEPARTMENT</label
+            >
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    <div class=" border border-grey-300 h-24  flex items-center pl-[16.5%]">
+     
+      <div class="form-group flex gap-2">
+        <label for="purpose" class="block self-center"
+          >Purpose:
+        </label>
+        <textarea
+          id="purpose"
+          [(ngModel)]="purpose"
+          rows="3"
+          inputRegular
+        ></textarea>
+      </div>
+      
+    </div>
+    
+    
+    
+    <div class=" border border-grey-300 h-12  flex items-center pl-[15%]">
+      <div class="flex justify-between items-center">
+        <span>Secretary:</span>
+      </div>
+    </div>
+    <div class=" border border-grey-300 h-12  flex items-center pl-[15%]">
+      <div class="flex justify-between items-center ">
+        <span>Convenor:</span>
+      </div>
+    </div>
+    <div class=" border border-grey-300 h-12  flex items-center pl-[15%]">
+      <div class="flex justify-start items-center">
+        <span class=" "> Members:</span>
+        <div class="ml-2">
+          <div
+            class="inline-flex items-center bg-gray-200 rounded-full px-3 py-1 m-1"
+          >
+            Dr. Husnain
+          </div>
+          <div
+            class="inline-flex items-center bg-gray-200 rounded-full px-3 py-1 m-1"
+          >
+            Dr. Ahsan
+          </div>
+          <div
+            class="inline-flex items-center bg-gray-200 rounded-full px-3 py-1 m-1"
+          >
+            Dr. Tayyab
+          </div>
+          <!-- Add more user chips here -->
+        </div>
+      </div>
+      </div>
+  </div>
+  <div class="grid grid-rows-9">
+    <!-- Content for each row -->
+    <div class="border border-grey-300 h-24 flex items-center pl-4">
+      <div class="flex">
+        <div class="radio-group flex items-center">
+          <input
+            type="radio"
+            id="radioInput11"
+            name="radioGroup6"
+            [(ngModel)]="selectedOption['members']"
+            value="option11"
+            class="form-radio checked:accent-green-500 h-4 w-4 mr-2"
+            (change)="instructions['members'] = ''"
+          />
+          <label
+            radioRegular
+            [class.text-green-500]="selectedOption['members'] === 'option11'"
+            for="radioInput11"
+            class="text-gray-600"
+          >
+            Approve</label
+          >
+        </div>
+        <!-- radion type input -->
+
+        <div class="radio-group flex items-center">
+          <input
+            type="radio"
+            id="radioInput12"
+            name="radioGroup6"
+            [(ngModel)]="selectedOption['members']"
+            value="option12"
+            class="form-radio checked:accent-red-700 h-4 w-4 mr-2 ml-4"
+            (change)="showPopUp('members')"
+          />
+          <label
+            [class.text-red-700]="selectedOption['members'] === 'option12'"
+            for="radioInput12"
+            class="text-gray-600"
+            >Change</label
+          >
+        </div>
+        <span class="text-red-700" *ngIf="instructions['members'] !== ''"
+          >&nbsp;&nbsp;: {{ instructions["members"] }}</span
+        >
+      </div>
+    </div>
+    <div class="border border-grey-300 h-12 flex items-center pl-4">
+      <div class="flex">
+        <div class="radio-group flex items-center">
+          <!-- 1 -->
+          <input
+            type="radio"
+            id="radioInput1"
+            name="radioGroup1"
+            [(ngModel)]="selectedOption['name']"
+            value="option1"
+            class="form-radio checked:accent-green-500 h-4 w-4 mr-2"
+            (click)="instructions['name'] = ''"
+          />
+          <label
+            [class.text-green-500]="selectedOption['name'] === 'option1'"
+            for="radioInput1"
+            class="text-gray-600"
+            >Approve</label
+          >
+        </div>
+        <div class="radio-group flex items-center">
+          <input
+            type="radio"
+            id="radioInput2"
+            name="radioGroup1"
+            [(ngModel)]="selectedOption['name']"
+            value="option2"
+            class="form-radio checked:accent-red-700 h-4 w-4 mr-2 ml-4"
+            (change)="showPopUp('name')"
+          />
+          <label
+            [class.text-red-700]="selectedOption['name'] === 'option2'"
+            for="radioInput2"
+            class="text-gray-600"
+            >Change</label
+          >
+        </div>
+        <span class="text-red-700" *ngIf="instructions['name'] !== ''"
+          >&nbsp;&nbsp;: {{ instructions["name"] }}</span
+        >
+      </div>
+    </div>
+    <div class="border border-grey-300 h-24 flex items-center pl-4">
+      <div class=" ">
+        <div class="flex">
+          <div class="radio-group flex items-center">
+            <!-- 2 -->
+            <input
+              type="radio"
+              id="radioInput3"
+              name="radioGroup2"
+              [(ngModel)]="selectedOption['scope']"
+              value="option3"
+              class="form-radio checked:accent-green-500 h-4 w-4 mr-2"
+              (change)="instructions['scope'] = ''"
+            />
+            <label
+              [class.text-green-500]="selectedOption['scope'] === 'option3'"
+              for="radioInput3"
+              class="text-gray-600"
+              >Approve</label
+            >
+          </div>
+          <div class="radio-group flex items-center">
+            <input
+              type="radio"
+              id="radioInput4"
+              name="radioGroup2"
+              [(ngModel)]="selectedOption['scope']"
+              value="option4"
+              class="form-radio checked:accent-red-700 h-4 w-4 mr-2 ml-4"
+              (change)="showPopUp('scope')"
+            />
+            <label
+              [class.text-red-700]="selectedOption['scope'] === 'option4'"
+              for="radioInput4"
+              class="text-gray-600"
+              >Change</label
+            >
+          </div>
+          <span class="text-red-700" *ngIf="instructions['scope'] !== ''"
+            >&nbsp;&nbsp;: {{ instructions["scope"] }}</span
+          >
+        </div>
+      </div>
+    </div>
+    
+    <div class="border border-grey-300 h-12 flex items-center pl-4">
+      <div class="  ">
+        <div class="flex">
+          <div class="radio-group flex items-center">
+            <!-- 3 -->
+            <input
+              type="radio"
+              id="radioInput5"
+              name="radioGroup3"
+              [(ngModel)]="selectedOption['purpose']"
+              value="option5"
+              class="form-radio checked:accent-green-500 h-4 w-4 mr-2"
+              (change)="instructions['purpose'] = ''"
+            />
+            <label
+              [class.text-green-500]="selectedOption['purpose'] === 'option5'"
+              for="radioInput5"
+              class="text-gray-600"
+              >Approve</label
+            >
+          </div>
+          <div class="radio-group flex items-center">
+            <input
+              type="radio"
+              id="radioInput6"
+              name="radioGroup3"
+              [(ngModel)]="selectedOption['purpose']"
+              value="option6"
+              class="form-radio checked:accent-red-700 h-4 w-4 mr-2 ml-4"
+              (change)="showPopUp('purpose')"
+            />
+            <label
+              [class.text-red-700]="selectedOption['purpose'] === 'option6'"
+              for="radioInput6"
+              class="text-gray-600"
+              >Change</label
+            >
+          </div>
+          <span class="text-red-700" *ngIf="instructions['purpose'] !== ''"
+            >&nbsp;&nbsp;: {{ instructions["purpose"] }}</span
+          >
+        </div>
+      </div>
+    </div>
+    
+      <div class="border border-grey-300 h-12 flex items-center pl-4">
+        <div class="  ">
+          <div class="flex">
+            <!-- 4 -->
+            <div class="radio-group flex items-center">
+                <input
+                type="radio"
+                id="radioInput9"
+                name="radioGroup5"
+                [(ngModel)]="selectedOption['convenor']"
+                value="option9"
+                class="form-radio checked:accent-green-500 h-4 w-4 mr-2"
+                (change)="instructions['convenor'] = ''"
+              />
+              <label
+              [class.text-green-500]="selectedOption['convenor'] === 'option9'"
+              for="radioInput9"
+              class="text-gray-600"
+              >Approve</label
+            >
+            </div>
+            <div class="radio-group flex items-center">
+                <input
+                type="radio"
+                id="radioInput10"
+                name="radioGroup5"
+                [(ngModel)]="selectedOption['convenor']"
+                value="option10"
+                class="form-radio checked:accent-red-700 h-4 w-4 mr-2 ml-4"
+                (change)="showPopUp('convenor')"
+              />
+              <label
+                [class.text-red-700]="selectedOption['convenor'] === 'option10'"
+                for="radioInput10"
+                class="text-gray-600"
+                >Change</label
+              >
+            </div>
+            <span class="text-red-700" *ngIf="instructions['convenor'] !== ''"
+            >&nbsp;&nbsp;: {{ instructions["convenor"] }}</span
+          >
+  
+            <div class="form-group py-[2%] mb-[2%] flex"></div>
+          </div>
+        </div>
+      </div>
+    
+    
+    <div class="border border-grey-300 h-12 flex items-center pl-4">
+        <div class="  ">
+          <div class="flex">
+            <!-- 4 -->
+            <div class="radio-group flex items-center">
+              <input
+                type="radio"
+                id="radioInput7"
+                name="radioGroup4"
+                [(ngModel)]="selectedOption['secretary']"
+                value="option7"
+                class="form-radio checked:accent-green-500 h-4 w-4 mr-2"
+                (change)="instructions['secretary'] = ''"
+              />
+              <label
+                [class.text-green-500]="selectedOption['secretary'] === 'option7'"
+                for="radioInput7"
+                class="text-gray-600"
+                >Approve</label
+              >
+            </div>
+            <div class="radio-group flex items-center">
+              <input
+                type="radio"
+                id="radioInput8"
+                name="radioGroup4"
+                [(ngModel)]="selectedOption['secretary']"
+                value="option8"
+                class="form-radio checked:accent-red-700 h-4 w-4 mr-2 ml-4"
+                (change)="showPopUp('secretary')"
+              />
+              <label
+                [class.text-red-700]="selectedOption['secretary'] === 'option8'"
+                for="radioInput8"
+                class="text-gray-600"
+                >Change</label
+              >
+            </div>
+            <span class="text-red-700" *ngIf="instructions['secretary'] !== ''"
+              >&nbsp;&nbsp;: {{ instructions["secretary"] }}</span
+            >
+  
+            <div class="form-group py-[2%] mb-[2%] flex"></div>
+          </div>
+        </div>
+      </div>
+     
+  </div>
+</div>
+
+      <!-- popup1 -->
+      <div
+        id="popup"
+        class="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50 hidden"
+        labelRegular
+      >
+        <div
+          class="bg-white p-8 rounded-lg"
+          (keyup.enter)="updateData(); closePopUp()"
+        >
+          <div class="mb-4">Change:</div>
+          <div>
+            <textarea
+              autofocus
+              id="Instruction"
+              rows="6"
+              [(ngModel)]="popupInput"
+              class="border rounded py-2 w-96"
+              inputLarge
+            >
+            </textarea>
+          </div>
+          <div class="flex justify-between">
+            <button
+              id="closeBtn"
+              class="border-blue-400 border text-blue-400 px-4 rounded-lg py-2 mt-2"
+              (click)="closePopUp()"
+            >
+              Close
+            </button>
+            <button
+              (click)="updateData(); closePopUp()"
+              class="border-blue-400 border text-blue-400 px-4 rounded-lg py-2 mt-2"
+            >
+              Done
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="m-2">
+        <div class="button-container flex justify-center">
+          <button
+            routerLink="/dashboard/"
+            buttonLarge
+          >
+            Mark Completed
+          </button>
+        </div>
+      </div>

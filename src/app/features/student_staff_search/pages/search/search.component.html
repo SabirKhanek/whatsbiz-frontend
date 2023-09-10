@@ -1,0 +1,120 @@
+<div class="w-[100%] min-h-[500px] h-[100%] bg-gray-100 flex items-start justify-around overflow-y-auto py-4">
+    <div class="w-[80%] h-[100%] min-h-[500px]">
+        <div class="h-[100%] bg-white rounded shadow p-4 md:px-6">
+            <div class="flex justify-center">
+                <span
+                    class="block text-center py-t-2 text-[20px] font-semibold border-b-4 rounded border-[#7d0101] tracking-[2px]">
+                    Student and Staff Search
+                </span>
+            </div>
+            <div class="min-h-[300px] h-[90%] overflow-y-auto mt-4">
+                <div class="selection-configuration">
+                    <span class="block text-[18px] font-medium">Configure dialog options</span>
+                    <mat-radio-group aria-label="Select selection domain">
+                        <div class="flex items-center">
+                            <label class="">Select </label>
+                            <mat-radio-group [(ngModel)]="selection_domain" (ngModelChange)="display_results=false">
+                                <mat-radio-button color="primary" value="student">Student</mat-radio-button>
+                                <mat-radio-button color="primary" value="staff">Staff</mat-radio-button>
+                            </mat-radio-group>
+                        </div>
+                        <div class="flex items-center">
+                            <label class="">Selection Scope </label>
+                            <mat-radio-group [(ngModel)]="selection_scope">
+                                <mat-radio-button color="primary" value="single">Single</mat-radio-button>
+                                <mat-radio-button color="primary" value="multiple">Multiple</mat-radio-button>
+                            </mat-radio-group>
+                        </div>
+                        <!-- <div class="mt-2" *ngIf="selection_domain=='student'">
+                            <mat-form-field appearance="fill" style="width: 50%">
+                                <mat-label>Departments</mat-label>
+                                <mat-select [(ngModel)]="selectedDepartments" multiple>
+                                    <mat-option *ngFor="let topping of departmentsList"
+                                        [value]="topping">{{topping.department}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div> -->
+                    </mat-radio-group>
+
+                    <button class="mt-1" mat-raised-button color="primary"
+                        [disabled]="!(['staff', 'student'].includes(selection_domain) && ['single', 'multiple'].includes(selection_scope))"
+                        (click)="openDialog()">Select {{selection_domain | titlecase}}{{selection_scope == 'multiple' ?
+                        's' : ''}}</button>
+                </div>
+
+                <div class="mt-2">
+                    <app-table *ngIf="staffData.length>0 && selection_domain==='staff'" [dataHeadersDef]="staffHeaders"
+                        [dataSource]="staffData">
+                        <!-- Custom Heads -->
+                        <ng-template appTableCustomHead="name" let-item>
+                            <span class="pr-28 md:pr-36">{{item}}</span>
+                        </ng-template>
+                        <ng-template appTableCustomHead="id" let-item>
+                            <span class="p-2">{{item}}</span>
+                        </ng-template>
+                        <!-- Custom Cells -->
+                        <ng-template appTableCustomColumn="id" let-item>
+                            <span class="flex justify-center items-center">{{item}}</span>
+                        </ng-template>
+
+                        <ng-template appTableCustomColumn="department" let-item>
+                            {{item.department_name}}
+                        </ng-template>
+
+                        <ng-template appTableCustomColumn="additional_charges" let-item>
+                            <div *ngIf=" item?.length >= 1">
+                                <span class="cursor-pointer"
+                                    [matTooltip]="'at '+item[0].department?.department_name">{{item[0].designation_title}}</span>
+                                <span *ngIf="item.length > 1" [matTooltip]="getDesignationAtDeptStr(item.slice(1))"
+                                    class="text-gray-500 cursor-pointer">
+                                    +{{item.length - 1}}&nbsp;more
+                                </span>
+                            </div>
+                        </ng-template>
+
+                        <ng-template appTableCustomColumn="employee_titles" let-item>
+                            <div *ngIf=" item?.length >= 1">
+                                <span>{{item[0]}}</span>
+                                <span *ngIf="item.length > 1" [matTooltip]="item.slice(1).join(', ')"
+                                    class="text-gray-500 cursor-pointer">
+                                    +{{item.length - 1}}&nbsp;more
+                                </span>
+                            </div>
+                        </ng-template>
+
+                        <ng-template appTableCustomColumn="employee_committees" let-item>
+                            <div *ngIf="item && item.length &&
+                                item.length>0;else noCommittee">
+                                <span>
+                                    {{ item.length }}
+                                </span>
+                                <div *ngIf="item.length > 0" class="text-blue-400 cursor-pointer"
+                                    [matTooltip]="getCommitteeNames(item)">
+                                    see list
+                                </div>
+                            </div>
+                            <ng-template #noCommittee>
+                                <div>0</div>
+                            </ng-template>
+                        </ng-template>
+                    </app-table>
+                    <app-table *ngIf="studentData.length>0 && selection_domain==='student'"
+                        [dataHeadersDef]="studentHeader" [dataSource]="studentData">
+                        <ng-template appTableCustomColumn="department" let-item>
+                            {{item.department_name}}
+                        </ng-template>
+
+                        <ng-template appTableCustomColumn="program" let-item>
+                            {{item.program_title}}
+                        </ng-template>
+                    </app-table>
+                    <div *ngIf="studentData.length>0 && selection_domain==='student'"
+                        [innerHtml]="getJson(studentData)"></div>
+                    <div *ngIf="staffData.length>0 && selection_domain==='staff'" [innerHtml]="getJson(staffData)">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

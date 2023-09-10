@@ -1,0 +1,122 @@
+
+<!-- Tab 2 -->
+<div>
+    <div class="w-[100%] overflow-auto h-[calc(100vh-60px)] flex justify-center">
+      <div class="w-[80%] bg-white ">
+        <div
+          class="h-[50px] w-[100%] border-2 border-slate-200 flex place-items-center text-lg"
+        >
+          <p labelLarge class="ml-5">Work Assigned to You</p>
+        </div>
+        <div class="border-l-2 border-r-2 border-slate-300 h-[80px] w-[100%] flex place-items-center ">
+          <p labelRegular class="ml-5">
+            Showing 10 pendings task
+            <button
+              class="ml-5 bg-transparent border border-blue-400 font-semibold text-blue-400 py-1 px-4 rounded"
+              (click)="openDialog()"
+              buttonRegular
+            >
+              Change
+            </button>
+          </p>
+        </div>
+        <table class="w-[100%] ">
+          <thead tableHeader>
+            <tr class="border border-b-slate-200 border-t-slate-200 h-[40px]">
+              <th class="w-[100px] text-center">ID</th>
+              <th class="w-[390px] text-left">Task</th>
+              <th class="w-[200px] text-left">Priority By</th>
+              <th class="w-[200px] text-left">Due Date</th>
+              <th class="w-[200px] text-left ">Assigned By</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr tableCell class="h-[70px] cursor-pointer" routerLink="/dashboard/task-management/workingAndcomplete">
+              <td  class="text-center">1</td>
+              <td  tableClickableCell>Prepare a list of guest speakers for the convocation.</td>
+              <td >High</td>
+              <td  class="text-red-700">
+                Jan-05-2023
+                <p>overdue 3 days</p>
+              </td>
+              <td tableCell>System</td>
+            </tr>
+            <tr tableCell class="h-[70px] cursor-pointer" routerLink="/dashboard/clearance-applications/clearance-process">
+              <td class="text-center">2</td>
+              <td tableClickableCell>Process student clearances of 230 students.</td>
+              <td>Medium</td>
+              <td>
+                Jan-05-2023
+                <p>Due in 1 day</p>
+              </td>
+              <td>Dr. Baber</td>
+            </tr>
+            <tr tableCell class="h-[70px] cursor-pointer" routerLink="/dashboard/committee-constitution/committee-formation">
+              <td class="text-center">3</td>
+              <td tableClickableCell>Approve new committee formation of Another Committee.</td>
+              <td>Medium</td>
+              <td>Jan-05-2023</td>
+              <td>Prof. Abbas</td>
+            </tr>
+            <tr tableCell class="h-[70px] cursor-pointer" routerLink="/dashboard/committee-constitution/commitee-changes">
+                <td class="text-center">4</td>
+                <td tableClickableCell>Process changes to new committee formation of Another Committee.</td>
+                <td>Low</td>
+                <td>Jan-05-2023</td>
+                <td>Prof. Abbas</td>
+              </tr>
+              <tr tableCell class="h-[70px] cursor-pointer" routerLink="/dashboard/committee-constitution/process-meeting">
+                <td class="text-center">5</td>
+                <td tableClickableCell>Approve committee meeting and agenda.</td>
+                <td>Medium</td>
+                <td>Jan-05-2023</td>
+                <td>Prof. Abbas</td>
+              </tr>
+              <tr tableCell class="h-[70px] cursor-pointer" routerLink="/dashboard/committee-constitution/changes-meeting">
+                <td class="text-center">6</td>
+                <td tableClickableCell>Process changes to  committee meeting and agenda.</td>
+                <td>Low</td>
+                <td>Jan-05-2023</td>
+                <td>Prof. Abbas</td>
+              </tr>
+              <tr tableCell class="h-[70px] cursor-pointer" routerLink="/dashboard/committee-constitution/approve-minutes-task">
+                <td class="text-center" >7</td>
+                <td tableClickableCell>Approve minutes of Planning and Finance committee meeting minutes and tasks.</td>
+                <td>Low</td>
+                <td>Jan-05-2023</td>
+                <td>Prof. Abbas</td>
+              </tr>
+              <tr tableCell class="h-[70px] cursor-pointer" routerLink="/dashboard/committee-constitution/change-minutes-task">
+                <td class="text-center">8</td>
+                <td tableClickableCell>Process changes to Planning and Finance committee meeting minutes and tasks.</td>
+                <td>Low</td>
+                <td>Jan-05-2023</td>
+                <td>Prof. Abbas</td>
+              </tr>
+              <tr tableCell class="h-[70px] cursor-pointer" >
+                <td class="text-center text-blue-100">9</td>
+                <td tableClickableCell class="text-blue-100">Return library books for your student clearance.</td>
+                <td>High</td>
+                <td>Jan-05-2023</td>
+                <td>Prof. Abbas</td>
+              </tr>
+              <tr tableCell class="h-[70px] cursor-pointer">
+                <td class="text-center text-blue-100">10</td>
+                <td tableClickableCell class="text-blue-100"> Pay pending dues for your student clearance</td>
+                <td>High</td>
+                <td>Jan-05-2023</td>
+                <td>Prof. Abbas</td>
+              </tr>
+
+              <tr tableCell class="h-[70px] cursor-pointer" routerLink="/dashboard/task-management/feedback">
+                <td class="text-center">11</td>
+                <td tableClickableCell> Provide Feedback for a complection Task</td>
+                <td>Low</td>
+                <td>Jan-05-2023</td>
+                <td>System</td>
+              </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>

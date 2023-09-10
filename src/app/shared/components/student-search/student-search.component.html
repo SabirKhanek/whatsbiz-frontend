@@ -1,0 +1,113 @@
+<div #searchDialogTitle class="flex justify-between items-center px-2 py-1">
+    <button mat-stroked-button color="warn" [mat-dialog-close]="[]">Cancel</button>
+    <div> Student Search </div>
+    <button mat-stroked-button color="primary" [mat-dialog-close]="student_selections.selected">Done</button>
+</div>
+<mat-divider></mat-divider>
+<div mat-dialog-content style="max-height: 90%; font-family: Roboto, 'Helvetica Neue', sans-serif;">
+    <div class="flex justify-between w-[100%] mb-4">
+        <div class="selected-summary flex flex-col">
+            <div class="selection-display-group basis-10 flex items-center gap-x-0.5 mb-1.5">
+                <label>Selected: </label>
+                <mat-chip-listbox *ngIf="student_selections.selected.length>0" #selected_chips>
+                    <mat-chip *ngFor="let selected_staff of student_selections.selected">
+                        <span class="flex justify-center items-center">
+                            <span class="p-0 text-xs">{{selected_staff.student_name}}</span>
+                            <button matChipRemove (click)="remove(selected_staff)">
+                                <mat-icon>cancel</mat-icon>
+                            </button>
+                        </span>
+                    </mat-chip>
+                </mat-chip-listbox>
+                <span *ngIf="student_selections.selected.length<=0" class="text-black">
+                    <mat-chip class="p-0 text-xs">No selections yet</mat-chip>
+                </span>
+            </div>
+            <div class="basis-10" *ngIf="allowMultiSelect">
+                <label>Count: </label>
+                <mat-chip><span class="p-0 text-xs">{{student_selections.selected.length}}</span></mat-chip>
+            </div>
+        </div>
+    </div>
+
+    <div class="student-search-query-params mb-4 flex gap-2">
+        <div class="flex basis-[40%] justify-center h-auto items-center">
+            <span class="text-base  font-normal">
+                Enter your search criteria on the right.<br />
+                To select students from the search results, use the selection checkbox in the header to select all
+                results
+                or
+                select checkbox in the rows for specific selection.
+            </span>
+        </div>
+        <div class="student-filters">
+            <div class="department-dropdown">
+                <mat-form-field appearance="outline" color="warn" style="width: 100%; border-radius: 30px;">
+                    <mat-select [(ngModel)]="department_filter" class="text-base w-8 custom-dropdown"
+                        (ngModelChange)="onStudentQueryChange()" [disabled]="department_range.length===2">
+                        <mat-option *ngFor="let option of department_range" [value]="option.department_id">
+                            {{option.department_name}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+            <div class="checkbox-group">
+                <label>Programs: </label>
+                <mat-checkbox *ngFor="let program of available_programs_filters" labelPosition="after"
+                    (click)="$event.stopPropagation()"
+                    (change)="$event ? student_program_applied_filters.toggle(program) : null;onStudentQueryChange()"
+                    [checked]="student_program_applied_filters.isSelected(program) " [color]="'primary'">
+                    {{program}}
+                </mat-checkbox>
+            </div>
+            <div class="checkbox-group">
+                <label>Semesters: </label>
+                <mat-checkbox *ngFor="let semester of available_semester_filters" labelPosition="after"
+                    (click)="$event.stopPropagation()"
+                    (change)="$event ? student_semester_applied_filters.toggle(semester) : null;onStudentQueryChange()"
+                    [checked]="student_semester_applied_filters.isSelected(semester) " [color]="'primary'">
+                    {{semester}}
+                </mat-checkbox>
+            </div>
+            <input #query_input inputRegular class="w-full mt-2 text-black"
+                placeholder="Start entering student name or ID" [value]="student_search_query"
+                [(ngModel)]="student_search_query" (ngModelChange)="onStudentQueryChange()">
+        </div>
+    </div>
+
+    <div class="staff-search-results" *ngIf="studentsData.length>0 && !isLoading">
+        <app-table [dataHeadersDef]="data_headers" [dataSource]="studentsData">
+            <!-- Custom Heads -->
+            <ng-template appTableCustomHead="select">
+                <mat-checkbox (change)="$event ? toggleAllRows() : null"
+                    [checked]="student_selections.hasValue() && isAllSelected()"
+                    [indeterminate]="student_selections.hasValue() && !isAllSelected()" [color]="'primary'">
+                </mat-checkbox>
+            </ng-template>
+
+            <ng-template appTableCustomHead="student_name" let-item>
+                <span class="pr-28 md:pr-36">{{item}}</span>
+            </ng-template>
+
+            <!-- Custom Cells -->
+            <ng-template appTableCustomColumn="select" let-item>
+                <mat-checkbox (click)="$event.stopPropagation()"
+                    (change)="$event ? student_selections.toggle(item) : null"
+                    [checked]="student_selections.isSelected(item) " [color]="'primary'">
+                </mat-checkbox>
+            </ng-template>
+
+            <ng-template appTableCustomColumn="department" let-item>
+                {{item.department_name}}
+            </ng-template>
+
+            <ng-template appTableCustomColumn="program" let-item>
+                {{item.program_title}}
+            </ng-template>
+        </app-table>
+    </div>
+    <div *ngIf="isLoading" class="flex justify-center items-center mt-4">
+        <mat-spinner></mat-spinner>
+    </div>
+</div>

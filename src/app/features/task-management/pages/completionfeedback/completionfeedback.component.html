@@ -1,0 +1,77 @@
+<div class="w-[100%] flex justify-center">
+    <div class="w-[80%] bg-white border-2 border-slate-200" >
+        <div class="w-[100%] py-4  border-b-2 border-slate-200">
+          <p labelLarge class="ml-4  place-items-center flex">Your Work <mat-icon>arrow_right_alt</mat-icon> Task</p>
+         </div>
+      <div class="w-[100%] flex justify-center mt-8">
+     <div class="w-[60%] flex justify-center">
+     <div class="w-[80%] ">
+      <div class="flex ">
+       <div class="w-[140px] flex justify-end" labelLarge>Title :</div>
+       <div labelLarge class="ml-4">Provide Task complection feedback</div>
+      </div>
+      <div class="flex mt-4">
+        <div class="w-[140px] flex justify-end">Assigned By :</div>
+        <div class="ml-4">System</div>
+       </div>
+       <div class="flex mt-4">
+        <div class="w-[140px] flex justify-end">Due Date :</div>
+        <div class="ml-4"><b>Mar 12 2023</b> &nbsp; (3 days posts complection)</div>
+       </div>
+       <div class="flex mt-4">
+        <div class="w-[220px]"></div>
+        <div class="ml-4"><p class="text-red-600">System will auto complete if still pending with satisfaction rating</p></div>
+       </div>
+       <div class="flex mt-4">
+        <div class="w-[140px] flex justify-end">Regarding :</div>
+        <div class="ml-4 flex">Task that have completed
+        <div class="ml-3"><a href="/dashboard/task-management/completeTask" target="_blank"><mat-icon class="next_page_icon">launch</mat-icon></a></div>
+        </div>
+       </div>
+
+       <!-- feedback -->
+
+       <div class="w-[100%] flex justify-center mt-6">
+        <div class="w-[100%] h-[60px] flex place-items-center">
+          <p class="w-[140px] flex justify-end">Satisfaction Level :</p>
+          <div class="mb-1 ml-3">
+            <ng-container *ngFor="let star of [1, 2, 3, 4, 5]">
+              <span
+                class="text-2xl mr-1"
+                [class.text-gray-300]="star > feedback"
+                [class.text-black]="star <= feedback"
+                [class.cursor-pointer]="editable"
+                (click)="onStarClick(star)"
+              >
+                &#9733;
+              </span>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+
+      <!-- FeedBack input field -->
+      <div class="w-[100%] flex mt-6">
+        <div class="w-[140px] flex justify-end">Feedback</div>
+        <textarea
+        class="ml-3"
+        inputLarge
+        id="inline-full-name"
+        type="text"
+        rows="6"
+        placeholder="Feedback"
+      ></textarea>
+      </div>
+
+      <div class="w-[100%] flex justify-center mb-5 mt-8">
+        <button
+        buttonRegular
+        >
+          Mark completed
+        </button>
+      </div>
+    </div>
+     </div>
+    </div>
+  </div>
+</div>

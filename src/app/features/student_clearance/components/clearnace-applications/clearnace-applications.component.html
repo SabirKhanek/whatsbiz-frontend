@@ -1,0 +1,181 @@
+<div
+  class="w-[100%] min-h-[100%] h-[100%] bg-gray-100 flex items-start justify-around overflow-y-auto"
+>
+  <div class="w-[100%] h-[100%] min-h-[100%]">
+    <div class="h-[100%] bg-white rounded-lg shadow p-4 md:px-6">
+      <div class="flex justify-start border-b border-[#000]">
+        <span
+          labelLarge
+        >
+          New Student Clearance Cycle
+        </span>
+      </div>
+      <div class="px-6 py-8 flex items-start justify-center flex-col">
+        <div>
+          <div class="flex flex-row gap-8 py-3 px-8">
+            <!-- pre-bs Radio screen -->
+            <label for="pre-bs" labelLarge>
+              <input
+                type="radio"
+                name="clearance-select"
+                id="pre-bs"
+                value="bs"
+                [(ngModel)]="clearanceType"
+              />
+              Pre-BS
+            </label>
+            <!-- pre-graduation radio button  -->
+            <label for="pre-graduation" labelLarge>
+              <input
+                type="radio"
+                name="clearance-select"
+                id="pre-graduation"
+                value="graduation"
+                [(ngModel)]="clearanceType"
+              />
+              Pre-Graduation
+            </label>
+            <!-- selected student radio button -->
+            <label for="selected" labelLarge>
+              <input
+                type="radio"
+                name="clearance-select"
+                id="selected"
+                value="selected"
+                [(ngModel)]="clearanceType"
+              />
+              Selected students
+            </label>
+          </div>
+        </div>
+        <div>
+          <div class="py-4 px-8 w-[100%]">
+            <div
+              *ngIf="clearanceType !== ''; else note"
+              class="flex gap-4 items-center"
+            >
+              <!-- clearance type of pre-bs -->
+              <div *ngIf="clearanceType === 'bs'" class="min-w-[400px]">
+                <div *ngIf="students.length !== 0; else addStudent">
+                  <div
+                  labelLarge
+                    class="
+                     flex gap-[10px] py-2 w-[100%]"
+                  >
+                    <h4 labelLarge>Title:</h4>
+                    <p>Pre-BS 8th semester of YYYY Session</p>
+                  </div>
+                  <div class="flex items-start justify-between py-3 w-[100%]">
+                    <div class="w-[100%]">
+                      <div labelLarge class=" flex gap-[10px]">
+                        <h4 >
+                          Students:
+                        </h4>
+                        <p>{{students.length}} Students</p>
+                      </div>
+                    </div>
+                    <div>
+                      <button buttonRegular class="py-1 px-3" (click)="openDialog()">Change</button>
+                    </div>
+                  </div>
+                  <div class="flex justify-center pt-8">
+                    <button buttonRegular class="py-2 px-6" routerLink="/dashboard/">Initiate</button>
+                  </div>
+                </div>
+                <ng-template #addStudent>
+                  <button buttonRegular (click)="openDialog()">
+                    Add Student
+                  </button>
+                </ng-template>
+              </div>
+
+              <!-- clearance type of pre-graduation -->
+              <div
+                *ngIf="clearanceType === 'graduation'"
+                class="font-normal text-[16px] min-w-[400px]"
+              >
+                <div *ngIf="students.length !== 0; else addStudent">
+                  <div labelLarge class=" flex gap-[10px] py-2">
+                    <h4 >Title:</h4>
+                    <p>Pre-Graduation 8th semester</p>
+                  </div>
+                  <div class="flex items-start justify-between py-3">
+                    <div>
+                      <div labelLarge class=" flex gap-[10px]">
+                        <h4 >
+                          Students:
+                        </h4>
+                        <p>{{students.length}} Students</p>
+                      </div>
+                    </div>
+                    <div>
+                      <button buttonRegular class="py-1 px-3" (click)="openDialog()">Change</button>
+                    </div>
+                  </div>
+                  <div class="flex justify-center pt-8">
+                    <button buttonRegular class="py-2 px-6" routerLink="/dashboard/">Initiate</button>
+                  </div>
+                </div>
+                <ng-template #addStudent>
+                  <button buttonRegular (click)="openDialog()">
+                    Add Student
+                  </button>
+                </ng-template>
+              </div>
+
+              <!-- clearance type of selected student -->
+              <div *ngIf="clearanceType === 'selected'" class="w-[400px]">
+                
+                
+                <div *ngIf="students.length !== 0; else addStudent">
+
+                  <div
+                  labelLarge
+                  class=" flex items-center gap-[10px] py-2"
+                >
+                  <h4 >Title:</h4>
+                  <input type="text" inputLarge />
+                </div>
+                <div class="flex items-start justify-between py-3">
+                  <div>
+                    <div labelLarge class=" flex gap-[10px]">
+                      <h4 class="font-bold tracking-wider text-[16px]">
+                        Students:
+                      </h4>
+                      <p>{{students.length}} Students</p>
+                    </div>
+                    <button class="text-blue-400">See Students...</button>
+                  </div>
+                  <div>
+                    <button buttonRegular class="py-1 px-3" (click)="openDialog()">Change</button>
+                  </div>
+                </div>
+                <div class="flex justify-center pt-8">
+                  <button buttonRegular class="py-2 px-6" routerLink="/dashboard/"  >Initiate</button>
+                </div>
+
+                </div>
+                
+               <ng-template #addStudent>
+                <button buttonRegular (click)="openDialog()">
+                  Add Student
+                </button>
+               </ng-template>
+
+
+
+
+              </div>
+            </div>
+            <ng-template #note>
+              <p class="text-gray-600 font-normal text-[14px]">
+                <span class="text-red-500 font-semibold mr-2">Note:</span>
+                Select specific clearance type.
+              </p>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

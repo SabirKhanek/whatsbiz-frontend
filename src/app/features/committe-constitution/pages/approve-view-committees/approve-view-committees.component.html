@@ -1,0 +1,95 @@
+<div class="">
+    <div class="border border-gray-900 w-full">
+      <h2 class=" mb-[0.6%] pl-[0.6%] pt-[0.6%]" labelLarge>XYZ Committee</h2>
+    </div>
+    <div class=" px-[25%] mt-4 space-y-4" labelRegular>
+      <div class=" flex items-center">
+        <label for="name" class="text-black   pr-[0.7%] pl-[4%] self-center"
+          >Name: 
+          </label
+        >
+        <input
+          id="name"
+          type="text"
+          [(ngModel)]="Meetname"
+          inputLarge 
+        />
+        
+      </div>
+      <div class=" flex items-center justify-start gap-4">
+        <label class="ml-6 text-black  ">Scope: </label>
+        <div class=" flex">
+          <div class="radio-group flex items-center">
+            <input
+              type="radio"
+              id="radioInput1"
+              name="radioGroup"
+              class="form-radio text-indigo-600 h-4 w-4 mr-2"
+            />
+            <label for="radio1" class="  text-gray-600 ">GCU</label>
+          </div>
+          <div class="radio-group flex items-center">
+            <input
+              type="radio"
+              id="radioInput2"
+              name="radioGroup"
+              class="form-radio text-indigo-600 h-4 w-4 mr-2 ml-4"
+            />
+            <label for="radio2" class="  text-gray-600">Department</label>
+          </div>
+        </div>
+        
+      </div>
+      <div class="form-group py-[2%] mb-[2%] flex">
+        <label for="purpose" class="text-black   pr-[0.7%] pl-[1%] self-center"
+          >Purpose:
+          
+      </label
+        >
+        <textarea
+          id="purpose"
+          [(ngModel)]="purpose"
+          rows="3"
+          inputLarge 
+        ></textarea>
+        
+      </div>
+      <div class="form-group">
+        <div class="flex justify-between items-center">
+          <span class=" ">Secretary: Dr. Asghar Zaidi</span>
+        
+        </div>
+        <div class="flex justify-between items-center pt-1">
+          <span class=" ">Convenor: Dr. Syed Ali Raza</span>
+          
+        </div>
+        <div class="flex items-center pt-1">
+          <span class=" ">Members: </span>
+          <div class="flex flex-wrap">
+            <div class="  inline-flex items-center bg-gray-200 rounded-full px-3 py-1 m-1">
+              Dr. Husnain
+            </div>
+            <div class="  inline-flex items-center bg-gray-200 rounded-full px-3 py-1 m-1">
+              Dr. Ahsan
+            </div>
+            <div class="  inline-flex items-center bg-gray-200 rounded-full px-3 py-1 m-1">
+              Dr. Tayyab
+            </div>
+            <!-- Add more user chips here -->
+          </div>
+        </div>
+        <div class="flex justify-between items-center pt-1">
+          <span class=" ">Formed On: May 22, 2023</span>
+        </div>
+      </div>
+      <div class="button-container flex justify-center">
+        <button buttonLarge
+          routerLink="/dashboard/committee-constitution/scheduled-meeting"
+        >
+          Schedule Meeting
+        </button>
+      </div>
+    </div>
+  </div>
+  
+

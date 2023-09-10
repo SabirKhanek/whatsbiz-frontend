@@ -1,0 +1,39 @@
+.dropdown {
+    position: relative;
+    display: inline-block;
+    width: 200px;
+    margin-left: 30px;
+  }
+  
+  .dropdown-toggle {
+    width: 200px;
+    background-color: transparent;
+    display: flex;
+    justify-self: center;
+    border-radius: 7px;
+    color: white;
+    padding: 8px 16px;
+    cursor: pointer;
+  }
+
+  .dropdown-menu {
+    position: absolute;
+    background-color: white;
+    padding: 8px;
+    margin-top: 4px;
+    width: 200px;
+    list-style-type: none;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    z-index: 1;
+  }
+  
+  .dropdown-item {
+    padding: 4px;
+    cursor: pointer;
+  }
+  
+  .dropdown-item:hover {
+    background-color: #e9ecef;
+  }
+  

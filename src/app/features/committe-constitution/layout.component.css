@@ -1,0 +1,10 @@
+.bg-cover {
+    background-image: url(gc3.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: inherit;
+  }
+  a{
+    align-items: center;
+  }
+  
