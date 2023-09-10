@@ -28,6 +28,11 @@ jobs:
           path: './backend'
           fetch-depth: 0
 
+      - name: Take fresh pull
+        run: |
+          git pull origin test
+        working-directory: 'backend'
+
       
 
       - name: Create 'public' Directory in Backend
