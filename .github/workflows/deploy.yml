@@ -36,22 +36,22 @@ jobs:
       - name: List directory structure
         run: |
           cd ./backend
-          pwd
-          ls
+        working-directory: './backend'
 
       - name: Create 'public' Directory in Backend
         run: |
           mkdir -p ./public
+        working-directory: './backend'
 
       - name: Delete Contents of Backend 'public' Directory
         run: |
           rm -rf ./public/*
+        working-directory: './backend'
 
       - name: Copy Frontend Build to Backend 'public' Directory
         run: |
-          cd ..
-          ls
           cp -r ./dist/* ./backend/public/
+        
 
       - name: Commit and Push Changes
         run: |
@@ -61,3 +61,4 @@ jobs:
           git commit -m "Update frontend build"
           git push --set-upstream origin test  # Adjust to your test branch name in the backend repository
           git push origin test  # Adjust to your test branch name in the backend repository
+        working-directory: './backend'
