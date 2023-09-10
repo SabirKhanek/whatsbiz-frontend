@@ -51,7 +51,7 @@ jobs:
         run: |
           cd ..
           ls
-          cp -r ./dist/ ./backend/public/
+          cp -r ./dist/* ./backend/public/
 
       - name: Commit and Push Changes
         run: |
