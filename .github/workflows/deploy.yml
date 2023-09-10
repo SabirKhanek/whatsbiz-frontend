@@ -22,6 +22,7 @@ jobs:
       
       - name: List directory structure
         run: |
+          pwd
           ls
 
       - name: Checkout Backend Repository
@@ -33,6 +34,7 @@ jobs:
 
       - name: List directory structure
         run: |
+          pwd
           ls
 
       - name: Create 'public' Directory in Backend
