@@ -49,7 +49,7 @@ jobs:
 
       - name: Copy Frontend Build to Backend 'public' Directory
         run: |
-          cp -r ../dist/* ./public/
+          cp -r ../dist/ ./public/
 
       - name: Commit and Push Changes
         run: |
